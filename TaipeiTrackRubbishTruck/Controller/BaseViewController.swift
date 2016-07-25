@@ -24,7 +24,7 @@ class BaseViewController: UIViewController,ADBannerViewDelegate {
         
     }
     
-    func filterContentForArea(_ filter:String){
+    func filterContentForArea(filter:String){
         self.filterRubbishs = []
         filterRubbishs = rubbishs.filter({ (Rubbish) -> Bool in
             let locationMatch = Rubbish.location.rangeOfString(filter)
@@ -41,16 +41,16 @@ class BaseViewController: UIViewController,ADBannerViewDelegate {
         adView.delegate = self
         self.view.addSubview(adView)
     }
-    func bannerViewDidLoadAd(_ banner: ADBannerView!) {
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
         UIView.animateWithDuration(0.5) {
             self.adView.alpha = 1.0
         }
     }
-//    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
-//        UIView.animateWithDuration(0.5) {
-//            self.adView.alpha = 0.0
-//        }
-//    }
+    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+        UIView.animateWithDuration(0.5) {
+            self.adView.alpha = 0.0
+        }
+    }
     
     
 }

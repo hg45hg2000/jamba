@@ -19,7 +19,7 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
     @IBOutlet weak var tableView: UITableView!
     
     var refreshControl = CustomRefresh(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
-    let dataDictionary = TaipeiData.sharedManger()
+
    
     var threeTimer = NSTimer()
     var oneSecondTimer = NSTimer()
@@ -75,41 +75,44 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
     }
     //Navigation
     
-    func  navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func  navigationController(navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if operation == .Push{
            customInteractionController.attchToViewController(toVC, tableView: tableView)
         }
         return popAnimation
     }
     
-    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    func navigationController(navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return customInteractionController.transitionInProgress ? customInteractionController : nil
     }
     
     func getData(){
-        dataDictionary?.creatDownLoadTask(Rubbish_Api, success: { (json, response) in
-            self.rubbishs = []
-            let jsons = json?["result"] as! Dictionary<String, AnyObject>
-            if let result = jsons as? Dictionary<String, AnyObject>{
-                let records = result["records"]
-                self.rubbishs.removeAll()
-                for  record in (records?.allObjects)! {
-                    let rubbish = Rubbish(dictionary:record as! Dictionary<String, AnyObject>)
-                    self.rubbishs.insert(rubbish, atIndex: 0)
-                }
-            }
-            self.filterContentForArea(self.areaArray[self.selectedIndex])
-            self.spinner.stopAnimating()
-//            self.refreshControl.endRefreshing()
-            self.Count = 0
-            self.tableView.reloadData()
-            })
-        {
-            (error) in
-            print(error, terminator: "")
-        }
+//        getTheTrushData { (Json) in
+//            print(JSON)
+//        }
+        
+//        dataDictionary?.creatDownLoadTask(Rubbish_Api, success: { (json, response) in
+//            self.rubbishs = []
+//            let jsons = json?["result"] as! Dictionary<String, AnyObject>
+//            if let result = jsons as? Dictionary<String, AnyObject>{
+//                let records = result["records"]
+//                self.rubbishs.removeAll()
+//                for  record in (records?.allObjects)! {
+//                    let rubbish = Rubbish(dictionary:record as! Dictionary<String, AnyObject>)
+//                    self.rubbishs.insert(rubbish, atIndex: 0)
+//                }
+//            }
+//            self.filterContentForArea(self.areaArray[self.selectedIndex])
+//            self.spinner.stopAnimating()
+//            self.Count = 0
+//            self.tableView.reloadData()
+//            })
+//        {
+//            (error) in
+//            print(error, terminator: "")
+//        }
     }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(scrollView: UIScrollView) {
         refreshControl.scrollViewDidScroll(scrollView)
     }
     

@@ -11,7 +11,7 @@ import iAd
 
 class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     
-    let dataDictionary = TaipeiData.sharedManger()
+    
     var selectedIndex :Int = 0
     
     
@@ -24,23 +24,32 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
     }
     
     func getData(){
-        dataDictionary?.creatDownLoadTask(Rubbish_Api, success: { (json, response) in
-            self.rubbishs = []
-            let jsons = json?["result"] as! Dictionary<String, AnyObject>
-            if let result = jsons as? Dictionary<String, AnyObject>{
-                let records = result["records"]
-                self.rubbishs.removeAll()
-                for  record in (records?.allObjects)! {
-                    let rubbish = Rubbish(dictionary:record as! Dictionary<String, AnyObject>)
-                    self.rubbishs.insert(rubbish, atIndex: 0)
-                    }
-                }
-                self.tableView.reloadData()
-                })
-            {
-            (error) in
-            print(error, terminator: "")
+        getTheTrushData { (json) in
+            let jsons = JSON(json!)
+            print(jsons["result"]["records"])
+            let records = jsons["result"]["records"].arrayObject
+            for record in (records)!{
+                let rubbish = Rubbish(dictionary: record as! Dictionary<String,AnyObject>)
+                self.rubbishs.insert(rubbish, atIndex: 0)
+            }
         }
+//        dataDictionary?.creatDownLoadTask(Rubbish_Api, success: { (json, response) in
+//            self.rubbishs = []
+//            let jsons = json?["result"] as! Dictionary<String, AnyObject>
+//            if let result = jsons as? Dictionary<String, AnyObject>{
+//                let records = result["records"]
+//                self.rubbishs.removeAll()
+//                for  record in (records?.allObjects)! {
+//                    let rubbish = Rubbish(dictionary:record as! Dictionary<String, AnyObject>)
+//                    self.rubbishs.insert(rubbish, atIndex: 0)
+//                    }
+//                }
+//                self.tableView.reloadData()
+//                })
+//            {
+//            (error) in
+//            print(error, terminator: "")
+//        }
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         

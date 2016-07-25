@@ -32,7 +32,6 @@ class CustomRefresh: UIRefreshControl,UIScrollViewDelegate {
         self.tableView = tableview
     }
     
-    
     internal func scrollViewDidScroll(scrollView: UIScrollView) {
     
         // Get the current size of the refresh controller

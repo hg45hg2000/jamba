@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GoogleMaps
 import Firebase
 import FirebaseMessaging
 
@@ -21,8 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
             GMSServices.provideAPIKey(Google_Api)
-            GMSServices.sharedServices()
-        let allNotificationTypes = (UIUserNotificationType.Sound)
+        
+        
+        let allNotificationTypes = (UIUserNotificationType.Alert)
         let settings = UIUserNotificationSettings(forTypes: allNotificationTypes, categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         UIApplication.sharedApplication().registerForRemoteNotifications()

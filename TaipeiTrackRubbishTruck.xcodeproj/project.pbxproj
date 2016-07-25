@@ -7,20 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		182E19FC957B5F94D91AA69B /* Pods_TaipeiTrackRubbishTruck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCF01CAE12AF4E27070B803 /* Pods_TaipeiTrackRubbishTruck.framework */; };
-		FB5878851D0A966500D121DA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5878841D0A966500D121DA /* MapKit.framework */; };
-		FB5878871D0A995300D121DA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5878861D0A995300D121DA /* AVFoundation.framework */; };
+		1F8B9176212CDCE229C9CB8D /* Pods_TaipeiTrackRubbishTruckUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9F38B2D94116C6F6FBEF62 /* Pods_TaipeiTrackRubbishTruckUITests.framework */; };
+		41654B331D45A68F0026992E /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B321D45A68F0026992E /* GoogleDataProvider.swift */; };
+		41654B4C1D45B10B0026992E /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B4B1D45B10B0026992E /* GooglePlace.swift */; };
+		41654B4E1D45B1290026992E /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B4D1D45B1290026992E /* PlaceMarker.swift */; };
+		41654B501D45B1AC0026992E /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B4F1D45B1AC0026992E /* UIViewExtension.swift */; };
+		41654B561D45B4900026992E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 41654B521D45B4900026992E /* LICENSE */; };
+		41654B571D45B4900026992E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 41654B531D45B4900026992E /* README.md */; };
+		41654B581D45B4900026992E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B551D45B4900026992E /* SwiftyJSON.swift */; };
+		41654B5A1D45F06F0026992E /* TaipeiDataServers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B591D45F06F0026992E /* TaipeiDataServers.swift */; };
+		BB57423D9C117288B9083464 /* Pods_TaipeiTrackRubbishTruckTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEFED55A983A946BB6F07E54 /* Pods_TaipeiTrackRubbishTruckTests.framework */; };
+		E9141655407FE08E8BE595DE /* Pods_TaipeiTrackRubbishTruck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09886A3FD10939FCFCFAE2E /* Pods_TaipeiTrackRubbishTruck.framework */; };
 		FB5878891D0A995D00D121DA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5878881D0A995D00D121DA /* CoreData.framework */; };
-		FB58788B1D0A996E00D121DA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB58788A1D0A996E00D121DA /* CoreLocation.framework */; };
-		FB58788D1D0A997700D121DA /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB58788C1D0A997700D121DA /* CoreText.framework */; };
-		FB58788F1D0A997F00D121DA /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB58788E1D0A997F00D121DA /* GLKit.framework */; };
-		FB5878911D0A998800D121DA /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5878901D0A998800D121DA /* ImageIO.framework */; };
-		FB5878931D0A999900D121DA /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5878921D0A999900D121DA /* libc++.tbd */; };
-		FB5878951D0A99AA00D121DA /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5878941D0A99AA00D121DA /* libicucore.tbd */; };
-		FB5878971D0A99B400D121DA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5878961D0A99B400D121DA /* libz.tbd */; };
-		FB5878991D0A99BC00D121DA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5878981D0A99BC00D121DA /* OpenGLES.framework */; };
-		FB58789B1D0A99CF00D121DA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB58789A1D0A99CF00D121DA /* QuartzCore.framework */; };
-		FB58789D1D0A99D700D121DA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB58789C1D0A99D700D121DA /* SystemConfiguration.framework */; };
 		FB7F96451D1ACEDF0042819F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB7F96441D1ACEDF0042819F /* GoogleService-Info.plist */; };
 		FB81F33B1CE6CFD500FA4B67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81F33A1CE6CFD500FA4B67 /* AppDelegate.swift */; };
 		FB81F3401CE6CFD500FA4B67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB81F33E1CE6CFD500FA4B67 /* Main.storyboard */; };
@@ -30,7 +28,6 @@
 		FB81F35B1CE6CFD500FA4B67 /* TaipeiTrackRubbishTruckUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81F35A1CE6CFD500FA4B67 /* TaipeiTrackRubbishTruckUITests.swift */; };
 		FB81F36D1CE6D24700FA4B67 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81F36C1CE6D24700FA4B67 /* Constant.swift */; };
 		FB81F36F1CE6D2E300FA4B67 /* RubbishTruckController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81F36E1CE6D2E300FA4B67 /* RubbishTruckController.swift */; };
-		FB81F3731CE6D50D00FA4B67 /* TaipeiData.m in Sources */ = {isa = PBXBuildFile; fileRef = FB81F3721CE6D50D00FA4B67 /* TaipeiData.m */; };
 		FB81F3751CE997ED00FA4B67 /* NSDictionary+Unicode.m in Sources */ = {isa = PBXBuildFile; fileRef = FB81F3741CE997ED00FA4B67 /* NSDictionary+Unicode.m */; };
 		FB81F3781CE99EDD00FA4B67 /* Rubbish.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81F3771CE99EDD00FA4B67 /* Rubbish.swift */; };
 		FB81F37D1CE9B11B00FA4B67 /* RubbishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81F37C1CE9B11B00FA4B67 /* RubbishTableViewCell.swift */; };
@@ -64,9 +61,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		14D9A50043AA3F59BCDE59DC /* Pods-TaipeiTrackRubbishTruck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiTrackRubbishTruck.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiTrackRubbishTruck/Pods-TaipeiTrackRubbishTruck.release.xcconfig"; sourceTree = "<group>"; };
-		1DCF01CAE12AF4E27070B803 /* Pods_TaipeiTrackRubbishTruck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaipeiTrackRubbishTruck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		983BB18BFF0D8FE7DEC9065F /* Pods-TaipeiTrackRubbishTruck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiTrackRubbishTruck.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiTrackRubbishTruck/Pods-TaipeiTrackRubbishTruck.debug.xcconfig"; sourceTree = "<group>"; };
+		41654B321D45A68F0026992E /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleDataProvider.swift; path = Model/GoogleDataProvider.swift; sourceTree = "<group>"; };
+		41654B4B1D45B10B0026992E /* GooglePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
+		41654B4D1D45B1290026992E /* PlaceMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMarker.swift; sourceTree = "<group>"; };
+		41654B4F1D45B1AC0026992E /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		41654B521D45B4900026992E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		41654B531D45B4900026992E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		41654B551D45B4900026992E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		41654B591D45F06F0026992E /* TaipeiDataServers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaipeiDataServers.swift; sourceTree = "<group>"; };
+		4A9F38B2D94116C6F6FBEF62 /* Pods_TaipeiTrackRubbishTruckUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaipeiTrackRubbishTruckUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		51F4B422BFE5E7E8D357BA6C /* Pods-TaipeiTrackRubbishTruck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiTrackRubbishTruck.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiTrackRubbishTruck/Pods-TaipeiTrackRubbishTruck.release.xcconfig"; sourceTree = "<group>"; };
+		A455D5DF7CB2099924213C9E /* Pods-TaipeiTrackRubbishTruckTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiTrackRubbishTruckTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiTrackRubbishTruckTests/Pods-TaipeiTrackRubbishTruckTests.release.xcconfig"; sourceTree = "<group>"; };
+		AF36C8FA05E5BE9D1B44C1A4 /* Pods-TaipeiTrackRubbishTruck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiTrackRubbishTruck.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiTrackRubbishTruck/Pods-TaipeiTrackRubbishTruck.debug.xcconfig"; sourceTree = "<group>"; };
+		B09886A3FD10939FCFCFAE2E /* Pods_TaipeiTrackRubbishTruck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaipeiTrackRubbishTruck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8098CB42DA76595B9DDD727 /* Pods-TaipeiTrackRubbishTruckTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiTrackRubbishTruckTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiTrackRubbishTruckTests/Pods-TaipeiTrackRubbishTruckTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E62F6A393868476D46497B05 /* Pods-TaipeiTrackRubbishTruckUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiTrackRubbishTruckUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiTrackRubbishTruckUITests/Pods-TaipeiTrackRubbishTruckUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E7107A8B09D8552C1A3D1F97 /* Pods-TaipeiTrackRubbishTruckUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiTrackRubbishTruckUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiTrackRubbishTruckUITests/Pods-TaipeiTrackRubbishTruckUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5878841D0A966500D121DA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FB5878861D0A995300D121DA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		FB5878881D0A995D00D121DA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -96,8 +106,6 @@
 		FB81F36C1CE6D24700FA4B67 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		FB81F36E1CE6D2E300FA4B67 /* RubbishTruckController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RubbishTruckController.swift; sourceTree = "<group>"; };
 		FB81F3701CE6D50C00FA4B67 /* TaipeiTrackRubbishTruck-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TaipeiTrackRubbishTruck-Bridging-Header.h"; sourceTree = "<group>"; };
-		FB81F3711CE6D50D00FA4B67 /* TaipeiData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaipeiData.h; path = Model/TaipeiData.h; sourceTree = "<group>"; };
-		FB81F3721CE6D50D00FA4B67 /* TaipeiData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaipeiData.m; path = Model/TaipeiData.m; sourceTree = "<group>"; };
 		FB81F3741CE997ED00FA4B67 /* NSDictionary+Unicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Unicode.m"; path = "Uility/NSDictionary+Unicode.m"; sourceTree = "<group>"; };
 		FB81F3771CE99EDD00FA4B67 /* Rubbish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rubbish.swift; sourceTree = "<group>"; };
 		FB81F37C1CE9B11B00FA4B67 /* RubbishTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RubbishTableViewCell.swift; path = View/RubbishTableViewCell.swift; sourceTree = "<group>"; };
@@ -111,6 +119,7 @@
 		FBA3E60A1CEDA9510061C102 /* PopAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAnimation.swift; sourceTree = "<group>"; };
 		FBB2AF2B1D0B0BFE00F82CD2 /* GoogleStreetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleStreetView.swift; path = View/GoogleStreetView.swift; sourceTree = "<group>"; };
 		FBD891441D159DB200658F75 /* CustomRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomRefresh.swift; path = "Custom UI/CustomRefresh.swift"; sourceTree = "<group>"; };
+		FEFED55A983A946BB6F07E54 /* Pods_TaipeiTrackRubbishTruckTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaipeiTrackRubbishTruckTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,21 +127,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB58789D1D0A99D700D121DA /* SystemConfiguration.framework in Frameworks */,
-				FB58789B1D0A99CF00D121DA /* QuartzCore.framework in Frameworks */,
-				FB5878991D0A99BC00D121DA /* OpenGLES.framework in Frameworks */,
-				FB5878971D0A99B400D121DA /* libz.tbd in Frameworks */,
-				FB5878951D0A99AA00D121DA /* libicucore.tbd in Frameworks */,
-				FB5878931D0A999900D121DA /* libc++.tbd in Frameworks */,
-				FB5878911D0A998800D121DA /* ImageIO.framework in Frameworks */,
-				FB58788F1D0A997F00D121DA /* GLKit.framework in Frameworks */,
-				FB58788D1D0A997700D121DA /* CoreText.framework in Frameworks */,
-				FB58788B1D0A996E00D121DA /* CoreLocation.framework in Frameworks */,
 				FB5878891D0A995D00D121DA /* CoreData.framework in Frameworks */,
-				FB5878871D0A995300D121DA /* AVFoundation.framework in Frameworks */,
 				FB878A801CF2000B0011FF04 /* iAd.framework in Frameworks */,
-				FB5878851D0A966500D121DA /* MapKit.framework in Frameworks */,
-				182E19FC957B5F94D91AA69B /* Pods_TaipeiTrackRubbishTruck.framework in Frameworks */,
+				E9141655407FE08E8BE595DE /* Pods_TaipeiTrackRubbishTruck.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB57423D9C117288B9083464 /* Pods_TaipeiTrackRubbishTruckTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F8B9176212CDCE229C9CB8D /* Pods_TaipeiTrackRubbishTruckUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,16 +169,40 @@
 				FB5878861D0A995300D121DA /* AVFoundation.framework */,
 				FB5878841D0A966500D121DA /* MapKit.framework */,
 				FB878A7F1CF2000B0011FF04 /* iAd.framework */,
-				1DCF01CAE12AF4E27070B803 /* Pods_TaipeiTrackRubbishTruck.framework */,
+				B09886A3FD10939FCFCFAE2E /* Pods_TaipeiTrackRubbishTruck.framework */,
+				FEFED55A983A946BB6F07E54 /* Pods_TaipeiTrackRubbishTruckTests.framework */,
+				4A9F38B2D94116C6F6FBEF62 /* Pods_TaipeiTrackRubbishTruckUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DB9EBE3D730A5BBCC405FA41 /* Pods */ = {
+		41654B511D45B4900026992E /* SwiftyJSON */ = {
 			isa = PBXGroup;
 			children = (
-				983BB18BFF0D8FE7DEC9065F /* Pods-TaipeiTrackRubbishTruck.debug.xcconfig */,
-				14D9A50043AA3F59BCDE59DC /* Pods-TaipeiTrackRubbishTruck.release.xcconfig */,
+				41654B521D45B4900026992E /* LICENSE */,
+				41654B531D45B4900026992E /* README.md */,
+				41654B541D45B4900026992E /* Source */,
+			);
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		41654B541D45B4900026992E /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				41654B551D45B4900026992E /* SwiftyJSON.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		B93B2465CCE103D243E6B818 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AF36C8FA05E5BE9D1B44C1A4 /* Pods-TaipeiTrackRubbishTruck.debug.xcconfig */,
+				51F4B422BFE5E7E8D357BA6C /* Pods-TaipeiTrackRubbishTruck.release.xcconfig */,
+				C8098CB42DA76595B9DDD727 /* Pods-TaipeiTrackRubbishTruckTests.debug.xcconfig */,
+				A455D5DF7CB2099924213C9E /* Pods-TaipeiTrackRubbishTruckTests.release.xcconfig */,
+				E7107A8B09D8552C1A3D1F97 /* Pods-TaipeiTrackRubbishTruckUITests.debug.xcconfig */,
+				E62F6A393868476D46497B05 /* Pods-TaipeiTrackRubbishTruckUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -191,8 +214,8 @@
 				FB81F34E1CE6CFD500FA4B67 /* TaipeiTrackRubbishTruckTests */,
 				FB81F3591CE6CFD500FA4B67 /* TaipeiTrackRubbishTruckUITests */,
 				FB81F3381CE6CFD500FA4B67 /* Products */,
-				DB9EBE3D730A5BBCC405FA41 /* Pods */,
 				14CD14DEE044878F41D42AEE /* Frameworks */,
+				B93B2465CCE103D243E6B818 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -215,6 +238,7 @@
 				FB81F3691CE6D1CB00FA4B67 /* View */,
 				FB81F3681CE6D1B000FA4B67 /* Uility */,
 				FB81F33A1CE6CFD500FA4B67 /* AppDelegate.swift */,
+				41654B511D45B4900026992E /* SwiftyJSON */,
 				FB7F96441D1ACEDF0042819F /* GoogleService-Info.plist */,
 				FB81F33E1CE6CFD500FA4B67 /* Main.storyboard */,
 				FB81F3411CE6CFD500FA4B67 /* Assets.xcassets */,
@@ -258,6 +282,7 @@
 				FB9BF9751CEB384A00659977 /* Animation */,
 				FB81F37C1CE9B11B00FA4B67 /* RubbishTableViewCell.swift */,
 				FBB2AF2B1D0B0BFE00F82CD2 /* GoogleStreetView.swift */,
+				41654B4F1D45B1AC0026992E /* UIViewExtension.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -278,6 +303,9 @@
 			children = (
 				FB81F3761CE99E5B00FA4B67 /* Servers */,
 				FB81F3771CE99EDD00FA4B67 /* Rubbish.swift */,
+				41654B321D45A68F0026992E /* GoogleDataProvider.swift */,
+				41654B4B1D45B10B0026992E /* GooglePlace.swift */,
+				41654B4D1D45B1290026992E /* PlaceMarker.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -285,9 +313,8 @@
 		FB81F3761CE99E5B00FA4B67 /* Servers */ = {
 			isa = PBXGroup;
 			children = (
-				FB81F3711CE6D50D00FA4B67 /* TaipeiData.h */,
-				FB81F3721CE6D50D00FA4B67 /* TaipeiData.m */,
 				FB9BF9731CEB323700659977 /* Reachability.swift */,
+				41654B591D45F06F0026992E /* TaipeiDataServers.swift */,
 			);
 			name = Servers;
 			sourceTree = "<group>";
@@ -317,12 +344,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB81F35F1CE6CFD500FA4B67 /* Build configuration list for PBXNativeTarget "TaipeiTrackRubbishTruck" */;
 			buildPhases = (
-				BA7217B9927CDC915786166E /* Check Pods Manifest.lock */,
+				45BF15A980532F9675AC7C24 /* [CP] Check Pods Manifest.lock */,
 				FB81F3331CE6CFD500FA4B67 /* Sources */,
 				FB81F3341CE6CFD500FA4B67 /* Frameworks */,
 				FB81F3351CE6CFD500FA4B67 /* Resources */,
-				E5881074BF820DBB18A70A76 /* Embed Pods Frameworks */,
-				8CE5E2640BF7F427550BB742 /* Copy Pods Resources */,
+				0FB17B23F8EAFAB6B3E59D9C /* [CP] Embed Pods Frameworks */,
+				8ABE415D062AE3CA6BE89994 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -337,9 +364,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB81F3621CE6CFD500FA4B67 /* Build configuration list for PBXNativeTarget "TaipeiTrackRubbishTruckTests" */;
 			buildPhases = (
+				6CEDD51AF595260A65A62C51 /* [CP] Check Pods Manifest.lock */,
 				FB81F3471CE6CFD500FA4B67 /* Sources */,
 				FB81F3481CE6CFD500FA4B67 /* Frameworks */,
 				FB81F3491CE6CFD500FA4B67 /* Resources */,
+				4024F36711324B427D9790FD /* [CP] Embed Pods Frameworks */,
+				4E1F50E9185C3D91DC2909FD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -355,9 +385,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB81F3651CE6CFD500FA4B67 /* Build configuration list for PBXNativeTarget "TaipeiTrackRubbishTruckUITests" */;
 			buildPhases = (
+				174E2B6190DF4E40D46F86A2 /* [CP] Check Pods Manifest.lock */,
 				FB81F3521CE6CFD500FA4B67 /* Sources */,
 				FB81F3531CE6CFD500FA4B67 /* Frameworks */,
 				FB81F3541CE6CFD500FA4B67 /* Resources */,
+				AF20D0F8D67DF36B40C59BA2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -385,6 +417,9 @@
 						DevelopmentTeam = 7LVJW6YG74;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 0;
 							};
@@ -434,6 +469,7 @@
 				FB7F96451D1ACEDF0042819F /* GoogleService-Info.plist in Resources */,
 				FB81F3421CE6CFD500FA4B67 /* Assets.xcassets in Resources */,
 				FB81F3401CE6CFD500FA4B67 /* Main.storyboard in Resources */,
+				41654B561D45B4900026992E /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,29 +490,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8CE5E2640BF7F427550BB742 /* Copy Pods Resources */ = {
+		0FB17B23F8EAFAB6B3E59D9C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TaipeiTrackRubbishTruck/Pods-TaipeiTrackRubbishTruck-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TaipeiTrackRubbishTruck/Pods-TaipeiTrackRubbishTruck-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BA7217B9927CDC915786166E /* Check Pods Manifest.lock */ = {
+		174E2B6190DF4E40D46F86A2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,19 +520,94 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E5881074BF820DBB18A70A76 /* Embed Pods Frameworks */ = {
+		4024F36711324B427D9790FD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TaipeiTrackRubbishTruck/Pods-TaipeiTrackRubbishTruck-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TaipeiTrackRubbishTruckTests/Pods-TaipeiTrackRubbishTruckTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45BF15A980532F9675AC7C24 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4E1F50E9185C3D91DC2909FD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TaipeiTrackRubbishTruckTests/Pods-TaipeiTrackRubbishTruckTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6CEDD51AF595260A65A62C51 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8ABE415D062AE3CA6BE89994 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TaipeiTrackRubbishTruck/Pods-TaipeiTrackRubbishTruck-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF20D0F8D67DF36B40C59BA2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TaipeiTrackRubbishTruckUITests/Pods-TaipeiTrackRubbishTruckUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -508,11 +619,17 @@
 			files = (
 				FB878A821CF2CC5D0011FF04 /* GoogleMapViewController.swift in Sources */,
 				FB81F3751CE997ED00FA4B67 /* NSDictionary+Unicode.m in Sources */,
+				41654B331D45A68F0026992E /* GoogleDataProvider.swift in Sources */,
+				41654B581D45B4900026992E /* SwiftyJSON.swift in Sources */,
+				41654B571D45B4900026992E /* README.md in Sources */,
 				FB81F36F1CE6D2E300FA4B67 /* RubbishTruckController.swift in Sources */,
 				FBA3E60B1CEDA9510061C102 /* PopAnimation.swift in Sources */,
-				FB81F3731CE6D50D00FA4B67 /* TaipeiData.m in Sources */,
+				41654B5A1D45F06F0026992E /* TaipeiDataServers.swift in Sources */,
 				FBA2583B1CE9FBAC00A4E761 /* NewTaipeiAreaController.swift in Sources */,
+				41654B4E1D45B1290026992E /* PlaceMarker.swift in Sources */,
 				FB81F33B1CE6CFD500FA4B67 /* AppDelegate.swift in Sources */,
+				41654B4C1D45B10B0026992E /* GooglePlace.swift in Sources */,
+				41654B501D45B1AC0026992E /* UIViewExtension.swift in Sources */,
 				FBB2AF2C1D0B0BFE00F82CD2 /* GoogleStreetView.swift in Sources */,
 				FBD891451D159DB200658F75 /* CustomRefresh.swift in Sources */,
 				FB9BF9771CEB388F00659977 /* MenuTransitionMansger.swift in Sources */,
@@ -663,7 +780,7 @@
 		};
 		FB81F3601CE6CFD500FA4B67 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 983BB18BFF0D8FE7DEC9065F /* Pods-TaipeiTrackRubbishTruck.debug.xcconfig */;
+			baseConfigurationReference = AF36C8FA05E5BE9D1B44C1A4 /* Pods-TaipeiTrackRubbishTruck.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -681,7 +798,7 @@
 		};
 		FB81F3611CE6CFD500FA4B67 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14D9A50043AA3F59BCDE59DC /* Pods-TaipeiTrackRubbishTruck.release.xcconfig */;
+			baseConfigurationReference = 51F4B422BFE5E7E8D357BA6C /* Pods-TaipeiTrackRubbishTruck.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -698,6 +815,7 @@
 		};
 		FB81F3631CE6CFD500FA4B67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8098CB42DA76595B9DDD727 /* Pods-TaipeiTrackRubbishTruckTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = TaipeiTrackRubbishTruckTests/Info.plist;
@@ -711,6 +829,7 @@
 		};
 		FB81F3641CE6CFD500FA4B67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A455D5DF7CB2099924213C9E /* Pods-TaipeiTrackRubbishTruckTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = TaipeiTrackRubbishTruckTests/Info.plist;
@@ -724,6 +843,7 @@
 		};
 		FB81F3661CE6CFD500FA4B67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7107A8B09D8552C1A3D1F97 /* Pods-TaipeiTrackRubbishTruckUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = TaipeiTrackRubbishTruckUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -736,6 +856,7 @@
 		};
 		FB81F3671CE6CFD500FA4B67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E62F6A393868476D46497B05 /* Pods-TaipeiTrackRubbishTruckUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = TaipeiTrackRubbishTruckUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
