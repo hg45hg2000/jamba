@@ -78,5 +78,21 @@ class GoogleDataProvider {
                 }.resume()
         }
     }
+    func searchPlace(){
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString("新北市淡水區沙崙路200號", completionHandler: {
+            (placemarks,error) -> Void in
+            if error != nil{
+                print(error)
+                return
+            }
+            
+            if placemarks != nil && placemarks!.count > 0{
+                let placemark = placemarks![0] as CLPlacemark
+                print(placemark.location)
+                //placemark.location.coordinate 取得經緯度的參數
+            }
+        })
+    }
 }
 

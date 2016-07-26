@@ -73,6 +73,14 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
         }
 
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let googleViewController = storyboard.instantiateViewControllerWithIdentifier(ViewControllerID.googleMapView)as! GoogleMapViewController
+        googleViewController.selectRubbish = filterRubbishs[indexPath.row]
+        self.navigationController?.pushViewController(googleViewController, animated: true)
+           }
+    
     //Navigation
     
     func  navigationController(navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -87,9 +95,21 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
     }
     
     func getData(){
-//        getTheTrushData { (Json) in
-//            print(JSON)
-//        }
+        getTheTrushData { (json) in
+            if let json = json {
+            let jsons = JSON(json)
+            print(jsons["result"]["records"])
+            let records = jsons["result"]["records"].arrayObject
+            for record in (records)!{
+                let rubbish = Rubbish(dictionary: record as? Dictionary<String,AnyObject>)
+                self.rubbishs.insert(rubbish, atIndex: 0)
+            }
+            self.filterContentForArea(self.areaArray[self.selectedIndex])
+            self.Count = 0
+            self.tableView.reloadData()
+            }
+        }
+        
         
 //        dataDictionary?.creatDownLoadTask(Rubbish_Api, success: { (json, response) in
 //            self.rubbishs = []

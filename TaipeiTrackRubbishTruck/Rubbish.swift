@@ -27,18 +27,22 @@ class Rubbish {
     var time:String{
         return _time
     }
-    init(dictionary: Dictionary<String,AnyObject>){
+    init(dictionary: Dictionary<String,AnyObject>?){
+        if let dictionary = dictionary {
+        
         if let car = dictionary["car"]as? String {
             self._car = car
-        }
+            }
         if let lineid = dictionary["lineid"]as? String{
             self._lineid = lineid
-        }
+            }
         if  let location = dictionary["location"]as? String{
             self._location = location
-        }
+            }
         if let time = dictionary["time"]as? String {
             self._time = time
+            }
+        
         }
     }
     

@@ -187,13 +187,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="新北市垃圾車" id="L2S-pC-pbZ">
                         <barButtonItem key="backBarButtonItem" title=" " id="wPd-VG-fEO"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="LED-TF-xzN">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Sad-GY-Uzt">
-                                <rect key="frame" x="447" y="7" width="133" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Refresh"/>
-                            </button>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="B3R-n2-yLX" id="5nY-wo-lCR"/>
@@ -206,7 +199,7 @@
         <!--垃圾車路線-->
         <scene sceneID="KRh-ga-vRx">
             <objects>
-                <viewController id="9tq-NI-p3B" customClass="GoogleMapViewController" customModule="TaipeiTrackRubbishTruck" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="googleMapView" id="9tq-NI-p3B" customClass="GoogleMapViewController" customModule="TaipeiTrackRubbishTruck" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gKp-Jq-YUQ"/>
                         <viewControllerLayoutGuide type="bottom" id="Tky-TP-qbL"/>
@@ -215,7 +208,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3Q-5c-sej">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3Q-5c-sej">
                                 <rect key="frame" x="20" y="530" width="551" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -231,27 +224,16 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="429"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfJ-Wg-c1e">
-                                <rect key="frame" x="193" y="501" width="237" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="refresh:" destination="9tq-NI-p3B" eventType="touchUpInside" id="5dF-2M-PVx"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="J3Q-5c-sej" firstAttribute="top" secondItem="YaP-yC-GkR" secondAttribute="bottom" constant="8" id="05d-Je-oGr"/>
                             <constraint firstItem="J3Q-5c-sej" firstAttribute="leading" secondItem="xvE-qt-J3O" secondAttribute="leadingMargin" id="4lW-hG-N11"/>
-                            <constraint firstItem="HfJ-Wg-c1e" firstAttribute="leading" secondItem="xvE-qt-J3O" secondAttribute="leadingMargin" constant="173" id="ARC-3P-Y2T"/>
                             <constraint firstAttribute="trailingMargin" secondItem="J3Q-5c-sej" secondAttribute="trailing" constant="9" id="AoH-2E-Ge6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GTf-lb-Nqz" secondAttribute="trailing" constant="-20" id="Cbw-5F-anm"/>
                             <constraint firstItem="YaP-yC-GkR" firstAttribute="leading" secondItem="xvE-qt-J3O" secondAttribute="leadingMargin" id="DX8-lx-gZ5"/>
-                            <constraint firstItem="Tky-TP-qbL" firstAttribute="top" secondItem="HfJ-Wg-c1e" secondAttribute="bottom" constant="20" id="InG-W3-e6v"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="HfJ-Wg-c1e" secondAttribute="trailing" constant="150" id="J9Y-JY-7zs"/>
                             <constraint firstItem="YaP-yC-GkR" firstAttribute="top" secondItem="GTf-lb-Nqz" secondAttribute="bottom" constant="8" id="NOR-xr-44Q"/>
                             <constraint firstItem="GTf-lb-Nqz" firstAttribute="top" secondItem="gKp-Jq-YUQ" secondAttribute="bottom" id="OKk-q3-QvE"/>
-                            <constraint firstItem="HfJ-Wg-c1e" firstAttribute="top" secondItem="GTf-lb-Nqz" secondAttribute="bottom" constant="8" id="OaQ-B7-bcf"/>
                             <constraint firstItem="YaP-yC-GkR" firstAttribute="width" secondItem="J3Q-5c-sej" secondAttribute="width" id="OaS-Qx-ohL"/>
                             <constraint firstItem="YaP-yC-GkR" firstAttribute="height" secondItem="J3Q-5c-sej" secondAttribute="height" id="QJO-R4-8i6"/>
                             <constraint firstItem="Tky-TP-qbL" firstAttribute="top" secondItem="J3Q-5c-sej" secondAttribute="bottom" id="bH4-f7-OZl"/>
@@ -262,18 +244,11 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="keg-Rs-Vij"/>
-                                <exclude reference="J9Y-JY-7zs"/>
                             </mask>
                         </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationItem key="navigationItem" title="垃圾車路線" id="cTa-dY-fDg">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="87w-o9-TaS">
-                            <connections>
-                                <action selector="pickPlace:" destination="9tq-NI-p3B" id="mi0-fQ-UTi"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="垃圾車路線" id="cTa-dY-fDg"/>
                     <connections>
                         <outlet property="addressLabel" destination="YaP-yC-GkR" id="mjM-u4-InR"/>
                         <outlet property="mapView" destination="GTf-lb-Nqz" id="exc-Ab-SaA"/>
@@ -297,18 +272,17 @@
                     </tabBar>
                     <connections>
                         <segue destination="qLc-fn-xTB" kind="relationship" relationship="viewControllers" id="zCK-bp-JWP"/>
-                        <segue destination="72U-d0-coc" kind="relationship" relationship="viewControllers" id="5dI-96-buF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mKX-lC-BOK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1825" y="103"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="okL-Cn-uAF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qLc-fn-xTB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="button_my_location.png" id="wfm-Sa-LEk"/>
+                    <tabBarItem key="tabBarItem" title="" image="truck-3" id="wfm-Sa-LEk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VuH-uG-ku6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -345,6 +319,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="button_my_location.png" width="46" height="46"/>
+        <image name="truck-3" width="32" height="32"/>
     </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

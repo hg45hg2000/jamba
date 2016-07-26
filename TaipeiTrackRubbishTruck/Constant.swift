@@ -10,3 +10,6 @@ import Foundation
 
 
 let Google_Api = "AIzaSyCzG262BU3iBtO5Qaj_0cvasLw-P8LUOjU"
+struct ViewControllerID {
+    static let googleMapView = "googleMapView"
+}

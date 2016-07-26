@@ -26,7 +26,7 @@ class GoogleMapViewController: UIViewController {
     let dataProvider = GoogleDataProvider()
     let searchRadius: Double = 1000
     var didFindMyLocation = false
-
+    var selectRubbish = Rubbish(dictionary: nil)
    
     
     override func viewDidLoad() {
@@ -40,9 +40,9 @@ class GoogleMapViewController: UIViewController {
         mapView.myLocationEnabled = true
         mapView.settings.myLocationButton = true
 
-        mapView.addObserver(self, forKeyPath: "myLocation", options: .New, context: nil)
+//        mapView.addObserver(self, forKeyPath: "myLocation", options: .New, context: nil)
         placesClient = GMSPlacesClient()
-        
+        searchPlace(selectRubbish)
 
     }
     func dismissForGoogleStreetView(sender: GoogleStreetView) {
@@ -71,17 +71,15 @@ class GoogleMapViewController: UIViewController {
         })
     
     }
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        if !didFindMyLocation {
-            let myLocation : CLLocation = change![NSKeyValueChangeNewKey] as! CLLocation
-            mapView.camera = GMSCameraPosition.cameraWithTarget(myLocation.coordinate, zoom: 10.0)
-            mapView.settings.myLocationButton = true
-            didFindMyLocation = true
-        }
-    }
-    @IBAction func refresh(sender: UIButton) {
-        searchPlace()
-    }
+//    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+//        if !didFindMyLocation {
+//            let myLocation : CLLocation = change![NSKeyValueChangeNewKey] as! CLLocation
+//            mapView.camera = GMSCameraPosition.cameraWithTarget(myLocation.coordinate, zoom: 10.0)
+//            mapView.settings.myLocationButton = true
+//            didFindMyLocation = true
+//        }
+//    }
+   
 
     @IBAction func pickPlace(sender: UIBarButtonItem) {
         let center = CLLocationCoordinate2DMake(51.5108396, -0.0922251)
@@ -96,7 +94,6 @@ class GoogleMapViewController: UIViewController {
                 print("Pick Place error: \(error.localizedDescription)")
                 return
             }
-            
             if let place = place {
                 print("Place name \(place.name)")
                 print("Place address \(place.formattedAddress)")
@@ -105,6 +102,30 @@ class GoogleMapViewController: UIViewController {
                 print("No place selected")
             }
         })
+    }
+    func searchPlace(selectRubbish:Rubbish?){
+        if let selectRubbish  = selectRubbish {
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(selectRubbish.location, completionHandler: {
+            (placemarks,error) -> Void in
+            if error != nil{
+                print(error)
+                return
+            }
+            if placemarks != nil && placemarks!.count > 0{
+                let placemark = placemarks![0] as CLPlacemark
+                print(placemark.location)
+                let marker = GMSMarker(position: (placemark.location?.coordinate)!)
+                marker.title = selectRubbish.location
+                marker.snippet = selectRubbish.car
+                marker.map = self.mapView
+                let pinview = UIImage(named: "trushtruck0.10x")
+                marker.icon = pinview
+                self.mapView.camera = GMSCameraPosition(target: (placemark.location?.coordinate)!, zoom: 15, bearing: 10, viewingAngle: 10)
+                }
+            })
+        }
+
     }
 
 }
@@ -142,11 +163,6 @@ extension GoogleMapViewController: GMSAutocompleteViewControllerDelegate {
                 
                 let labelHeight = self.addressLabel.intrinsicContentSize().height
                 self.mapView.padding = UIEdgeInsets(top: self.topLayoutGuide.length, left: 0, bottom: labelHeight, right: 0)
-                
-//                UIView.animateWithDuration(0.25) {
-//                    self.pinImageVerticalConstraint.constant = ((labelHeight - self.topLayoutGuide.length) * 0.5)
-//                    self.view.layoutIfNeeded()
-//                }
             }
         }
     }
@@ -159,22 +175,6 @@ extension GoogleMapViewController: GMSAutocompleteViewControllerDelegate {
                 marker.map = self.mapView
             }
         }
-    }
-    func searchPlace(){
-        let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString("新北市淡水區沙崙路200號", completionHandler: {
-            (placemarks,error) -> Void in
-            if error != nil{
-                print(error)
-                return
-            }
-            
-            if placemarks != nil && placemarks!.count > 0{
-                let placemark = placemarks![0] as CLPlacemark
-                print(placemark.location)
-                //placemark.location.coordinate 取得經緯度的參數            
-            }
-        })
     }
 }
 

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import iAd
+
 
 class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -25,12 +25,14 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
     
     func getData(){
         getTheTrushData { (json) in
-            let jsons = JSON(json!)
+            if let json  = json {
+            let jsons = JSON(json)
             print(jsons["result"]["records"])
             let records = jsons["result"]["records"].arrayObject
             for record in (records)!{
-                let rubbish = Rubbish(dictionary: record as! Dictionary<String,AnyObject>)
+                let rubbish = Rubbish(dictionary: record as? Dictionary<String,AnyObject>)
                 self.rubbishs.insert(rubbish, atIndex: 0)
+                }
             }
         }
 //        dataDictionary?.creatDownLoadTask(Rubbish_Api, success: { (json, response) in
