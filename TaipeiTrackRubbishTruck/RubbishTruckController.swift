@@ -100,13 +100,16 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
             let jsons = JSON(json)
             print(jsons["result"]["records"])
             let records = jsons["result"]["records"].arrayObject
+            self.rubbishs.removeAll(keepCapacity: true)
             for record in (records)!{
                 let rubbish = Rubbish(dictionary: record as? Dictionary<String,AnyObject>)
                 self.rubbishs.insert(rubbish, atIndex: 0)
             }
             self.filterContentForArea(self.areaArray[self.selectedIndex])
             self.Count = 0
-            self.tableView.reloadData()
+            NSOperationQueue.mainQueue().addOperationWithBlock({ 
+              self.tableView.reloadData()
+            })
             }
         }
         

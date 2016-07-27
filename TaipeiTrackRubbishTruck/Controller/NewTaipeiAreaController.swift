@@ -22,13 +22,18 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
         getData()
         
     }
+    @IBAction func updateDate(sender: UIButton) {
+        getData()
+        alertController("更新已經完成", message: " 總共有 \(self.rubbishs.count) 筆", cancelButton: "Ok",style:.Alert)
+        
+    }
     
     func getData(){
         getTheTrushData { (json) in
             if let json  = json {
             let jsons = JSON(json)
-            print(jsons["result"]["records"])
             let records = jsons["result"]["records"].arrayObject
+            self.rubbishs.removeAll(keepCapacity: true)
             for record in (records)!{
                 let rubbish = Rubbish(dictionary: record as? Dictionary<String,AnyObject>)
                 self.rubbishs.insert(rubbish, atIndex: 0)

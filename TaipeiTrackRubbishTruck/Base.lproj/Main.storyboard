@@ -186,7 +186,23 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="新北市垃圾車" id="L2S-pC-pbZ">
-                        <barButtonItem key="backBarButtonItem" title=" " id="wPd-VG-fEO"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="u0U-AQ-dDd">
+                            <view key="customView" contentMode="scaleToFill" id="Fge-g0-wWI">
+                                <rect key="frame" x="447" y="5" width="133" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8z-vj-jyG">
+                                        <rect key="frame" x="0.0" y="2" width="133" height="30"/>
+                                        <state key="normal" title="Update">
+                                            <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="updateDate:" destination="zC8-VD-FCM" eventType="touchUpInside" id="l7Z-bJ-DiZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="B3R-n2-yLX" id="5nY-wo-lCR"/>
@@ -278,11 +294,11 @@
             </objects>
             <point key="canvasLocation" x="-1825" y="103"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--垃圾車-->
         <scene sceneID="okL-Cn-uAF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qLc-fn-xTB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="truck-3" id="wfm-Sa-LEk"/>
+                    <tabBarItem key="tabBarItem" title="垃圾車" image="truck-3" id="wfm-Sa-LEk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VuH-uG-ku6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

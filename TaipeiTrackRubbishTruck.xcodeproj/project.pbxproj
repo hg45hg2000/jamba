@@ -31,7 +31,6 @@
 		FB81F3751CE997ED00FA4B67 /* NSDictionary+Unicode.m in Sources */ = {isa = PBXBuildFile; fileRef = FB81F3741CE997ED00FA4B67 /* NSDictionary+Unicode.m */; };
 		FB81F3781CE99EDD00FA4B67 /* Rubbish.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81F3771CE99EDD00FA4B67 /* Rubbish.swift */; };
 		FB81F37D1CE9B11B00FA4B67 /* RubbishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81F37C1CE9B11B00FA4B67 /* RubbishTableViewCell.swift */; };
-		FB878A801CF2000B0011FF04 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB878A7F1CF2000B0011FF04 /* iAd.framework */; };
 		FB878A821CF2CC5D0011FF04 /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB878A811CF2CC5D0011FF04 /* GoogleMapViewController.swift */; };
 		FB9BF9741CEB323700659977 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9BF9731CEB323700659977 /* Reachability.swift */; };
 		FB9BF9771CEB388F00659977 /* MenuTransitionMansger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9BF9761CEB388F00659977 /* MenuTransitionMansger.swift */; };
@@ -128,7 +127,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB5878891D0A995D00D121DA /* CoreData.framework in Frameworks */,
-				FB878A801CF2000B0011FF04 /* iAd.framework in Frameworks */,
 				E9141655407FE08E8BE595DE /* Pods_TaipeiTrackRubbishTruck.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -786,13 +784,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = TaipeiTrackRubbishTruck/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jamba.TaipeiTrackRubbishTruck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TaipeiTrackRubbishTruck/TaipeiTrackRubbishTruck-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -804,12 +803,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = TaipeiTrackRubbishTruck/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jamba.TaipeiTrackRubbishTruck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TaipeiTrackRubbishTruck/TaipeiTrackRubbishTruck-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
