@@ -13,7 +13,7 @@ class BaseViewController: UIViewController {
     
     var filterRubbishs = [Rubbish]()
     var rubbishs = [Rubbish]()
-    var areaArray = ["淡水區","板橋區","新店區","中和區","石碇區","永和區","三重區","新莊區","中和區","樹林區","貢寮區","雙溪區"]
+    var areaArray = ["淡水區","板橋區","新店區","中和區","石碇區","永和區","三重區","新莊區","中和區","樹林區","貢寮區","雙溪區","土城區","三芝區"]
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     

@@ -9,17 +9,22 @@
 import UIKit
 import MapKit
 
-class GoogleMapViewController: UIViewController {
+class GoogleMapViewController: UIViewController{
 
     
     var placesClient: GMSPlacesClient!
     
+    
     @IBOutlet var placePicker: GMSPlacePicker!
-   
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
-    
-    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var mapView: GMSMapView!{
+        didSet{
+            mapView.delegate = self
+            mapView.myLocationEnabled = true
+            mapView.settings.myLocationButton = true
+        }
+    }
     
     var searchedTypes = ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
     let locationManager = CLLocationManager()
@@ -27,7 +32,19 @@ class GoogleMapViewController: UIViewController {
     let searchRadius: Double = 1000
     var didFindMyLocation = false
     var selectRubbish = Rubbish(dictionary: nil)
-   
+    
+    
+    var googleIconView = GoogleIconView(frame: CGRectMake(10,100,100,100))
+    var iconRotation = Float()
+    var marker = GMSMarker()
+    
+    var monitoredRegions : Dictionary<String,NSDate>  = [:]
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        checkAuthorization()
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,19 +52,22 @@ class GoogleMapViewController: UIViewController {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestAlwaysAuthorization()
+        locationManager.distanceFilter = kCLLocationAccuracyNearestTenMeters
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        googleIconView.delegate = self
+        googleIconView.backgroundColor = UIColor.whiteColor()
+        googleIconView.hidden = true
+        
+        
+        mapView.addSubview(googleIconView)
 
-        mapView.delegate = self
-        mapView.myLocationEnabled = true
-        mapView.settings.myLocationButton = true
-
-//        mapView.addObserver(self, forKeyPath: "myLocation", options: .New, context: nil)
         placesClient = GMSPlacesClient()
         searchPlace(selectRubbish)
+        
 
     }
-    func dismissForGoogleStreetView(sender: GoogleStreetView) {
-        
-    }
+    
     @IBAction func getCurrentPlace(sender: UIButton) {
         
         placesClient?.currentPlaceWithCallback({
@@ -69,40 +89,21 @@ class GoogleMapViewController: UIViewController {
                 }
             }
         })
+    }
     
-    }
-//    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-//        if !didFindMyLocation {
-//            let myLocation : CLLocation = change![NSKeyValueChangeNewKey] as! CLLocation
-//            mapView.camera = GMSCameraPosition.cameraWithTarget(myLocation.coordinate, zoom: 10.0)
-//            mapView.settings.myLocationButton = true
-//            didFindMyLocation = true
-//        }
-//    }
-   
-
-    @IBAction func pickPlace(sender: UIBarButtonItem) {
-        let center = CLLocationCoordinate2DMake(51.5108396, -0.0922251)
-        let northEast = CLLocationCoordinate2DMake(center.latitude + 0.001, center.longitude + 0.001)
-        let southWest = CLLocationCoordinate2DMake(center.latitude - 0.001, center.longitude - 0.001)
-        let viewport = GMSCoordinateBounds(coordinate: northEast, coordinate: southWest)
-        let config = GMSPlacePickerConfig(viewport: viewport)
-        placePicker = GMSPlacePicker(config: config)
+    func checkAuthorization(){
+        switch CLLocationManager.authorizationStatus() {
+        case .NotDetermined:
+            locationManager.requestAlwaysAuthorization()
+        case .Denied:
+            showAlert("", message: "Location services were previously denied. Please enable location services for this app in Settings.")
+        case .AuthorizedAlways:
+            locationManager.startUpdatingLocation()
+        default:break
+        }
         
-        placePicker?.pickPlaceWithCallback({ (place: GMSPlace?, error: NSError?) -> Void in
-            if let error = error {
-                print("Pick Place error: \(error.localizedDescription)")
-                return
-            }
-            if let place = place {
-                print("Place name \(place.name)")
-                print("Place address \(place.formattedAddress)")
-                print("Place attributions \(place.attributions)")
-            } else {
-                print("No place selected")
-            }
-        })
     }
+    
     func searchPlace(selectRubbish:Rubbish?){
         if let selectRubbish  = selectRubbish {
         let geoCoder = CLGeocoder()
@@ -115,20 +116,82 @@ class GoogleMapViewController: UIViewController {
             if placemarks != nil && placemarks!.count > 0{
                 let placemark = placemarks![0] as CLPlacemark
                 print(placemark.location)
-                let marker = GMSMarker(position: (placemark.location?.coordinate)!)
-                marker.title = selectRubbish.location
-                marker.snippet = selectRubbish.car
-                marker.map = self.mapView
+                self.marker = GMSMarker(position: (placemark.location?.coordinate)!)
+                self.marker.title = selectRubbish.location
+                self.marker.snippet = selectRubbish.car
+                self.marker.map = self.mapView
+                self.marker.groundAnchor = CGPointMake(0.5, 0.5)
                 let pinview = UIImage(named: "trushtruck0.10x")
-                marker.icon = pinview
+                self.marker.icon = pinview
+                self.marker.rotation = Double(self.iconRotation)
                 self.mapView.camera = GMSCameraPosition(target: (placemark.location?.coordinate)!, zoom: 15, bearing: 10, viewingAngle: 10)
+                //
+                self.setupData(placemark)
                 }
             })
         }
-
     }
+    
+    func showAlert(title:String?,message:String){
+        let alerview = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style:.Cancel , handler: nil)
+        alerview.addAction(action)
+        self.presentViewController(alerview, animated: true, completion: nil)
+    }
+    func setupData(placemarkL:CLPlacemark){
+        if CLLocationManager.isMonitoringAvailableForClass(CLCircularRegion.self){
+            let title = "Lorrenzillo's"
+            let coordinate = (placemarkL.location?.coordinate)!
+            let regionRadius = 300.0
+            let region = CLCircularRegion(center: CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude), radius: regionRadius, identifier: title)
+            locationManager.startMonitoringForRegion(region)
+            
+            let restaurantAnnotation = GMSMarker(position: coordinate)
+            restaurantAnnotation.title = "\(title)";
+            marker.map = mapView
+            let circle = GMSCircle(position: (placemarkL.location?.coordinate)!, radius: regionRadius)
+            circle.map = mapView
 
+        }
+        else{
+            print("The system can't track regions")
+        }
+    }
+    // DrawView
+    func mapView(mapView:GMSMapView,rendererForOverlay:MKOverlay){
+        let circleRenderer = MKCircleRenderer(overlay: rendererForOverlay)
+        circleRenderer.strokeColor = UIColor.redColor()
+        circleRenderer.lineWidth = 1.0
+    }
+    
+    func updateRegions(){
+        let regionMaxVisiting = 10.0
+        var regionsToDelete: [String] = []
+        
+        // 2.
+        for regionIdentifier in monitoredRegions.keys {
+            
+            // 3.
+            if NSDate().timeIntervalSinceDate(monitoredRegions[regionIdentifier]!) > regionMaxVisiting {
+                showAlert("", message: "Your TrushTruck Approach")
+                regionsToDelete.append(regionIdentifier)
+            }
+        }
+        
+        // 4.
+        for regionIdentifier in regionsToDelete {
+            monitoredRegions.removeValueForKey(regionIdentifier)
+        }
+    }
+    
 }
+extension GoogleMapViewController:GoogleIconViewDelegate{
+    func silderDidSlide(googleIconView: GoogleIconView, sliderValue: Float) {
+        iconRotation = sliderValue
+        marker.rotation = Double(self.iconRotation)
+    }
+}
+
 
 
 extension GoogleMapViewController: GMSAutocompleteViewControllerDelegate {
@@ -197,22 +260,32 @@ extension GoogleMapViewController:CLLocationManagerDelegate{
             
         }
     }
+    func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        showAlert("", message: "enter \(region.identifier)")
+        monitoredRegions = [region.identifier : NSDate()]
+    }
+    func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
+        showAlert("", message: "eixt \(region.identifier)")
+        monitoredRegions.removeValueForKey(region.identifier)
+    }
+    func locationManager(manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        
+    }
 }
 
 extension GoogleMapViewController: GMSMapViewDelegate {
     func mapView(mapView: GMSMapView, idleAtCameraPosition position: GMSCameraPosition) {
         reverseGeocodeCoordinate(position.target)
     }
+    func mapView(googleMap: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
+        marker.rotation = Double(self.iconRotation)
+        googleIconView.hidden = false
+        return false
     }
-//
-//    func mapView(googleMap: GMSMapView!, didTapMarker marker: GMSMarker!) -> Bool {
-////        mapCenterPinImage.fadeOut(0.25)
-//        return false
-//    }
-//    
-//    func didTapMyLocationButtonForMapView(googleMap: GMSMapView!) -> Bool {
-////        mapCenterPinImage.fadeIn(0.25)
-//        googleMap.selectedMarker = nil
-//        return false
-//    }
-//}
+    func mapView(mapView: GMSMapView, didTapInfoWindowOfMarker marker: GMSMarker) {
+        googleIconView.hidden = true
+    }
+
+    
+}
+

@@ -13,7 +13,10 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
     
     
     var selectedIndex :Int = 0
+    let tapeiservers = TapieiDataServers.sharedInstance
     
+    var scrollOrientation = UIImageOrientation(rawValue: 0)
+    var lastPons = CGPoint()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,6 +25,10 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
         getData()
         
     }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+//        animationTable()
+    }
     @IBAction func updateDate(sender: UIButton) {
         getData()
         alertController("更新已經完成", message: " 總共有 \(self.rubbishs.count) 筆", cancelButton: "Ok",style:.Alert)
@@ -29,34 +36,62 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
     }
     
     func getData(){
-        getTheTrushData { (json) in
+        tapeiservers.getTheTrushData { (json) in
             if let json  = json {
-            let jsons = JSON(json)
-            let records = jsons["result"]["records"].arrayObject
-            self.rubbishs.removeAll(keepCapacity: true)
-            for record in (records)!{
-                let rubbish = Rubbish(dictionary: record as? Dictionary<String,AnyObject>)
-                self.rubbishs.insert(rubbish, atIndex: 0)
+                let jsons = JSON(json)
+                let records = jsons["result"]["records"].arrayObject
+                print(jsons)
+                self.rubbishs.removeAll(keepCapacity: true)
+                for record in (records)!{
+                    let rubbish = Rubbish(dictionary: record as? Dictionary<String,AnyObject>)
+                    self.rubbishs.insert(rubbish, atIndex: 0)
                 }
+                
             }
         }
-//        dataDictionary?.creatDownLoadTask(Rubbish_Api, success: { (json, response) in
-//            self.rubbishs = []
-//            let jsons = json?["result"] as! Dictionary<String, AnyObject>
-//            if let result = jsons as? Dictionary<String, AnyObject>{
-//                let records = result["records"]
-//                self.rubbishs.removeAll()
-//                for  record in (records?.allObjects)! {
-//                    let rubbish = Rubbish(dictionary:record as! Dictionary<String, AnyObject>)
-//                    self.rubbishs.insert(rubbish, atIndex: 0)
-//                    }
-//                }
-//                self.tableView.reloadData()
-//                })
-//            {
-//            (error) in
-//            print(error, terminator: "")
-//        }
+        
+    }
+    func animationTable(){
+    
+        self.tableView.reloadData()
+
+        let cells = tableView.visibleCells
+        let tableViewHeight = tableView.bounds.size.height
+        for i in cells{
+            let cell = i as UITableViewCell
+            cell.transform = CGAffineTransformMakeTranslation(0, tableViewHeight)
+        }
+        var index : Double = 0
+        for a in cells {
+            let cell = a as UITableViewCell
+            UIView.animateWithDuration(1.5, delay: 0.05 * index, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
+                
+                cell.transform = CGAffineTransformMakeTranslation(0, 0)
+                
+                }, completion: nil)
+                index += 1
+            }
+        }
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        var rotation = CATransform3D()
+        rotation = CATransform3DMakeRotation( CGFloat(90.0*M_PI)/180,0.0, 0.7, 0.4)
+        rotation.m34 = 1.0 / -600
+        cell.layer.shadowColor = UIColor.blackColor().CGColor
+        cell.layer.shadowOffset = CGSizeMake(10, 10);
+        cell.alpha = 0;
+        
+        cell.layer.transform = rotation;
+        cell.layer.anchorPoint = CGPointMake(0, 0.5);
+        
+        
+        //3. Define the final state (After the animation) and commit the animation
+       UIView.beginAnimations("rotation", context: nil)
+        UIView.setAnimationDuration(0.8)
+        cell.layer.transform = CATransform3DIdentity
+        cell.alpha = 1
+        cell.layer.shadowOffset = CGSizeMake(0, 0)
+        UIView.commitAnimations()
+        
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -72,14 +107,19 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return areaArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell")
+//        let cell = NewTaipeiCell()
         cell!.textLabel?.text = areaArray[(indexPath as NSIndexPath).row]
         return cell!
 
+    }
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        
     }
 }

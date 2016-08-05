@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F8B9176212CDCE229C9CB8D /* Pods_TaipeiTrackRubbishTruckUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9F38B2D94116C6F6FBEF62 /* Pods_TaipeiTrackRubbishTruckUITests.framework */; };
+		41492F391D53397200A08C83 /* NewTaipeiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41492F381D53397200A08C83 /* NewTaipeiCell.swift */; };
 		41654B331D45A68F0026992E /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B321D45A68F0026992E /* GoogleDataProvider.swift */; };
 		41654B4C1D45B10B0026992E /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B4B1D45B10B0026992E /* GooglePlace.swift */; };
 		41654B4E1D45B1290026992E /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B4D1D45B1290026992E /* PlaceMarker.swift */; };
@@ -16,6 +17,8 @@
 		41654B571D45B4900026992E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 41654B531D45B4900026992E /* README.md */; };
 		41654B581D45B4900026992E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B551D45B4900026992E /* SwiftyJSON.swift */; };
 		41654B5A1D45F06F0026992E /* TaipeiDataServers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B591D45F06F0026992E /* TaipeiDataServers.swift */; };
+		416C98101D50772200707537 /* GoogleIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C980F1D50772200707537 /* GoogleIconView.swift */; };
+		416C98131D51C54100707537 /* America.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 416C98121D51C54100707537 /* America.gpx */; };
 		BB57423D9C117288B9083464 /* Pods_TaipeiTrackRubbishTruckTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEFED55A983A946BB6F07E54 /* Pods_TaipeiTrackRubbishTruckTests.framework */; };
 		E9141655407FE08E8BE595DE /* Pods_TaipeiTrackRubbishTruck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09886A3FD10939FCFCFAE2E /* Pods_TaipeiTrackRubbishTruck.framework */; };
 		FB5878891D0A995D00D121DA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5878881D0A995D00D121DA /* CoreData.framework */; };
@@ -60,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		41492F381D53397200A08C83 /* NewTaipeiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewTaipeiCell.swift; path = View/NewTaipeiCell.swift; sourceTree = "<group>"; };
 		41654B321D45A68F0026992E /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleDataProvider.swift; path = Model/GoogleDataProvider.swift; sourceTree = "<group>"; };
 		41654B4B1D45B10B0026992E /* GooglePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
 		41654B4D1D45B1290026992E /* PlaceMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMarker.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 		41654B531D45B4900026992E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		41654B551D45B4900026992E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		41654B591D45F06F0026992E /* TaipeiDataServers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaipeiDataServers.swift; sourceTree = "<group>"; };
+		416C980F1D50772200707537 /* GoogleIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleIconView.swift; sourceTree = "<group>"; };
+		416C98121D51C54100707537 /* America.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = America.gpx; sourceTree = "<group>"; };
 		4A9F38B2D94116C6F6FBEF62 /* Pods_TaipeiTrackRubbishTruckUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaipeiTrackRubbishTruckUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51F4B422BFE5E7E8D357BA6C /* Pods-TaipeiTrackRubbishTruck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiTrackRubbishTruck.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiTrackRubbishTruck/Pods-TaipeiTrackRubbishTruck.release.xcconfig"; sourceTree = "<group>"; };
 		A455D5DF7CB2099924213C9E /* Pods-TaipeiTrackRubbishTruckTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiTrackRubbishTruckTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiTrackRubbishTruckTests/Pods-TaipeiTrackRubbishTruckTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -242,6 +248,7 @@
 				FB81F3411CE6CFD500FA4B67 /* Assets.xcassets */,
 				FB81F3431CE6CFD500FA4B67 /* LaunchScreen.storyboard */,
 				FB81F3461CE6CFD500FA4B67 /* Info.plist */,
+				416C98121D51C54100707537 /* America.gpx */,
 			);
 			path = TaipeiTrackRubbishTruck;
 			sourceTree = "<group>";
@@ -279,6 +286,7 @@
 			children = (
 				FB9BF9751CEB384A00659977 /* Animation */,
 				FB81F37C1CE9B11B00FA4B67 /* RubbishTableViewCell.swift */,
+				41492F381D53397200A08C83 /* NewTaipeiCell.swift */,
 				FBB2AF2B1D0B0BFE00F82CD2 /* GoogleStreetView.swift */,
 				41654B4F1D45B1AC0026992E /* UIViewExtension.swift */,
 			);
@@ -331,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				FBD891441D159DB200658F75 /* CustomRefresh.swift */,
+				416C980F1D50772200707537 /* GoogleIconView.swift */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -463,6 +472,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				416C98131D51C54100707537 /* America.gpx in Resources */,
 				FB81F3451CE6CFD500FA4B67 /* LaunchScreen.storyboard in Resources */,
 				FB7F96451D1ACEDF0042819F /* GoogleService-Info.plist in Resources */,
 				FB81F3421CE6CFD500FA4B67 /* Assets.xcassets in Resources */,
@@ -619,6 +629,7 @@
 				FB81F3751CE997ED00FA4B67 /* NSDictionary+Unicode.m in Sources */,
 				41654B331D45A68F0026992E /* GoogleDataProvider.swift in Sources */,
 				41654B581D45B4900026992E /* SwiftyJSON.swift in Sources */,
+				41492F391D53397200A08C83 /* NewTaipeiCell.swift in Sources */,
 				41654B571D45B4900026992E /* README.md in Sources */,
 				FB81F36F1CE6D2E300FA4B67 /* RubbishTruckController.swift in Sources */,
 				FBA3E60B1CEDA9510061C102 /* PopAnimation.swift in Sources */,
@@ -627,6 +638,7 @@
 				41654B4E1D45B1290026992E /* PlaceMarker.swift in Sources */,
 				FB81F33B1CE6CFD500FA4B67 /* AppDelegate.swift in Sources */,
 				41654B4C1D45B10B0026992E /* GooglePlace.swift in Sources */,
+				416C98101D50772200707537 /* GoogleIconView.swift in Sources */,
 				41654B501D45B1AC0026992E /* UIViewExtension.swift in Sources */,
 				FBB2AF2C1D0B0BFE00F82CD2 /* GoogleStreetView.swift in Sources */,
 				FBD891451D159DB200658F75 /* CustomRefresh.swift in Sources */,
