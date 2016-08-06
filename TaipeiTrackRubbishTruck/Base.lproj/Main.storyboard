@@ -141,12 +141,12 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
             </objects>
-            <point key="canvasLocation" x="925" y="111"/>
+            <point key="canvasLocation" x="973" y="103"/>
         </scene>
-        <!--新北市垃圾車-->
+        <!--NewTaipeiAreaController-->
         <scene sceneID="uoL-4y-ZnM">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="zC8-VD-FCM" customClass="NewTaipeiAreaController" customModule="TaipeiTrackRubbishTruck" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="zC8-VD-FCM" userLabel="NewTaipeiAreaController" customClass="NewTaipeiAreaController" customModule="TaipeiTrackRubbishTruck" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CoK-XS-Lr7"/>
                         <viewControllerLayoutGuide type="bottom" id="9ei-mx-MXy"/>
@@ -185,32 +185,14 @@
                             <constraint firstItem="B3R-n2-yLX" firstAttribute="top" secondItem="CoK-XS-Lr7" secondAttribute="bottom" id="s55-5y-ufS"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="新北市垃圾車" id="L2S-pC-pbZ">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="u0U-AQ-dDd">
-                            <view key="customView" contentMode="scaleToFill" id="Fge-g0-wWI">
-                                <rect key="frame" x="447" y="5" width="133" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8z-vj-jyG">
-                                        <rect key="frame" x="0.0" y="2" width="133" height="30"/>
-                                        <state key="normal" title="Update">
-                                            <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="updateDate:" destination="zC8-VD-FCM" eventType="touchUpInside" id="l7Z-bJ-DiZ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </view>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Ypi-jg-Z89"/>
                     <connections>
                         <outlet property="tableView" destination="B3R-n2-yLX" id="5nY-wo-lCR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mai-qI-kid" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="169" y="111"/>
+            <point key="canvasLocation" x="-215" y="119"/>
         </scene>
         <!--垃圾車路線-->
         <scene sceneID="KRh-ga-vRx">
@@ -275,49 +257,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vjb-OE-Amo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="kKo-1X-fYm"/>
             </objects>
-            <point key="canvasLocation" x="897" y="885"/>
+            <point key="canvasLocation" x="2393" y="897"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="uF5-ge-MSh">
             <objects>
-                <tabBarController id="8a4-0E-hWU" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8a4-0E-hWU" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="9Qa-zJ-z6x"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Mcx-hd-eCV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="qLc-fn-xTB" kind="relationship" relationship="viewControllers" id="zCK-bp-JWP"/>
-                        <segue destination="YE8-Ry-o3V" kind="relationship" relationship="viewControllers" id="4cd-79-rCd"/>
+                        <segue destination="cCx-zE-DXu" kind="relationship" relationship="viewControllers" id="qyi-a4-bcl"/>
+                        <segue destination="p3U-Ad-Re3" kind="relationship" relationship="viewControllers" id="fGU-fe-ZLf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mKX-lC-BOK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1825" y="103"/>
         </scene>
-        <!--垃圾車-->
-        <scene sceneID="okL-Cn-uAF">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qLc-fn-xTB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="垃圾車" image="truck-3" id="wfm-Sa-LEk"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VuH-uG-ku6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="zC8-VD-FCM" kind="relationship" relationship="rootViewController" id="cgz-D2-vbS"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2YT-i5-nxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-643" y="111"/>
-        </scene>
-        <!--View Controller-->
+        <!--Setting View Controller-->
         <scene sceneID="SkH-WN-MxX">
             <objects>
-                <viewController id="Eeh-dG-sMN" sceneMemberID="viewController">
+                <viewController id="Eeh-dG-sMN" customClass="SettingViewController" customModule="TaipeiTrackRubbishTruck" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HTq-qW-Dd6"/>
                         <viewControllerLayoutGuide type="bottom" id="fgs-LW-cl4"/>
@@ -331,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9g-ve-Yc7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-653" y="1370"/>
+            <point key="canvasLocation" x="-73" y="966"/>
         </scene>
         <!--Item-->
         <scene sceneID="VpI-y8-dzR">
@@ -351,26 +315,45 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Giz-Ts-Mtf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="169" y="885"/>
+            <point key="canvasLocation" x="1737" y="885"/>
         </scene>
         <!--Item-->
-        <scene sceneID="T3G-AP-PQ0">
+        <scene sceneID="W1u-NE-4E1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YE8-Ry-o3V" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ujB-vS-p4s"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cCx-zE-DXu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="truck-3" id="v8n-Zo-HTn"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qZz-WP-3ZA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tfT-2a-Ylm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Eeh-dG-sMN" kind="relationship" relationship="rootViewController" id="U3l-fm-gmZ"/>
+                        <segue destination="zC8-VD-FCM" kind="relationship" relationship="rootViewController" id="zuk-EC-qND"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0kL-yH-qvp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RXz-9l-UR8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1557" y="1226"/>
+            <point key="canvasLocation" x="-1027" y="119"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="nTD-lp-FRO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p3U-Ad-Re3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="6cJ-eK-yeC"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JIT-Zv-Bvd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Eeh-dG-sMN" kind="relationship" relationship="rootViewController" id="Asn-yE-MP7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qjw-aX-A5t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-885" y="966"/>
         </scene>
     </scenes>
     <resources>

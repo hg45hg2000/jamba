@@ -21,21 +21,9 @@ class GoogleIconView: UIView {
         // Drawing code
     }
     */
-    var slider = UISlider(){
-        didSet{
-            slider.maximumValue = 360
-            slider.minimumValue = 0
-            slider.continuous = true
-        }
-    }
-    var dismissButton = UIButton(){
-        didSet{
-            dismissButton.setTitle("cancel", forState: .Normal)
-            dismissButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
-            dismissButton.titleLabel?.textColor = UIColor.blueColor()
-            dismissButton.translatesAutoresizingMaskIntoConstraints = false
-        }
-    }
+    var slider = UISlider()
+    
+    var dismissButton = UIButton()
     weak var delegate : GoogleIconViewDelegate?
     var ButtonWidth :CGFloat?
     
@@ -58,17 +46,25 @@ class GoogleIconView: UIView {
         self.hidden = true
     }
     func setupSlider(){
+        slider.maximumValue = 360
+        slider.minimumValue = 0
+        slider.continuous = true
+        slider.tintColor = UIColor.blueColor()
         slider.addTarget(self, action: #selector(GoogleIconView.sliderdidchage(_:)), forControlEvents: .ValueChanged)
         self.addSubview(slider)
     }
     func setupDismissButton(){
+        dismissButton.setTitle("cancel", forState: .Normal)
+        dismissButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        dismissButton.titleLabel?.textColor = UIColor.blueColor()
+        dismissButton.translatesAutoresizingMaskIntoConstraints = false
         dismissButton.addTarget(self, action: #selector(GoogleIconView.dismissButtonPress(_:)), forControlEvents: .TouchUpInside)
         self.addSubview(dismissButton)
     }
     
     func setupButtonlayout(){
-        self.addConstraint(NSLayoutConstraint(item: self.dismissButton, attribute: .Width, relatedBy: .Equal, toItem: self, attribute: .Width, multiplier: 0.6, constant: 0.0))
-        self.addConstraint(NSLayoutConstraint(item: self.dismissButton, attribute: .Height, relatedBy: .Equal, toItem: self, attribute: .Height, multiplier: 0.6, constant: 0.0))
+        self.addConstraint(NSLayoutConstraint(item: self.dismissButton, attribute: .Width, relatedBy: .Equal, toItem: self, attribute: .Width, multiplier: 0.5, constant: 0.0))
+        self.addConstraint(NSLayoutConstraint(item: self.dismissButton, attribute: .Height, relatedBy: .Equal, toItem: self, attribute: .Height, multiplier: 0.5, constant: 0.0))
         self.addConstraint(NSLayoutConstraint(item: self.dismissButton, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
         self.addConstraint(NSLayoutConstraint(item: self.dismissButton, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
     }

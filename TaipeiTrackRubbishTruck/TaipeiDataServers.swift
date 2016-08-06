@@ -27,8 +27,9 @@ class TapieiDataServers {
     
     func getTheTrushData(completion:((AnyObject?))-> Void){
         Alamofire.request(.GET,Rubbish_Api).responseJSON { (response) in
+              dispatch_async(dispatch_get_main_queue()) {
             completion(response.result.value)
-            
+            }
         }
     }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F8B9176212CDCE229C9CB8D /* Pods_TaipeiTrackRubbishTruckUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9F38B2D94116C6F6FBEF62 /* Pods_TaipeiTrackRubbishTruckUITests.framework */; };
+		410414E21D55CB40003178F6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410414E11D55CB40003178F6 /* SettingViewController.swift */; };
 		41492F391D53397200A08C83 /* NewTaipeiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41492F381D53397200A08C83 /* NewTaipeiCell.swift */; };
 		41654B331D45A68F0026992E /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B321D45A68F0026992E /* GoogleDataProvider.swift */; };
 		41654B4C1D45B10B0026992E /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B4B1D45B10B0026992E /* GooglePlace.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		410414E11D55CB40003178F6 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = Controller/SettingViewController.swift; sourceTree = "<group>"; };
 		41492F381D53397200A08C83 /* NewTaipeiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewTaipeiCell.swift; path = View/NewTaipeiCell.swift; sourceTree = "<group>"; };
 		41654B321D45A68F0026992E /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleDataProvider.swift; path = Model/GoogleDataProvider.swift; sourceTree = "<group>"; };
 		41654B4B1D45B10B0026992E /* GooglePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
@@ -238,7 +240,6 @@
 			children = (
 				FB81F36B1CE6D1E200FA4B67 /* Model */,
 				FB81F36A1CE6D1D600FA4B67 /* Controller */,
-				FBD891431D159D4C00658F75 /* Custom UI */,
 				FB81F3691CE6D1CB00FA4B67 /* View */,
 				FB81F3681CE6D1B000FA4B67 /* Uility */,
 				FB81F33A1CE6CFD500FA4B67 /* AppDelegate.swift */,
@@ -284,6 +285,7 @@
 		FB81F3691CE6D1CB00FA4B67 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FBD891431D159D4C00658F75 /* Custom UI */,
 				FB9BF9751CEB384A00659977 /* Animation */,
 				FB81F37C1CE9B11B00FA4B67 /* RubbishTableViewCell.swift */,
 				41492F381D53397200A08C83 /* NewTaipeiCell.swift */,
@@ -300,6 +302,7 @@
 				FBA2583A1CE9FBAC00A4E761 /* NewTaipeiAreaController.swift */,
 				FBA3BBEC1CEB1BF7004AF688 /* BaseViewController.swift */,
 				FB878A811CF2CC5D0011FF04 /* GoogleMapViewController.swift */,
+				410414E11D55CB40003178F6 /* SettingViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 				FBA3E60B1CEDA9510061C102 /* PopAnimation.swift in Sources */,
 				41654B5A1D45F06F0026992E /* TaipeiDataServers.swift in Sources */,
 				FBA2583B1CE9FBAC00A4E761 /* NewTaipeiAreaController.swift in Sources */,
+				410414E21D55CB40003178F6 /* SettingViewController.swift in Sources */,
 				41654B4E1D45B1290026992E /* PlaceMarker.swift in Sources */,
 				FB81F33B1CE6CFD500FA4B67 /* AppDelegate.swift in Sources */,
 				41654B4C1D45B10B0026992E /* GooglePlace.swift in Sources */,

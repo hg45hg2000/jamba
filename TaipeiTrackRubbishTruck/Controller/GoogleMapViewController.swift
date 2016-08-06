@@ -43,7 +43,6 @@ class GoogleMapViewController: UIViewController{
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         checkAuthorization()
-        
     }
     
     override func viewDidLoad() {
@@ -64,7 +63,7 @@ class GoogleMapViewController: UIViewController{
 
         placesClient = GMSPlacesClient()
         searchPlace(selectRubbish)
-        
+    
 
     }
     
@@ -168,7 +167,6 @@ class GoogleMapViewController: UIViewController{
         let regionMaxVisiting = 10.0
         var regionsToDelete: [String] = []
         
-        // 2.
         for regionIdentifier in monitoredRegions.keys {
             
             // 3.
@@ -188,6 +186,7 @@ class GoogleMapViewController: UIViewController{
 extension GoogleMapViewController:GoogleIconViewDelegate{
     func silderDidSlide(googleIconView: GoogleIconView, sliderValue: Float) {
         iconRotation = sliderValue
+        print(iconRotation)
         marker.rotation = Double(self.iconRotation)
     }
 }

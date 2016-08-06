@@ -14,7 +14,6 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
     
     var selectedIndex :Int = 0
     let tapeiservers = TapieiDataServers.sharedInstance
-    
     var scrollOrientation = UIImageOrientation(rawValue: 0)
     var lastPons = CGPoint()
     
@@ -23,11 +22,12 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
+        self.navigationController?.navigationBar.topItem?.title = "新北市垃圾車"
         
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-//        animationTable()
+        animationTable()
     }
     @IBAction func updateDate(sender: UIButton) {
         getData()
@@ -36,6 +36,7 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
     }
     
     func getData(){
+        
         tapeiservers.getTheTrushData { (json) in
             if let json  = json {
                 let jsons = JSON(json)
@@ -72,27 +73,27 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
                 index += 1
             }
         }
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        var rotation = CATransform3D()
-        rotation = CATransform3DMakeRotation( CGFloat(90.0*M_PI)/180,0.0, 0.7, 0.4)
-        rotation.m34 = 1.0 / -600
-        cell.layer.shadowColor = UIColor.blackColor().CGColor
-        cell.layer.shadowOffset = CGSizeMake(10, 10);
-        cell.alpha = 0;
-        
-        cell.layer.transform = rotation;
-        cell.layer.anchorPoint = CGPointMake(0, 0.5);
-        
-        
-        //3. Define the final state (After the animation) and commit the animation
-       UIView.beginAnimations("rotation", context: nil)
-        UIView.setAnimationDuration(0.8)
-        cell.layer.transform = CATransform3DIdentity
-        cell.alpha = 1
-        cell.layer.shadowOffset = CGSizeMake(0, 0)
-        UIView.commitAnimations()
-        
-    }
+//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+//        var rotation = CATransform3D()
+//        rotation = CATransform3DMakeRotation( CGFloat(90.0*M_PI)/180,0.0, 0.7, 0.4)
+//        rotation.m34 = 1.0 / -600
+//        cell.layer.shadowColor = UIColor.blackColor().CGColor
+//        cell.layer.shadowOffset = CGSizeMake(10, 10);
+//        cell.alpha = 0;
+//        
+//        cell.layer.transform = rotation;
+//        cell.layer.anchorPoint = CGPointMake(0, 0.5);
+//        
+//        
+//        //3. Define the final state (After the animation) and commit the animation
+//       UIView.beginAnimations("rotation", context: nil)
+//        UIView.setAnimationDuration(0.8)
+//        cell.layer.transform = CATransform3DIdentity
+//        cell.alpha = 1
+//        cell.layer.shadowOffset = CGSizeMake(0, 0)
+//        UIView.commitAnimations()
+//        
+//    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "rubbishDetail"{
@@ -114,12 +115,22 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell")
-//        let cell = NewTaipeiCell()
         cell!.textLabel?.text = areaArray[(indexPath as NSIndexPath).row]
         return cell!
 
     }
+    
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        
+            switch scrollView.panGestureRecognizer.state{
+            case  .Changed :
+            let velocity = scrollView.panGestureRecognizer.translationInView(self.view?.superview).y
+            if  velocity < 0  {
+                navigationController?.setNavigationBarHidden(true, animated: true)
+            }
+            else{
+                navigationController?.setNavigationBarHidden(false, animated: true)
+            }
+            default:break
+        }
     }
 }
