@@ -37,11 +37,11 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
         
     }
     @IBAction func upDate(sender: UIBarButtonItem) {
-        getData { 
-            if self.filterRubbishs.count == 0 {
-                self.alertController("抱歉現在\(self.title!)沒有資料", message: "", cancelButton: "OK", style: .Alert)
-            }else{
-                self.alertController("更新已經完成", message: " 總共有 \(self.filterRubbishs.count) 筆", cancelButton: "Ok",style:.Alert)
+        getData {
+                if self.filterRubbishs.count == 0 {
+                    self.alertController("抱歉現在\(self.title!)沒有資料", message: "", cancelButton: "OK", style: .Alert)
+                }else{
+                    self.alertController("更新已經完成", message: " 總共有 \(self.filterRubbishs.count) 筆", cancelButton: "Ok",style:.Alert)
             }
         }
     }
@@ -57,7 +57,7 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
     
     func threeMinsToReloadData(){
         oneSecondTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(RubbishTruckController.oneSecondupdateTime), userInfo: self, repeats: true)
-        threeminsTimer  = NSTimer.scheduledTimerWithTimeInterval(180, target: self, selector: #selector(NewTaipeiAreaController.getData), userInfo: nil, repeats: true)
+        threeminsTimer  = NSTimer.scheduledTimerWithTimeInterval(180, target: self, selector: #selector(RubbishTruckController.getData(_:)), userInfo: nil, repeats: true)
     }
     
     func oneSecondupdateTime(){
@@ -123,6 +123,7 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
         tapeiservers.getTheTrushData { (json) in
             if let json = json {
                 let jsons = JSON(json)
+                
                 print(jsons["result"]["records"])
                 let records = jsons["result"]["records"].arrayObject
                 self.rubbishs.removeAll(keepCapacity: true)
@@ -132,10 +133,9 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
                 }
                 self.filterContentForArea(self.areaArray[self.selectedIndex])
                 self.Count = 0
-                NSOperationQueue.mainQueue().addOperationWithBlock({
-                    self.tableView.reloadData()
-                })
+                self.tableView.reloadData()
                 completion()
+                
             }
         }
     }
