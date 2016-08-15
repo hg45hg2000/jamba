@@ -21,7 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             GMSServices.provideAPIKey(Google_Api)
         
         
-        let allNotificationTypes = (UIUserNotificationType.Alert)
+        let allNotificationTypes : UIUserNotificationType =
+            [UIUserNotificationType.Badge ,
+             UIUserNotificationType.Alert ,
+            UIUserNotificationType.Sound]
+        
+        
         let settings = UIUserNotificationSettings(forTypes: allNotificationTypes, categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         UIApplication.sharedApplication().registerForRemoteNotifications()
@@ -32,6 +37,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+//    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+//        var characterSet: NSCharacterSet = NSCharacterSet( charactersInString: "<>" )
+//        
+//        var deviceTokenString: String = ( deviceToken.description as NSString )
+//            .stringByTrimmingCharactersInSet( characterSet )
+//            .stringByReplacingOccurrencesOfString( " ", withString: "" ) as String
+//        
+//        print( deviceTokenString )
+//        
+//    }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

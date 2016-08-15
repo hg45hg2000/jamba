@@ -13,19 +13,17 @@ struct Cell {
     static let rubbishCell = "rubbish"
 }
 
-class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate{
+class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate,RubbishTableCellDelegate{
 
     @IBOutlet var spinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
     var refreshControl = CustomRefresh(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
 
-   
     var threeminsTimer = NSTimer()
     var oneSecondTimer = NSTimer()
     var Count = 0
     var selectedIndex = Int()
-    var menuTransitionManager = MenuTransitionManager()
     let customInteractionController = CustomInteractionController()
     let popAnimation = PopAnimation()
     let tapeiservers = TapieiDataServers.sharedInstance
@@ -37,6 +35,9 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
         self.title = areaArray [selectedIndex]
         threeMinsToReloadData()
         
+    }
+    @IBAction func upDate(sender: UIBarButtonItem) {
+        getData()
     }
     
     func spinnerAdd(){
@@ -50,35 +51,52 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
     
     func threeMinsToReloadData(){
         oneSecondTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(RubbishTruckController.oneSecondupdateTime), userInfo: self, repeats: true)
-        threeminsTimer  = NSTimer.scheduledTimerWithTimeInterval(180, target: self, selector: #selector(RubbishTruckController.getData), userInfo: nil, repeats: true)
+        threeminsTimer  = NSTimer.scheduledTimerWithTimeInterval(180, target: self, selector: #selector(NewTaipeiAreaController.getData), userInfo: nil, repeats: true)
     }
     
     func oneSecondupdateTime(){
         Count = Count + 1
         tableView.reloadData()
     }
+    
+    
     // tableView 
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return  filterRubbishs.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let rubbish = filterRubbishs[(indexPath as NSIndexPath).row]
-        if  let cell = tableView.dequeueReusableCellWithIdentifier(Cell.rubbishCell) as? RubbishTableViewCell {
-            cell.configureCell(rubbish)
-            cell.updateTime.text  = String(Count) + "秒前更新"
+        if  let cell = tableView.dequeueReusableCellWithIdentifier(Cell.rubbishCell, forIndexPath: indexPath ) as? RubbishTableViewCell {
+                cell.configureCell(rubbish)
+                cell.updateTime.text  = String(Count) + "秒前更新"
+            if cell.buttondelegate == nil{
+                cell.buttondelegate = self
+            }
+            
             return cell
         }
         else{
             return RubbishTableViewCell()
         }
+        
 
+
+    }
+    func RubbishCelldidselected(RubbishCell: RubbishTableViewCell) {
+        showAlertForRow(tableView.indexPathForCell(RubbishCell)!.row)
+        let indexPath = NSIndexPath(forRow: tableView.indexPathForCell(RubbishCell)!.row, inSection: 0)
+        
+            tableView.beginUpdates()
+            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Middle)
+            tableView.endUpdates()
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let googleViewController = storyboard.instantiateViewControllerWithIdentifier(ViewControllerID.googleMapView)as! GoogleMapViewController
-        googleViewController.selectRubbish = filterRubbishs[indexPath.row]
+                googleViewController.selectRubbish = filterRubbishs[indexPath.row]
         self.navigationController?.pushViewController(googleViewController, animated: true)
            }
     

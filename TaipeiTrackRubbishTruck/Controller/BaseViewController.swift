@@ -13,7 +13,7 @@ class BaseViewController: UIViewController {
     
     var filterRubbishs = [Rubbish]()
     var rubbishs = [Rubbish]()
-    var areaArray = ["淡水區","板橋區","新店區","中和區","石碇區","永和區","三重區","新莊區","中和區","樹林區","貢寮區","雙溪區","土城區","三芝區"]
+    var areaArray = ["淡水區","板橋區","新店區","中和區","石碇區","永和區","三重區","新莊區","中和區","樹林區","貢寮區","雙溪區","土城區","三芝區","汐止區"]
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     
@@ -24,7 +24,7 @@ class BaseViewController: UIViewController {
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
     func filterContentForArea(filter:String){
@@ -44,6 +44,19 @@ class BaseViewController: UIViewController {
         alert.addAction(canelAction)
         self.presentViewController(alert, animated: true, completion: nil)
     }
-    
+    func showAlertForRow(row: Int) {
+        let alert = UIAlertController(
+            title: "BEHOLD",
+            message: "Cell at row \(row) was tapped!",
+            preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Gotcha!", style: UIAlertActionStyle.Default, handler: { (test) -> Void in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        
+        self.presentViewController(
+            alert,
+            animated: true,
+            completion: nil)
+    }
     
 }

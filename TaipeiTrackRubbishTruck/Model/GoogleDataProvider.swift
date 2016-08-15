@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import CoreLocation
+import Alamofire
 
 
 class GoogleDataProvider {
@@ -75,7 +76,7 @@ class GoogleDataProvider {
                         completion(nil)
                     }
                 }
-                }.resume()
+            }.resume()
         }
     }
     func searchPlace(){

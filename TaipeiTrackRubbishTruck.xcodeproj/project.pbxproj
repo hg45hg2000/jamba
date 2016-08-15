@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		1F8B9176212CDCE229C9CB8D /* Pods_TaipeiTrackRubbishTruckUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9F38B2D94116C6F6FBEF62 /* Pods_TaipeiTrackRubbishTruckUITests.framework */; };
+		4103BAED1D5FFB1600C20213 /* AnimatedULogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4103BAE51D5FFB1600C20213 /* AnimatedULogoView.swift */; };
+		4103BAEE1D5FFB1600C20213 /* Chimes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4103BAE61D5FFB1600C20213 /* Chimes.xcassets */; };
+		4103BAEF1D5FFB1600C20213 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4103BAE71D5FFB1600C20213 /* Constants.swift */; };
+		4103BAF01D5FFB1600C20213 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4103BAE81D5FFB1600C20213 /* Info.plist */; };
+		4103BAF11D5FFB1600C20213 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4103BAEA1D5FFB1600C20213 /* SplashViewController.swift */; };
+		4103BAF21D5FFB1600C20213 /* TileGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4103BAEB1D5FFB1600C20213 /* TileGridView.swift */; };
+		4103BAF31D5FFB1600C20213 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4103BAEC1D5FFB1600C20213 /* TileView.swift */; };
+		4103BAF91D5FFC5500C20213 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4103BAF71D5FFC5500C20213 /* Utils.swift */; };
+		4103BAFC1D616BA500C20213 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4103BAFB1D616BA500C20213 /* CollectionViewController.m */; };
 		410414E21D55CB40003178F6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410414E11D55CB40003178F6 /* SettingViewController.swift */; };
 		41492F391D53397200A08C83 /* NewTaipeiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41492F381D53397200A08C83 /* NewTaipeiCell.swift */; };
 		41654B331D45A68F0026992E /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B321D45A68F0026992E /* GoogleDataProvider.swift */; };
@@ -47,6 +56,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4103BB071D617B4D00C20213 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB81F32F1CE6CFD500FA4B67 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB81F3361CE6CFD500FA4B67;
+			remoteInfo = TaipeiTrackRubbishTruck;
+		};
 		FB81F34C1CE6CFD500FA4B67 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FB81F32F1CE6CFD500FA4B67 /* Project object */;
@@ -64,6 +80,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4103BAE51D5FFB1600C20213 /* AnimatedULogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedULogoView.swift; sourceTree = "<group>"; };
+		4103BAE61D5FFB1600C20213 /* Chimes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Chimes.xcassets; sourceTree = "<group>"; };
+		4103BAE71D5FFB1600C20213 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4103BAE81D5FFB1600C20213 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4103BAE91D5FFB1600C20213 /* SplashScreenUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreenUI.h; sourceTree = "<group>"; };
+		4103BAEA1D5FFB1600C20213 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		4103BAEB1D5FFB1600C20213 /* TileGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileGridView.swift; sourceTree = "<group>"; };
+		4103BAEC1D5FFB1600C20213 /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
+		4103BAF51D5FFC5500C20213 /* Commons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Commons.h; sourceTree = "<group>"; };
+		4103BAF71D5FFC5500C20213 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		4103BAFA1D616BA500C20213 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		4103BAFB1D616BA500C20213 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		4103BB021D617B4D00C20213 /* TaipeiTrackRubbishTruckTests XCTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TaipeiTrackRubbishTruckTests XCTest.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		410414E11D55CB40003178F6 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = Controller/SettingViewController.swift; sourceTree = "<group>"; };
 		41492F381D53397200A08C83 /* NewTaipeiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewTaipeiCell.swift; path = View/NewTaipeiCell.swift; sourceTree = "<group>"; };
 		41654B321D45A68F0026992E /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleDataProvider.swift; path = Model/GoogleDataProvider.swift; sourceTree = "<group>"; };
@@ -130,6 +159,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4103BAFF1D617B4D00C20213 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB81F3341CE6CFD500FA4B67 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -182,6 +218,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4103BAE41D5FFB1600C20213 /* SplashScreenUI */ = {
+			isa = PBXGroup;
+			children = (
+				4103BAE51D5FFB1600C20213 /* AnimatedULogoView.swift */,
+				4103BAE61D5FFB1600C20213 /* Chimes.xcassets */,
+				4103BAE71D5FFB1600C20213 /* Constants.swift */,
+				4103BAE81D5FFB1600C20213 /* Info.plist */,
+				4103BAE91D5FFB1600C20213 /* SplashScreenUI.h */,
+				4103BAEA1D5FFB1600C20213 /* SplashViewController.swift */,
+				4103BAEB1D5FFB1600C20213 /* TileGridView.swift */,
+				4103BAEC1D5FFB1600C20213 /* TileView.swift */,
+			);
+			name = SplashScreenUI;
+			path = "Custom UI/SplashScreenUI";
+			sourceTree = "<group>";
+		};
+		4103BAF41D5FFC5500C20213 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				4103BAF51D5FFC5500C20213 /* Commons.h */,
+				4103BAF71D5FFC5500C20213 /* Utils.swift */,
+			);
+			name = Commons;
+			path = Uility/Commons;
+			sourceTree = "<group>";
+		};
 		41654B511D45B4900026992E /* SwiftyJSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +293,7 @@
 				FB81F3371CE6CFD500FA4B67 /* TaipeiTrackRubbishTruck.app */,
 				FB81F34B1CE6CFD500FA4B67 /* TaipeiTrackRubbishTruckTests.xctest */,
 				FB81F3561CE6CFD500FA4B67 /* TaipeiTrackRubbishTruckUITests.xctest */,
+				4103BB021D617B4D00C20213 /* TaipeiTrackRubbishTruckTests XCTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,11 +301,11 @@
 		FB81F3391CE6CFD500FA4B67 /* TaipeiTrackRubbishTruck */ = {
 			isa = PBXGroup;
 			children = (
+				FB81F33A1CE6CFD500FA4B67 /* AppDelegate.swift */,
 				FB81F36B1CE6D1E200FA4B67 /* Model */,
 				FB81F36A1CE6D1D600FA4B67 /* Controller */,
 				FB81F3691CE6D1CB00FA4B67 /* View */,
 				FB81F3681CE6D1B000FA4B67 /* Uility */,
-				FB81F33A1CE6CFD500FA4B67 /* AppDelegate.swift */,
 				41654B511D45B4900026992E /* SwiftyJSON */,
 				FB7F96441D1ACEDF0042819F /* GoogleService-Info.plist */,
 				FB81F33E1CE6CFD500FA4B67 /* Main.storyboard */,
@@ -275,6 +338,7 @@
 		FB81F3681CE6D1B000FA4B67 /* Uility */ = {
 			isa = PBXGroup;
 			children = (
+				4103BAF41D5FFC5500C20213 /* Commons */,
 				FB81F36C1CE6D24700FA4B67 /* Constant.swift */,
 				FB81F3701CE6D50C00FA4B67 /* TaipeiTrackRubbishTruck-Bridging-Header.h */,
 				FB81F3741CE997ED00FA4B67 /* NSDictionary+Unicode.m */,
@@ -285,6 +349,7 @@
 		FB81F3691CE6D1CB00FA4B67 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4103BAE41D5FFB1600C20213 /* SplashScreenUI */,
 				FBD891431D159D4C00658F75 /* Custom UI */,
 				FB9BF9751CEB384A00659977 /* Animation */,
 				FB81F37C1CE9B11B00FA4B67 /* RubbishTableViewCell.swift */,
@@ -303,6 +368,8 @@
 				FBA3BBEC1CEB1BF7004AF688 /* BaseViewController.swift */,
 				FB878A811CF2CC5D0011FF04 /* GoogleMapViewController.swift */,
 				410414E11D55CB40003178F6 /* SettingViewController.swift */,
+				4103BAFA1D616BA500C20213 /* CollectionViewController.h */,
+				4103BAFB1D616BA500C20213 /* CollectionViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -350,6 +417,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4103BB011D617B4D00C20213 /* TaipeiTrackRubbishTruckTests XCTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4103BB091D617B4D00C20213 /* Build configuration list for PBXNativeTarget "TaipeiTrackRubbishTruckTests XCTest" */;
+			buildPhases = (
+				4103BAFE1D617B4D00C20213 /* Sources */,
+				4103BAFF1D617B4D00C20213 /* Frameworks */,
+				4103BB001D617B4D00C20213 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4103BB081D617B4D00C20213 /* PBXTargetDependency */,
+			);
+			name = "TaipeiTrackRubbishTruckTests XCTest";
+			productName = "TaipeiTrackRubbishTruckTests XCTest";
+			productReference = 4103BB021D617B4D00C20213 /* TaipeiTrackRubbishTruckTests XCTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FB81F3361CE6CFD500FA4B67 /* TaipeiTrackRubbishTruck */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB81F35F1CE6CFD500FA4B67 /* Build configuration list for PBXNativeTarget "TaipeiTrackRubbishTruck" */;
@@ -422,6 +507,10 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = CENGLIN;
 				TargetAttributes = {
+					4103BB011D617B4D00C20213 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = FB81F3361CE6CFD500FA4B67;
+					};
 					FB81F3361CE6CFD500FA4B67 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 7LVJW6YG74;
@@ -466,17 +555,27 @@
 				FB81F3361CE6CFD500FA4B67 /* TaipeiTrackRubbishTruck */,
 				FB81F34A1CE6CFD500FA4B67 /* TaipeiTrackRubbishTruckTests */,
 				FB81F3551CE6CFD500FA4B67 /* TaipeiTrackRubbishTruckUITests */,
+				4103BB011D617B4D00C20213 /* TaipeiTrackRubbishTruckTests XCTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4103BB001D617B4D00C20213 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB81F3351CE6CFD500FA4B67 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4103BAF01D5FFB1600C20213 /* Info.plist in Resources */,
 				416C98131D51C54100707537 /* America.gpx in Resources */,
 				FB81F3451CE6CFD500FA4B67 /* LaunchScreen.storyboard in Resources */,
+				4103BAEE1D5FFB1600C20213 /* Chimes.xcassets in Resources */,
 				FB7F96451D1ACEDF0042819F /* GoogleService-Info.plist in Resources */,
 				FB81F3421CE6CFD500FA4B67 /* Assets.xcassets in Resources */,
 				FB81F3401CE6CFD500FA4B67 /* Main.storyboard in Resources */,
@@ -624,10 +723,18 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4103BAFE1D617B4D00C20213 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB81F3331CE6CFD500FA4B67 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4103BAFC1D616BA500C20213 /* CollectionViewController.m in Sources */,
 				FB878A821CF2CC5D0011FF04 /* GoogleMapViewController.swift in Sources */,
 				FB81F3751CE997ED00FA4B67 /* NSDictionary+Unicode.m in Sources */,
 				41654B331D45A68F0026992E /* GoogleDataProvider.swift in Sources */,
@@ -638,6 +745,7 @@
 				FBA3E60B1CEDA9510061C102 /* PopAnimation.swift in Sources */,
 				41654B5A1D45F06F0026992E /* TaipeiDataServers.swift in Sources */,
 				FBA2583B1CE9FBAC00A4E761 /* NewTaipeiAreaController.swift in Sources */,
+				4103BAF21D5FFB1600C20213 /* TileGridView.swift in Sources */,
 				410414E21D55CB40003178F6 /* SettingViewController.swift in Sources */,
 				41654B4E1D45B1290026992E /* PlaceMarker.swift in Sources */,
 				FB81F33B1CE6CFD500FA4B67 /* AppDelegate.swift in Sources */,
@@ -647,12 +755,17 @@
 				FBB2AF2C1D0B0BFE00F82CD2 /* GoogleStreetView.swift in Sources */,
 				FBD891451D159DB200658F75 /* CustomRefresh.swift in Sources */,
 				FB9BF9771CEB388F00659977 /* MenuTransitionMansger.swift in Sources */,
+				4103BAF11D5FFB1600C20213 /* SplashViewController.swift in Sources */,
+				4103BAF91D5FFC5500C20213 /* Utils.swift in Sources */,
 				FBA3BBED1CEB1BF7004AF688 /* BaseViewController.swift in Sources */,
+				4103BAED1D5FFB1600C20213 /* AnimatedULogoView.swift in Sources */,
 				FB81F36D1CE6D24700FA4B67 /* Constant.swift in Sources */,
 				FB81F37D1CE9B11B00FA4B67 /* RubbishTableViewCell.swift in Sources */,
 				FBA3E6091CED962A0061C102 /* CustomInteractionController.swift in Sources */,
 				FB9BF9741CEB323700659977 /* Reachability.swift in Sources */,
 				FB81F3781CE99EDD00FA4B67 /* Rubbish.swift in Sources */,
+				4103BAF31D5FFB1600C20213 /* TileView.swift in Sources */,
+				4103BAEF1D5FFB1600C20213 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,6 +788,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4103BB081D617B4D00C20213 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB81F3361CE6CFD500FA4B67 /* TaipeiTrackRubbishTruck */;
+			targetProxy = 4103BB071D617B4D00C20213 /* PBXContainerItemProxy */;
+		};
 		FB81F34D1CE6CFD500FA4B67 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FB81F3361CE6CFD500FA4B67 /* TaipeiTrackRubbishTruck */;
@@ -707,6 +825,30 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4103BB0A1D617B4D00C20213 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "TaipeiTrackRubbishTruckTests XCTest/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jambe.TaipeiTrackRubbishTruckTests-XCTest";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaipeiTrackRubbishTruck.app/TaipeiTrackRubbishTruck";
+			};
+			name = Debug;
+		};
+		4103BB0B1D617B4D00C20213 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "TaipeiTrackRubbishTruckTests XCTest/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jambe.TaipeiTrackRubbishTruckTests-XCTest";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaipeiTrackRubbishTruck.app/TaipeiTrackRubbishTruck";
+			};
+			name = Release;
+		};
 		FB81F35D1CE6CFD500FA4B67 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -798,6 +940,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = TaipeiTrackRubbishTruck/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -817,6 +960,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = TaipeiTrackRubbishTruck/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -834,6 +978,7 @@
 			baseConfigurationReference = C8098CB42DA76595B9DDD727 /* Pods-TaipeiTrackRubbishTruckTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = TaipeiTrackRubbishTruckTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jamba.TaipeiTrackRubbishTruckTests;
@@ -848,6 +993,7 @@
 			baseConfigurationReference = A455D5DF7CB2099924213C9E /* Pods-TaipeiTrackRubbishTruckTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = TaipeiTrackRubbishTruckTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jamba.TaipeiTrackRubbishTruckTests;
@@ -886,6 +1032,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4103BB091D617B4D00C20213 /* Build configuration list for PBXNativeTarget "TaipeiTrackRubbishTruckTests XCTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4103BB0A1D617B4D00C20213 /* Debug */,
+				4103BB0B1D617B4D00C20213 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FB81F3321CE6CFD500FA4B67 /* Build configuration list for PBXProject "TaipeiTrackRubbishTruck" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

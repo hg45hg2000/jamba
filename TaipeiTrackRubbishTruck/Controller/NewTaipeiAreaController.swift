@@ -21,9 +21,8 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
         self.navigationController?.navigationBar.topItem?.title = "新北市垃圾車"
-        
+               
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -41,7 +40,6 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
             if let json  = json {
                 let jsons = JSON(json)
                 let records = jsons["result"]["records"].arrayObject
-                print(jsons)
                 self.rubbishs.removeAll(keepCapacity: true)
                 for record in (records)!{
                     let rubbish = Rubbish(dictionary: record as? Dictionary<String,AnyObject>)
@@ -49,13 +47,13 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
                 }
                 
             }
+        
         }
         
     }
     func animationTable(){
     
         self.tableView.reloadData()
-
         let cells = tableView.visibleCells
         let tableViewHeight = tableView.bounds.size.height
         for i in cells{
@@ -72,32 +70,16 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
                 }, completion: nil)
                 index += 1
             }
+        getData()
+
         }
-//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-//        var rotation = CATransform3D()
-//        rotation = CATransform3DMakeRotation( CGFloat(90.0*M_PI)/180,0.0, 0.7, 0.4)
-//        rotation.m34 = 1.0 / -600
-//        cell.layer.shadowColor = UIColor.blackColor().CGColor
-//        cell.layer.shadowOffset = CGSizeMake(10, 10);
-//        cell.alpha = 0;
-//        
-//        cell.layer.transform = rotation;
-//        cell.layer.anchorPoint = CGPointMake(0, 0.5);
-//        
-//        
-//        //3. Define the final state (After the animation) and commit the animation
-//       UIView.beginAnimations("rotation", context: nil)
-//        UIView.setAnimationDuration(0.8)
-//        cell.layer.transform = CATransform3DIdentity
-//        cell.alpha = 1
-//        cell.layer.shadowOffset = CGSizeMake(0, 0)
-//        UIView.commitAnimations()
-//        
-//    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "rubbishDetail"{
-            if let   destViewController = segue.destinationViewController as? RubbishTruckController{
+            if let   destViewController = segue.destinationViewController as?RubbishTruckController
+            {
+                
                 selectedIndex  = ((self.tableView.indexPathForSelectedRow as NSIndexPath?)?.row)!
                 filterContentForArea(areaArray[selectedIndex])
                 destViewController.filterRubbishs = filterRubbishs
@@ -119,6 +101,9 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
         return cell!
 
     }
+   
+   
+    
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
             switch scrollView.panGestureRecognizer.state{

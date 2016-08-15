@@ -13,7 +13,10 @@ class SettingViewController: UIViewController {
     
     let slider = UISlider()
     var label = UILabel()
+    var tileGridView : TileGridView!
+    var time = NSTimer()
     
+    let animatedULogoView: AnimatedULogoView = AnimatedULogoView(frame: CGRect(x: 0.0, y: 0.0, width: 90.0, height: 90.0))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,28 @@ class SettingViewController: UIViewController {
         setupSliderConstraint()
         setupLabelConstraint()
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        animation()
+    }
+    
+    func animation(){
+        tileGridView = TileGridView(TileFileName: "Chimes")
+        self.view.addSubview(tileGridView)
+        tileGridView.frame = view.bounds
+        
+        view.addSubview(animatedULogoView)
+        animatedULogoView.layer.position = view.layer.position
+        
+        tileGridView.startAnimating()
+        animatedULogoView.startAnimating()
+        time = NSTimer.scheduledTimerWithTimeInterval(6.0, target: self, selector: #selector(SettingViewController.removeAnimationView), userInfo: self, repeats: false)
+        
+    }
+    func removeAnimationView(){
+        tileGridView.removeFromSuperview()
+        animatedULogoView.removeFromSuperview()
     }
 
     func setupSliderConstraint(){

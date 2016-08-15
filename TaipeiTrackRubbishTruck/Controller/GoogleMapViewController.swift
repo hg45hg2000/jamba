@@ -26,23 +26,24 @@ class GoogleMapViewController: UIViewController{
         }
     }
     
-    var searchedTypes = ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
     let locationManager = CLLocationManager()
     let dataProvider = GoogleDataProvider()
-    let searchRadius: Double = 1000
+    let searchRadius: Double = 10
     var didFindMyLocation = false
     var selectRubbish = Rubbish(dictionary: nil)
-    
-    
+    var didTruckMade = false
     var googleIconView = GoogleIconView(frame: CGRectMake(10,100,100,100))
     var iconRotation = Float()
     var marker = GMSMarker()
+    var truckLocation = CLLocationCoordinate2D()
+    var userLocation = CLLocationCoordinate2D()
     
     var monitoredRegions : Dictionary<String,NSDate>  = [:]
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         checkAuthorization()
+        searchPlace(selectRubbish)
     }
     
     override func viewDidLoad() {
@@ -58,36 +59,11 @@ class GoogleMapViewController: UIViewController{
         googleIconView.backgroundColor = UIColor.whiteColor()
         googleIconView.hidden = true
         
-        
         mapView.addSubview(googleIconView)
 
         placesClient = GMSPlacesClient()
-        searchPlace(selectRubbish)
     
 
-    }
-    
-    @IBAction func getCurrentPlace(sender: UIButton) {
-        
-        placesClient?.currentPlaceWithCallback({
-            (placeLikelihoodList: GMSPlaceLikelihoodList?, error: NSError?) -> Void in
-            if let error = error {
-                print("Pick Place error: \(error.localizedDescription)")
-                return
-            }
-            
-            self.nameLabel.text = "No current place"
-            self.addressLabel.text = ""
-            
-            if let placeLicklihoodList = placeLikelihoodList {
-                let place = placeLicklihoodList.likelihoods.first?.place
-                if let place = place {
-                    self.nameLabel.text = place.name
-                    self.addressLabel.text = place.formattedAddress!.componentsSeparatedByString(", ")
-                        .joinWithSeparator("\n")
-                }
-            }
-        })
     }
     
     func checkAuthorization(){
@@ -104,6 +80,8 @@ class GoogleMapViewController: UIViewController{
     }
     
     func searchPlace(selectRubbish:Rubbish?){
+        
+        if !didTruckMade {
         if let selectRubbish  = selectRubbish {
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(selectRubbish.location, completionHandler: {
@@ -116,6 +94,7 @@ class GoogleMapViewController: UIViewController{
                 let placemark = placemarks![0] as CLPlacemark
                 print(placemark.location)
                 self.marker = GMSMarker(position: (placemark.location?.coordinate)!)
+                self.truckLocation = (placemark.location?.coordinate)!
                 self.marker.title = selectRubbish.location
                 self.marker.snippet = selectRubbish.car
                 self.marker.map = self.mapView
@@ -125,26 +104,24 @@ class GoogleMapViewController: UIViewController{
                 self.marker.rotation = Double(self.iconRotation)
                 self.mapView.camera = GMSCameraPosition(target: (placemark.location?.coordinate)!, zoom: 15, bearing: 10, viewingAngle: 10)
                 //
-                self.setupData(placemark)
-                }
-            })
+                self.setupPin(placemark)
+                    }
+                })
+            }
+            didTruckMade = true
+        }
+        else{
+            mapView.camera = GMSCameraPosition(target: (truckLocation), zoom: 15, bearing: 10, viewingAngle: 10)
         }
     }
     
-    func showAlert(title:String?,message:String){
-        let alerview = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        let action = UIAlertAction(title: "OK", style:.Cancel , handler: nil)
-        alerview.addAction(action)
-        self.presentViewController(alerview, animated: true, completion: nil)
-    }
-    func setupData(placemarkL:CLPlacemark){
+    func setupPin(placemarkL:CLPlacemark){
         if CLLocationManager.isMonitoringAvailableForClass(CLCircularRegion.self){
             let title = "Lorrenzillo's"
             let coordinate = (placemarkL.location?.coordinate)!
             let regionRadius = 300.0
             let region = CLCircularRegion(center: CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude), radius: regionRadius, identifier: title)
             locationManager.startMonitoringForRegion(region)
-            
             let restaurantAnnotation = GMSMarker(position: coordinate)
             restaurantAnnotation.title = "\(title)";
             marker.map = mapView
@@ -156,11 +133,13 @@ class GoogleMapViewController: UIViewController{
             print("The system can't track regions")
         }
     }
+    
+    
     // DrawView
     func mapView(mapView:GMSMapView,rendererForOverlay:MKOverlay){
         let circleRenderer = MKCircleRenderer(overlay: rendererForOverlay)
-        circleRenderer.strokeColor = UIColor.redColor()
-        circleRenderer.lineWidth = 1.0
+            circleRenderer.strokeColor = UIColor.redColor()
+            circleRenderer.lineWidth = 1.0
     }
     
     func updateRegions(){
@@ -181,7 +160,12 @@ class GoogleMapViewController: UIViewController{
             monitoredRegions.removeValueForKey(regionIdentifier)
         }
     }
-    
+    func showAlert(title:String?,message:String){
+        let alerview = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style:.Cancel , handler: nil)
+        alerview.addAction(action)
+        self.presentViewController(alerview, animated: true, completion: nil)
+    }
 }
 extension GoogleMapViewController:GoogleIconViewDelegate{
     func silderDidSlide(googleIconView: GoogleIconView, sliderValue: Float) {
@@ -198,7 +182,7 @@ extension GoogleMapViewController: GMSAutocompleteViewControllerDelegate {
     // Handle the user's selection.
     func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
         print("Place name: \(place.name)")
-        print("Place address: \(place.formattedAddress)")
+                print("Place address: \(place.formattedAddress)")
         print("Place attributions: \(place.attributions)")
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -220,24 +204,24 @@ extension GoogleMapViewController: GMSAutocompleteViewControllerDelegate {
         geocoder.reverseGeocodeCoordinate(coordinate) { response , error in
             self.addressLabel.unlock()
             if let address = response?.firstResult() {
-                let lines = address.lines 
+                let lines = address.lines
+                print(address.country! + address.locality!)
                 self.addressLabel.text = lines!.joinWithSeparator("\n")
-                
                 let labelHeight = self.addressLabel.intrinsicContentSize().height
                 self.mapView.padding = UIEdgeInsets(top: self.topLayoutGuide.length, left: 0, bottom: labelHeight, right: 0)
             }
         }
     }
     
-    func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
-        mapView.clear()
-        dataProvider.fetchPlacesNearCoordinate(coordinate, radius:searchRadius, types: searchedTypes) { places in
-            for place: GooglePlace in places {
-                let marker = PlaceMarker(place: place)
-                marker.map = self.mapView
-            }
-        }
-    }
+//    func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
+//        mapView.clear()
+//        dataProvider.fetchPlacesNearCoordinate(coordinate, radius:searchRadius, types: searchedTypes) { places in
+//            for place: GooglePlace in places {
+//                let marker = PlaceMarker(place: place)
+//                marker.map = self.mapView
+//            }
+//        }
+//    }
 }
 
 extension GoogleMapViewController:CLLocationManagerDelegate{
@@ -254,7 +238,6 @@ extension GoogleMapViewController:CLLocationManagerDelegate{
         if let location = locations.first{
             
              mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-            
             locationManager.stopUpdatingLocation()
             
         }
