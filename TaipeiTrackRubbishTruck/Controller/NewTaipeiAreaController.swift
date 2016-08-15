@@ -22,17 +22,13 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = "新北市垃圾車"
-               
+        
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         animationTable()
     }
-    @IBAction func updateDate(sender: UIButton) {
-        getData()
-        alertController("更新已經完成", message: " 總共有 \(self.rubbishs.count) 筆", cancelButton: "Ok",style:.Alert)
-        
-    }
+   
     
     func getData(){
         

@@ -37,11 +37,17 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
         
     }
     @IBAction func upDate(sender: UIBarButtonItem) {
-        getData()
+        getData { 
+            if self.filterRubbishs.count == 0 {
+                self.alertController("抱歉現在\(self.title!)沒有資料", message: "", cancelButton: "OK", style: .Alert)
+            }else{
+                self.alertController("更新已經完成", message: " 總共有 \(self.filterRubbishs.count) 筆", cancelButton: "Ok",style:.Alert)
+            }
+        }
     }
     
     func spinnerAdd(){
-        refreshControl.addTarget(self, action: #selector(RubbishTruckController.getData), forControlEvents: .ValueChanged)
+        refreshControl.addTarget(self, action: #selector(RubbishTruckController.getData(_:)), forControlEvents: .ValueChanged)
         refreshControl.setuptableView(tableView)
         tableView.addSubview(refreshControl)
         spinner.hidesWhenStopped = true
@@ -113,7 +119,7 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
         return customInteractionController.transitionInProgress ? customInteractionController : nil
     }
     
-    func getData(){
+    func getData(completion:()->Void){
         tapeiservers.getTheTrushData { (json) in
             if let json = json {
                 let jsons = JSON(json)
@@ -129,6 +135,7 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
                 NSOperationQueue.mainQueue().addOperationWithBlock({
                     self.tableView.reloadData()
                 })
+                completion()
             }
         }
     }

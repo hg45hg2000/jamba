@@ -277,7 +277,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="Xco-Ua-pev" kind="relationship" relationship="viewControllers" id="P3D-T8-DEk"/>
-                        <segue destination="gsg-ru-LLb" kind="relationship" relationship="viewControllers" id="5ie-Im-QT8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mKX-lC-BOK" userLabel="First Responder" sceneMemberID="firstResponder"/>
