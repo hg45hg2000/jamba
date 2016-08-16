@@ -26,8 +26,7 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
     var selectedIndex = Int()
     let customInteractionController = CustomInteractionController()
     let popAnimation = PopAnimation()
-    let tapeiservers = TapieiDataServers.sharedInstance
-    
+    let tapeiservers = TapieiDataServers.sharedInstanced()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,22 +46,22 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
     }
     
     func spinnerAdd(){
-        refreshControl.addTarget(self, action: #selector(RubbishTruckController.getData(_:)), forControlEvents: .ValueChanged)
-        refreshControl.setuptableView(tableView)
-        tableView.addSubview(refreshControl)
-        spinner.hidesWhenStopped = true
-        spinner.center = view.center
-        view.addSubview(spinner)
+            refreshControl.addTarget(self, action: #selector(RubbishTruckController.pullTorefreah), forControlEvents: .ValueChanged)
+            refreshControl.setuptableView(tableView)
+            tableView.addSubview(refreshControl)
+            spinner.hidesWhenStopped = true
+            spinner.center = view.center
+            view.addSubview(spinner)
     }
     
     func threeMinsToReloadData(){
-        oneSecondTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(RubbishTruckController.oneSecondupdateTime), userInfo: self, repeats: true)
-        threeminsTimer  = NSTimer.scheduledTimerWithTimeInterval(180, target: self, selector: #selector(RubbishTruckController.getData(_:)), userInfo: nil, repeats: true)
+            oneSecondTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(RubbishTruckController.oneSecondupdateTime), userInfo: self, repeats: true)
+            threeminsTimer  = NSTimer.scheduledTimerWithTimeInterval(180, target: self, selector: #selector(RubbishTruckController.getData(_:)), userInfo: nil, repeats: true)
     }
     
     func oneSecondupdateTime(){
-        Count = Count + 1
-        tableView.reloadData()
+            Count = Count + 1
+            tableView.reloadData()
     }
     
     
@@ -121,6 +120,9 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
     
     func getData(completion:()->Void){
         tapeiservers.getTheTrushData { (json) in
+            let waitingView = ActivityIndicator(frame: self.view.frame)
+
+            self.view.addSubview(waitingView)
             if let json = json {
                 let jsons = JSON(json)
                 
@@ -135,6 +137,25 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
                 self.Count = 0
                 self.tableView.reloadData()
                 completion()
+               waitingView.removeFromSuperview()
+            }
+        }
+    }
+    func pullTorefreah(){
+        tapeiservers.getTheTrushData { (json) in
+            if let json = json {
+                let jsons = JSON(json)
+                
+                print(jsons["result"]["records"])
+                let records = jsons["result"]["records"].arrayObject
+                self.rubbishs.removeAll(keepCapacity: true)
+                for record in (records)!{
+                    let rubbish = Rubbish(dictionary: record as? Dictionary<String,AnyObject>)
+                    self.rubbishs.insert(rubbish, atIndex: 0)
+                }
+                self.filterContentForArea(self.areaArray[self.selectedIndex])
+                self.Count = 0
+                self.tableView.reloadData()
                 
             }
         }

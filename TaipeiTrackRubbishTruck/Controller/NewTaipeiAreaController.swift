@@ -13,7 +13,7 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
     
     
     var selectedIndex :Int = 0
-    let tapeiservers = TapieiDataServers.sharedInstance
+    let tapeiservers = TapieiDataServers.sharedInstanced()
     var scrollOrientation = UIImageOrientation(rawValue: 0)
     var lastPons = CGPoint()
     
@@ -29,7 +29,6 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
         animationTable()
     }
    
-    
     func getData(){
         
         tapeiservers.getTheTrushData { (json) in
@@ -59,7 +58,7 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
         var index : Double = 0
         for a in cells {
             let cell = a as UITableViewCell
-            UIView.animateWithDuration(1.5, delay: 0.05 * index, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
+            UIView.animateWithDuration(1.5, delay: 0.05 * index, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
                 
                 cell.transform = CGAffineTransformMakeTranslation(0, 0)
                 

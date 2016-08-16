@@ -10,13 +10,14 @@ pod 'Alamofire', '~> 3.4'
 pod 'Firebase'
 pod 'Firebase/Messaging'
 pod 'Firebase/Crash'
-
+pod 'Firebase/Core'
 
 
 end
 
 target 'TaipeiTrackRubbishTruckTests' do
-
+pod 'Firebase'
+pod 'GoogleMaps'
 end
 
 target 'TaipeiTrackRubbishTruckUITests' do

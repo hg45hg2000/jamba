@@ -18,6 +18,8 @@
 		4103BAF91D5FFC5500C20213 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4103BAF71D5FFC5500C20213 /* Utils.swift */; };
 		4103BAFC1D616BA500C20213 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4103BAFB1D616BA500C20213 /* CollectionViewController.m */; };
 		410414E21D55CB40003178F6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410414E11D55CB40003178F6 /* SettingViewController.swift */; };
+		4110CDCE1D62FDA4006ED81C /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4110CDCD1D62FDA4006ED81C /* ActivityIndicator.swift */; };
+		4110CDD01D62FEF7006ED81C /* UIColor-Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4110CDCF1D62FEF7006ED81C /* UIColor-Extenstion.swift */; };
 		41492F391D53397200A08C83 /* NewTaipeiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41492F381D53397200A08C83 /* NewTaipeiCell.swift */; };
 		41654B331D45A68F0026992E /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B321D45A68F0026992E /* GoogleDataProvider.swift */; };
 		41654B4C1D45B10B0026992E /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B4B1D45B10B0026992E /* GooglePlace.swift */; };
@@ -94,6 +96,8 @@
 		4103BAFB1D616BA500C20213 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		4103BB021D617B4D00C20213 /* TaipeiTrackRubbishTruckTests XCTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TaipeiTrackRubbishTruckTests XCTest.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		410414E11D55CB40003178F6 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = Controller/SettingViewController.swift; sourceTree = "<group>"; };
+		4110CDCD1D62FDA4006ED81C /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityIndicator.swift; path = View/ActivityIndicator.swift; sourceTree = "<group>"; };
+		4110CDCF1D62FEF7006ED81C /* UIColor-Extenstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-Extenstion.swift"; sourceTree = "<group>"; };
 		41492F381D53397200A08C83 /* NewTaipeiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewTaipeiCell.swift; path = View/NewTaipeiCell.swift; sourceTree = "<group>"; };
 		41654B321D45A68F0026992E /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleDataProvider.swift; path = Model/GoogleDataProvider.swift; sourceTree = "<group>"; };
 		41654B4B1D45B10B0026992E /* GooglePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
@@ -244,6 +248,14 @@
 			path = Uility/Commons;
 			sourceTree = "<group>";
 		};
+		4110CDCC1D62FD30006ED81C /* Activity indicatorUI */ = {
+			isa = PBXGroup;
+			children = (
+				4110CDCD1D62FDA4006ED81C /* ActivityIndicator.swift */,
+			);
+			name = "Activity indicatorUI";
+			sourceTree = "<group>";
+		};
 		41654B511D45B4900026992E /* SwiftyJSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +354,8 @@
 				FB81F36C1CE6D24700FA4B67 /* Constant.swift */,
 				FB81F3701CE6D50C00FA4B67 /* TaipeiTrackRubbishTruck-Bridging-Header.h */,
 				FB81F3741CE997ED00FA4B67 /* NSDictionary+Unicode.m */,
+				41654B4F1D45B1AC0026992E /* UIViewExtension.swift */,
+				4110CDCF1D62FEF7006ED81C /* UIColor-Extenstion.swift */,
 			);
 			name = Uility;
 			sourceTree = "<group>";
@@ -349,13 +363,13 @@
 		FB81F3691CE6D1CB00FA4B67 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4110CDCC1D62FD30006ED81C /* Activity indicatorUI */,
 				4103BAE41D5FFB1600C20213 /* SplashScreenUI */,
 				FBD891431D159D4C00658F75 /* Custom UI */,
 				FB9BF9751CEB384A00659977 /* Animation */,
 				FB81F37C1CE9B11B00FA4B67 /* RubbishTableViewCell.swift */,
 				41492F381D53397200A08C83 /* NewTaipeiCell.swift */,
 				FBB2AF2B1D0B0BFE00F82CD2 /* GoogleStreetView.swift */,
-				41654B4F1D45B1AC0026992E /* UIViewExtension.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -748,8 +762,10 @@
 				4103BAF21D5FFB1600C20213 /* TileGridView.swift in Sources */,
 				410414E21D55CB40003178F6 /* SettingViewController.swift in Sources */,
 				41654B4E1D45B1290026992E /* PlaceMarker.swift in Sources */,
+				4110CDD01D62FEF7006ED81C /* UIColor-Extenstion.swift in Sources */,
 				FB81F33B1CE6CFD500FA4B67 /* AppDelegate.swift in Sources */,
 				41654B4C1D45B10B0026992E /* GooglePlace.swift in Sources */,
+				4110CDCE1D62FDA4006ED81C /* ActivityIndicator.swift in Sources */,
 				416C98101D50772200707537 /* GoogleIconView.swift in Sources */,
 				41654B501D45B1AC0026992E /* UIViewExtension.swift in Sources */,
 				FBB2AF2C1D0B0BFE00F82CD2 /* GoogleStreetView.swift in Sources */,

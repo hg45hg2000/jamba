@@ -23,6 +23,14 @@ class TapieiDataServers {
         }
         return Static.instance!
     }
+    private static var mInstance: TapieiDataServers?
+    
+    static func sharedInstanced () ->TapieiDataServers{
+        if mInstance == nil{
+            mInstance = TapieiDataServers()
+        }
+        return mInstance!
+    }
     
     
     func getTheTrushData(completion:((AnyObject?))-> Void){

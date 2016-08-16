@@ -261,11 +261,19 @@ extension GoogleMapViewController: GMSMapViewDelegate {
     }
     func mapView(googleMap: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
         marker.rotation = Double(self.iconRotation)
-        googleIconView.hidden = false
+//        googleIconView.hidden = false
         return false
     }
     func mapView(mapView: GMSMapView, didTapInfoWindowOfMarker marker: GMSMarker) {
-        googleIconView.hidden = true
+//        googleIconView.hidden = true
+    }
+    func googleView(hide:Bool){
+        if hide {
+            googleIconView.hidden = hide
+        }
+        else{
+            googleIconView.hidden = hide
+        }
     }
 
     

@@ -22,9 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         let allNotificationTypes : UIUserNotificationType =
-            [UIUserNotificationType.Badge ,
-             UIUserNotificationType.Alert ,
-            UIUserNotificationType.Sound]
+            [
+             UIUserNotificationType.Alert ]
         
         
         let settings = UIUserNotificationSettings(forTypes: allNotificationTypes, categories: nil)
