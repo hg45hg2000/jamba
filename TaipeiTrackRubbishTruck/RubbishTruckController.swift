@@ -56,7 +56,7 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
     
     func threeMinsToReloadData(){
             oneSecondTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(RubbishTruckController.oneSecondupdateTime), userInfo: self, repeats: true)
-            threeminsTimer  = NSTimer.scheduledTimerWithTimeInterval(180, target: self, selector: #selector(RubbishTruckController.getData(_:)), userInfo: nil, repeats: true)
+            threeminsTimer  = NSTimer.scheduledTimerWithTimeInterval(180, target: self, selector: #selector(RubbishTruckController.pullTorefreah), userInfo: nil, repeats: true)
     }
     
     func oneSecondupdateTime(){

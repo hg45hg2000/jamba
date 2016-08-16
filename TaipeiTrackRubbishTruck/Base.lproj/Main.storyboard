@@ -322,11 +322,11 @@
             </objects>
             <point key="canvasLocation" x="2281" y="1021"/>
         </scene>
-        <!--Item-->
+        <!--垃圾車-->
         <scene sceneID="4Tv-BF-Fmn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xco-Ua-pev" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="truck-3" id="i08-ib-0fL"/>
+                    <tabBarItem key="tabBarItem" title="垃圾車" image="truck-3" id="i08-ib-0fL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zVc-jO-qjk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
