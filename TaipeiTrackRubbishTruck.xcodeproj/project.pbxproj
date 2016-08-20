@@ -20,6 +20,7 @@
 		410414E21D55CB40003178F6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410414E11D55CB40003178F6 /* SettingViewController.swift */; };
 		4110CDCE1D62FDA4006ED81C /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4110CDCD1D62FDA4006ED81C /* ActivityIndicator.swift */; };
 		4110CDD01D62FEF7006ED81C /* UIColor-Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4110CDCF1D62FEF7006ED81C /* UIColor-Extenstion.swift */; };
+		4110CDD71D64166F006ED81C /* SildeSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4110CDD61D64166F006ED81C /* SildeSideMenu.swift */; };
 		41492F391D53397200A08C83 /* NewTaipeiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41492F381D53397200A08C83 /* NewTaipeiCell.swift */; };
 		41654B331D45A68F0026992E /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B321D45A68F0026992E /* GoogleDataProvider.swift */; };
 		41654B4C1D45B10B0026992E /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B4B1D45B10B0026992E /* GooglePlace.swift */; };
@@ -98,6 +99,7 @@
 		410414E11D55CB40003178F6 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = Controller/SettingViewController.swift; sourceTree = "<group>"; };
 		4110CDCD1D62FDA4006ED81C /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityIndicator.swift; path = View/ActivityIndicator.swift; sourceTree = "<group>"; };
 		4110CDCF1D62FEF7006ED81C /* UIColor-Extenstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-Extenstion.swift"; sourceTree = "<group>"; };
+		4110CDD61D64166F006ED81C /* SildeSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SildeSideMenu.swift; path = CustomUI/SildeSideMenu.swift; sourceTree = "<group>"; };
 		41492F381D53397200A08C83 /* NewTaipeiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewTaipeiCell.swift; path = View/NewTaipeiCell.swift; sourceTree = "<group>"; };
 		41654B321D45A68F0026992E /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleDataProvider.swift; path = Model/GoogleDataProvider.swift; sourceTree = "<group>"; };
 		41654B4B1D45B10B0026992E /* GooglePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
@@ -256,6 +258,14 @@
 			name = "Activity indicatorUI";
 			sourceTree = "<group>";
 		};
+		4110CDD51D64160B006ED81C /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				4110CDD61D64166F006ED81C /* SildeSideMenu.swift */,
+			);
+			name = CustomUI;
+			sourceTree = "<group>";
+		};
 		41654B511D45B4900026992E /* SwiftyJSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +323,7 @@
 		FB81F3391CE6CFD500FA4B67 /* TaipeiTrackRubbishTruck */ = {
 			isa = PBXGroup;
 			children = (
+				4110CDD51D64160B006ED81C /* CustomUI */,
 				FB81F33A1CE6CFD500FA4B67 /* AppDelegate.swift */,
 				FB81F36B1CE6D1E200FA4B67 /* Model */,
 				FB81F36A1CE6D1D600FA4B67 /* Controller */,
@@ -763,6 +774,7 @@
 				410414E21D55CB40003178F6 /* SettingViewController.swift in Sources */,
 				41654B4E1D45B1290026992E /* PlaceMarker.swift in Sources */,
 				4110CDD01D62FEF7006ED81C /* UIColor-Extenstion.swift in Sources */,
+				4110CDD71D64166F006ED81C /* SildeSideMenu.swift in Sources */,
 				FB81F33B1CE6CFD500FA4B67 /* AppDelegate.swift in Sources */,
 				41654B4C1D45B10B0026992E /* GooglePlace.swift in Sources */,
 				4110CDCE1D62FDA4006ED81C /* ActivityIndicator.swift in Sources */,

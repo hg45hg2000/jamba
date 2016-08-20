@@ -15,7 +15,11 @@ struct Cell {
 
 class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate,RubbishTableCellDelegate{
 
-    @IBOutlet var spinner: UIActivityIndicatorView!
+    @IBOutlet var spinner: UIActivityIndicatorView!{
+        didSet{
+            
+        }
+    }
     @IBOutlet weak var tableView: UITableView!
     
     var refreshControl = CustomRefresh(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
@@ -26,15 +30,17 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
     var selectedIndex = Int()
     let customInteractionController = CustomInteractionController()
     let popAnimation = PopAnimation()
-    let tapeiservers = TapieiDataServers.sharedInstanced()
+    let tapeiservers = TapieiDataServers.sharedInstance
     
+    // MARK: life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         spinnerAdd()
         self.title = areaArray [selectedIndex]
         threeMinsToReloadData()
-        
     }
+    
+    
     @IBAction func upDate(sender: UIBarButtonItem) {
         getData {
                 if self.filterRubbishs.count == 0 {
@@ -44,6 +50,7 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
             }
         }
     }
+    
     
     func spinnerAdd(){
             refreshControl.addTarget(self, action: #selector(RubbishTruckController.pullTorefreah), forControlEvents: .ValueChanged)
@@ -63,9 +70,7 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
             Count = Count + 1
             tableView.reloadData()
     }
-    
-    
-    // tableView 
+    // MARK:  TableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return  filterRubbishs.count
@@ -85,9 +90,6 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
         else{
             return RubbishTableViewCell()
         }
-        
-
-
     }
     func RubbishCelldidselected(RubbishCell: RubbishTableViewCell) {
         showAlertForRow(tableView.indexPathForCell(RubbishCell)!.row)
@@ -105,7 +107,7 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
         self.navigationController?.pushViewController(googleViewController, animated: true)
            }
     
-    //Navigation
+    // MARK:Navigation Animation
     
     func  navigationController(navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if operation == .Push{
@@ -117,12 +119,13 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
     func navigationController(navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return customInteractionController.transitionInProgress ? customInteractionController : nil
     }
-    
+    // MARK: Reqeust Data
     func getData(completion:()->Void){
+        
+        let waitingView = ActivityIndicator(frame: self.view.frame)
+        self.view.addSubview(waitingView)
+        
         tapeiservers.getTheTrushData { (json) in
-            let waitingView = ActivityIndicator(frame: self.view.frame)
-
-            self.view.addSubview(waitingView)
             if let json = json {
                 let jsons = JSON(json)
                 
@@ -160,6 +163,7 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
             }
         }
     }
+    // MARK: scrollView
     func scrollViewDidScroll(scrollView: UIScrollView) {
         refreshControl.scrollViewDidScroll(scrollView)
     }

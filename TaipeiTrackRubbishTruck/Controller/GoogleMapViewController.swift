@@ -38,12 +38,15 @@ class GoogleMapViewController: UIViewController{
     var truckLocation = CLLocationCoordinate2D()
     var userLocation = CLLocationCoordinate2D()
     
+    var userBetweenTruckArray = [CLLocationCoordinate2D]()
+    
     var monitoredRegions : Dictionary<String,NSDate>  = [:]
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         checkAuthorization()
         searchPlace(selectRubbish)
+        
     }
     
     override func viewDidLoad() {
@@ -62,7 +65,6 @@ class GoogleMapViewController: UIViewController{
         mapView.addSubview(googleIconView)
 
         placesClient = GMSPlacesClient()
-    
 
     }
     
@@ -105,6 +107,7 @@ class GoogleMapViewController: UIViewController{
                 self.mapView.camera = GMSCameraPosition(target: (placemark.location?.coordinate)!, zoom: 15, bearing: 10, viewingAngle: 10)
                 //
                 self.setupPin(placemark)
+                self.drawTheLine()
                     }
                 })
             }
@@ -160,6 +163,19 @@ class GoogleMapViewController: UIViewController{
             monitoredRegions.removeValueForKey(regionIdentifier)
         }
     }
+    func drawTheLine(){
+        
+        let path = GMSMutablePath()
+        path.addCoordinate(userLocation)
+        path.addCoordinate(truckLocation)
+        print(path)
+        let rectangle = GMSPolyline(path: path)
+        rectangle.strokeWidth = 2.0
+        rectangle.strokeColor = UIColor.blueColor()
+        rectangle.map = mapView
+}
+    
+    
     func showAlert(title:String?,message:String){
         let alerview = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         let action = UIAlertAction(title: "OK", style:.Cancel , handler: nil)

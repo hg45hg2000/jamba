@@ -45,7 +45,7 @@ class CustomInteractionController: UIPercentDrivenInteractiveTransition {
                 finishInteractiveTransition()
             }
         default:
-            print("swift fuck you", terminator: "")
+            print(" fuck you  swift", terminator: "")
         }
     }
 }

@@ -13,12 +13,13 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
     
     
     var selectedIndex :Int = 0
-    let tapeiservers = TapieiDataServers.sharedInstanced()
+    let tapeiservers = TapieiDataServers.sharedInstance
     var scrollOrientation = UIImageOrientation(rawValue: 0)
     var lastPons = CGPoint()
+    let rubbish = Rubbish()
     
     @IBOutlet weak var tableView: UITableView!
-    
+    //MARK : Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = "新北市垃圾車"
@@ -27,27 +28,12 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         animationTable()
+        print(rubbish!.lineid)
     }
-   
-    func getData(){
-        
-        tapeiservers.getTheTrushData { (json) in
-            if let json  = json {
-                let jsons = JSON(json)
-                let records = jsons["result"]["records"].arrayObject
-                self.rubbishs.removeAll(keepCapacity: true)
-                for record in (records)!{
-                    let rubbish = Rubbish(dictionary: record as? Dictionary<String,AnyObject>)
-                    self.rubbishs.insert(rubbish, atIndex: 0)
-                }
-                
-            }
-        
-        }
-        
-    }
-    func animationTable(){
+
     
+    func animationTable(){
+        getData()
         self.tableView.reloadData()
         let cells = tableView.visibleCells
         let tableViewHeight = tableView.bounds.size.height
@@ -65,7 +51,6 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
                 }, completion: nil)
                 index += 1
             }
-        getData()
 
         }
     
@@ -82,6 +67,7 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
             }
         }
     }
+    // MARK: TableView
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -96,10 +82,7 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
         return cell!
 
     }
-   
-   
-    
-    
+    // MARK: ScrollView
     func scrollViewDidScroll(scrollView: UIScrollView) {
             switch scrollView.panGestureRecognizer.state{
             case  .Changed :
@@ -112,5 +95,24 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
             }
             default:break
         }
+    }
+    // MARK: RequestData
+    func getData(){
+        
+        tapeiservers.getTheTrushData { (json) in
+            if let json  = json {
+                let jsons = JSON(json)
+                let records = jsons["result"]["records"].arrayObject
+                print(records)
+                self.rubbishs.removeAll(keepCapacity: true)
+                for record in (records)!{
+                    let rubbish = Rubbish(dictionary: record as? Dictionary<String,AnyObject>)
+                    self.rubbishs.insert(rubbish, atIndex: 0)
+                }
+                
+            }
+            
+        }
+        
     }
 }
