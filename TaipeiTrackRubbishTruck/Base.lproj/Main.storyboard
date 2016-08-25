@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8a4-0E-hWU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8a4-0E-hWU">
     <dependencies>
         <deployment identifier="iOS"/>
         <development version="7000" identifier="xcode"/>
@@ -165,14 +165,68 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="71" id="zuJ-Gc-HKm">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="71" id="zuJ-Gc-HKm" customClass="NewTaipeiCell" customModule="TaipeiTrackRubbishTruck" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="71"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zuJ-Gc-HKm" id="QCH-jn-ozw">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="70.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pif-wn-ryk">
+                                                    <rect key="frame" x="298" y="0.0" width="125" height="65.5"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fP-qG-YiL">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="8fP-qG-YiL" secondAttribute="bottom" constant="12.5" id="OTK-QE-XSV"/>
+                                                <constraint firstItem="8fP-qG-YiL" firstAttribute="top" secondItem="QCH-jn-ozw" secondAttribute="topMargin" constant="7" id="YJy-Pg-2PL"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="pif-wn-ryk" secondAttribute="bottom" constant="-3.5" id="cTO-3l-3lA"/>
+                                                <constraint firstItem="pif-wn-ryk" firstAttribute="top" secondItem="QCH-jn-ozw" secondAttribute="topMargin" constant="-8" id="crN-37-XKV"/>
+                                                <constraint firstItem="pif-wn-ryk" firstAttribute="leading" secondItem="QCH-jn-ozw" secondAttribute="leadingMargin" constant="153" id="eaf-Mg-JcF"/>
+                                                <constraint firstItem="pif-wn-ryk" firstAttribute="leading" secondItem="8fP-qG-YiL" secondAttribute="trailing" constant="43" id="lQ6-dB-LBa"/>
+                                                <constraint firstItem="8fP-qG-YiL" firstAttribute="leading" secondItem="QCH-jn-ozw" secondAttribute="leadingMargin" constant="10" id="vWQ-YW-n63"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="pif-wn-ryk" secondAttribute="trailing" constant="73" id="wI2-43-mQP"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="8fP-qG-YiL"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="OTK-QE-XSV"/>
+                                                    <exclude reference="YJy-Pg-2PL"/>
+                                                    <exclude reference="vWQ-YW-n63"/>
+                                                    <exclude reference="cTO-3l-3lA"/>
+                                                    <exclude reference="crN-37-XKV"/>
+                                                    <exclude reference="eaf-Mg-JcF"/>
+                                                    <exclude reference="lQ6-dB-LBa"/>
+                                                    <exclude reference="wI2-43-mQP"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="8fP-qG-YiL"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="OTK-QE-XSV"/>
+                                                    <include reference="YJy-Pg-2PL"/>
+                                                    <include reference="vWQ-YW-n63"/>
+                                                    <include reference="cTO-3l-3lA"/>
+                                                    <include reference="crN-37-XKV"/>
+                                                    <include reference="eaf-Mg-JcF"/>
+                                                    <include reference="lQ6-dB-LBa"/>
+                                                    <include reference="wI2-43-mQP"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="NotificationView" destination="pif-wn-ryk" id="bgH-yw-rLi"/>
+                                            <outlet property="areaLable" destination="8fP-qG-YiL" id="Ny7-us-EWw"/>
                                             <segue destination="BYZ-38-t0r" kind="push" identifier="rubbishDetail" id="cOM-TF-RJh"/>
                                         </connections>
                                     </tableViewCell>
@@ -198,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mai-qI-kid" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-19" y="111"/>
+            <point key="canvasLocation" x="-19.5" y="111"/>
         </scene>
         <!--垃圾車路線-->
         <scene sceneID="KRh-ga-vRx">

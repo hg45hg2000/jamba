@@ -14,7 +14,7 @@ import UIKit
 
 class RubbishTableViewCell: UITableViewCell {
 
-    var buttondelegate : RubbishTableCellDelegate?
+    weak var buttondelegate : RubbishTableCellDelegate?
     @IBAction func buttomTap(sender: UIButton) {
         if buttondelegate != nil{
             self.buttondelegate?.RubbishCelldidselected(self)

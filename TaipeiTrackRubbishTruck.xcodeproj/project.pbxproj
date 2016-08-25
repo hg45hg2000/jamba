@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F8B9176212CDCE229C9CB8D /* Pods_TaipeiTrackRubbishTruckUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9F38B2D94116C6F6FBEF62 /* Pods_TaipeiTrackRubbishTruckUITests.framework */; };
+		410384771D6A7E23005A11D0 /* TruckAreaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 410384761D6A7E23005A11D0 /* TruckAreaCell.m */; };
 		4103BAED1D5FFB1600C20213 /* AnimatedULogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4103BAE51D5FFB1600C20213 /* AnimatedULogoView.swift */; };
 		4103BAEE1D5FFB1600C20213 /* Chimes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4103BAE61D5FFB1600C20213 /* Chimes.xcassets */; };
 		4103BAEF1D5FFB1600C20213 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4103BAE71D5FFB1600C20213 /* Constants.swift */; };
@@ -83,6 +84,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		410384751D6A7E23005A11D0 /* TruckAreaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TruckAreaCell.h; path = View/TruckAreaCell.h; sourceTree = "<group>"; };
+		410384761D6A7E23005A11D0 /* TruckAreaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TruckAreaCell.m; path = View/TruckAreaCell.m; sourceTree = "<group>"; };
 		4103BAE51D5FFB1600C20213 /* AnimatedULogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedULogoView.swift; sourceTree = "<group>"; };
 		4103BAE61D5FFB1600C20213 /* Chimes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Chimes.xcassets; sourceTree = "<group>"; };
 		4103BAE71D5FFB1600C20213 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -222,6 +225,15 @@
 				4A9F38B2D94116C6F6FBEF62 /* Pods_TaipeiTrackRubbishTruckUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		410384741D6A7D8F005A11D0 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				410384751D6A7E23005A11D0 /* TruckAreaCell.h */,
+				410384761D6A7E23005A11D0 /* TruckAreaCell.m */,
+			);
+			name = TableViewCell;
 			sourceTree = "<group>";
 		};
 		4103BAE41D5FFB1600C20213 /* SplashScreenUI */ = {
@@ -374,6 +386,7 @@
 		FB81F3691CE6D1CB00FA4B67 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				410384741D6A7D8F005A11D0 /* TableViewCell */,
 				4110CDCC1D62FD30006ED81C /* Activity indicatorUI */,
 				4103BAE41D5FFB1600C20213 /* SplashScreenUI */,
 				FBD891431D159D4C00658F75 /* Custom UI */,
@@ -388,8 +401,8 @@
 		FB81F36A1CE6D1D600FA4B67 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FB81F36E1CE6D2E300FA4B67 /* RubbishTruckController.swift */,
 				FBA2583A1CE9FBAC00A4E761 /* NewTaipeiAreaController.swift */,
+				FB81F36E1CE6D2E300FA4B67 /* RubbishTruckController.swift */,
 				FBA3BBEC1CEB1BF7004AF688 /* BaseViewController.swift */,
 				FB878A811CF2CC5D0011FF04 /* GoogleMapViewController.swift */,
 				410414E11D55CB40003178F6 /* SettingViewController.swift */,
@@ -787,6 +800,7 @@
 				4103BAF91D5FFC5500C20213 /* Utils.swift in Sources */,
 				FBA3BBED1CEB1BF7004AF688 /* BaseViewController.swift in Sources */,
 				4103BAED1D5FFB1600C20213 /* AnimatedULogoView.swift in Sources */,
+				410384771D6A7E23005A11D0 /* TruckAreaCell.m in Sources */,
 				FB81F36D1CE6D24700FA4B67 /* Constant.swift in Sources */,
 				FB81F37D1CE9B11B00FA4B67 /* RubbishTableViewCell.swift in Sources */,
 				FBA3E6091CED962A0061C102 /* CustomInteractionController.swift in Sources */,

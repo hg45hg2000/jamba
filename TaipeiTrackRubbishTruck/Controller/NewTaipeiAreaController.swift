@@ -9,28 +9,27 @@
 import UIKit
 
 
-class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
+class NewTaipeiAreaController: BaseViewController {
     
     
     var selectedIndex :Int = 0
     let tapeiservers = TapieiDataServers.sharedInstance
     var scrollOrientation = UIImageOrientation(rawValue: 0)
     var lastPons = CGPoint()
-    let rubbish = Rubbish()
+    
     
     @IBOutlet weak var tableView: UITableView!
     //MARK : Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = "新北市垃圾車"
+        self.delegate = self
         
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         animationTable()
-        print(rubbish!.lineid)
     }
-
     
     func animationTable(){
         getData()
@@ -51,7 +50,6 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
                 }, completion: nil)
                 index += 1
             }
-
         }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -67,21 +65,6 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
             }
         }
     }
-    // MARK: TableView
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return areaArray.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell")
-        cell!.textLabel?.text = areaArray[(indexPath as NSIndexPath).row]
-        return cell!
-
-    }
     // MARK: ScrollView
     func scrollViewDidScroll(scrollView: UIScrollView) {
             switch scrollView.panGestureRecognizer.state{
@@ -95,6 +78,7 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
             }
             default:break
         }
+        
     }
     // MARK: RequestData
     func getData(){
@@ -102,6 +86,7 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
         tapeiservers.getTheTrushData { (json) in
             if let json  = json {
                 let jsons = JSON(json)
+                print(jsons["result"]["records"])
                 let records = jsons["result"]["records"].arrayObject
                 print(records)
                 self.rubbishs.removeAll(keepCapacity: true)
@@ -111,8 +96,36 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
                 }
                 
             }
-            
         }
+    }
+}
+extension NewTaipeiAreaController:UITableViewDelegate,UITableViewDataSource {
+    // MARK: TableView
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return areaArray.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)as!NewTaipeiCell
+        cell.areaLable.text = areaArray[(indexPath as NSIndexPath).row]
+        cell.NotificationView.hidden = true
+        filterArea(areaArray) { (index) in
+            if (indexPath.row == index){
+        
+            cell.NotificationView.hidden = false
+            }
+        }
+        return cell
+        
+    }
+    
+}
+extension NewTaipeiAreaController:AreaRubbishDelegate{
+    func getTheRubbishCellHaveDataIndex(index: Int) {
         
     }
 }

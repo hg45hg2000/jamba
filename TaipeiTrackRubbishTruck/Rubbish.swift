@@ -7,9 +7,14 @@
 //
 
 import Foundation
+import RealmSwift
 
 
 class Rubbish {
+    static var sharedInstance = Rubbish()
+     init(){
+    }
+    
     private var _car:String!
     private var _lineid:String!
     private var _location:String!
@@ -46,5 +51,25 @@ class Rubbish {
         }
     }
     
+}
+
+public class RubbishData:Object{
+        
+    public dynamic var car :String = ""
+    public dynamic var lineid :String = ""
+    public dynamic var location :String = ""
+    public dynamic var time :String = ""
     
+    public func fillwithRubbish (Rubbish:RubbishDataStruct){
+        self.car = Rubbish.car
+        self.lineid = Rubbish.lineid
+        self.location = Rubbish.location
+        self.time = Rubbish.time
+    }
+}
+public struct RubbishDataStruct{
+    public let car :String
+    public let lineid :String
+    public let location :String
+    public let time :String
 }

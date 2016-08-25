@@ -12,14 +12,14 @@ struct Cell {
     
     static let rubbishCell = "rubbish"
 }
+private struct RefreshTime{
+    static let oneSencondTime :Double = 1
+    static let threeMinTime : Double = 180
+}
 
-class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate,RubbishTableCellDelegate{
+class RubbishTruckController: BaseViewController{
 
-    @IBOutlet var spinner: UIActivityIndicatorView!{
-        didSet{
-            
-        }
-    }
+    @IBOutlet var spinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
     var refreshControl = CustomRefresh(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
@@ -39,6 +39,9 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
         self.title = areaArray [selectedIndex]
         threeMinsToReloadData()
     }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    }
     
     
     @IBAction func upDate(sender: UIBarButtonItem) {
@@ -50,8 +53,6 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
             }
         }
     }
-    
-    
     func spinnerAdd(){
             refreshControl.addTarget(self, action: #selector(RubbishTruckController.pullTorefreah), forControlEvents: .ValueChanged)
             refreshControl.setuptableView(tableView)
@@ -62,64 +63,14 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
     }
     
     func threeMinsToReloadData(){
-            oneSecondTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(RubbishTruckController.oneSecondupdateTime), userInfo: self, repeats: true)
-            threeminsTimer  = NSTimer.scheduledTimerWithTimeInterval(180, target: self, selector: #selector(RubbishTruckController.pullTorefreah), userInfo: nil, repeats: true)
+            oneSecondTimer = NSTimer.scheduledTimerWithTimeInterval(RefreshTime.oneSencondTime, target: self, selector: #selector(RubbishTruckController.oneSecondupdateTime), userInfo: self, repeats: true)
+            threeminsTimer  = NSTimer.scheduledTimerWithTimeInterval(RefreshTime.threeMinTime, target: self, selector: #selector(RubbishTruckController.pullTorefreah), userInfo: nil, repeats: true)
     }
     
     func oneSecondupdateTime(){
             Count = Count + 1
             tableView.reloadData()
     }
-    // MARK:  TableView
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  filterRubbishs.count
-    }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let rubbish = filterRubbishs[(indexPath as NSIndexPath).row]
-        if  let cell = tableView.dequeueReusableCellWithIdentifier(Cell.rubbishCell, forIndexPath: indexPath ) as? RubbishTableViewCell {
-                cell.configureCell(rubbish)
-                cell.updateTime.text  = String(Count) + "秒前更新"
-            if cell.buttondelegate == nil{
-                cell.buttondelegate = self
-            }
-            
-            return cell
-        }
-        else{
-            return RubbishTableViewCell()
-        }
-    }
-    func RubbishCelldidselected(RubbishCell: RubbishTableViewCell) {
-        showAlertForRow(tableView.indexPathForCell(RubbishCell)!.row)
-        let indexPath = NSIndexPath(forRow: tableView.indexPathForCell(RubbishCell)!.row, inSection: 0)
-        
-            tableView.beginUpdates()
-            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Middle)
-            tableView.endUpdates()
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let googleViewController = storyboard.instantiateViewControllerWithIdentifier(ViewControllerID.googleMapView)as! GoogleMapViewController
-                googleViewController.selectRubbish = filterRubbishs[indexPath.row]
-        self.navigationController?.pushViewController(googleViewController, animated: true)
-           }
-    
-    // MARK:Navigation Animation
-    
-    func  navigationController(navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if operation == .Push{
-           customInteractionController.attchToViewController(toVC, tableView: tableView)
-        }
-        return popAnimation
-    }
-    
-    func navigationController(navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return customInteractionController.transitionInProgress ? customInteractionController : nil
-    }
-    // MARK: Reqeust Data
     func getData(completion:()->Void){
         
         let waitingView = ActivityIndicator(frame: self.view.frame)
@@ -128,7 +79,6 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
         tapeiservers.getTheTrushData { (json) in
             if let json = json {
                 let jsons = JSON(json)
-                
                 print(jsons["result"]["records"])
                 let records = jsons["result"]["records"].arrayObject
                 self.rubbishs.removeAll(keepCapacity: true)
@@ -170,3 +120,51 @@ class RubbishTruckController: BaseViewController,UITableViewDelegate,UITableView
     
 }
 
+extension RubbishTruckController:UITableViewDelegate,UITableViewDataSource,RubbishTableCellDelegate
+{
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return  filterRubbishs.count
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let rubbish = filterRubbishs[(indexPath as NSIndexPath).row]
+        if  let cell = tableView.dequeueReusableCellWithIdentifier(Cell.rubbishCell, forIndexPath: indexPath ) as? RubbishTableViewCell {
+            cell.configureCell(rubbish)
+            cell.updateTime.text  = String(Count) + "秒前更新"
+            if cell.buttondelegate == nil{
+                cell.buttondelegate = self
+            }
+            
+            return cell
+        }
+        else{
+            return RubbishTableViewCell()
+        }
+    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let googleViewController = storyboard.instantiateViewControllerWithIdentifier(ViewControllerID.googleMapView)as! GoogleMapViewController
+        googleViewController.selectRubbish = filterRubbishs[indexPath.row]
+        self.navigationController?.pushViewController(googleViewController, animated: true)
+    }
+    func RubbishCelldidselected(RubbishCell: RubbishTableViewCell) {
+        showAlertForRow(tableView.indexPathForCell(RubbishCell)!.row)
+        let indexPath = NSIndexPath(forRow: tableView.indexPathForCell(RubbishCell)!.row, inSection: 0)
+        tableView.beginUpdates()
+        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Middle)
+        tableView.endUpdates()
+    }
+}
+extension RubbishTruckController:UINavigationControllerDelegate{
+    func  navigationController(navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if operation == .Push{
+            customInteractionController.attchToViewController(toVC, tableView: tableView)
+        }
+        return popAnimation
+    }
+    
+    func navigationController(navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return customInteractionController.transitionInProgress ? customInteractionController : nil
+    }
+}

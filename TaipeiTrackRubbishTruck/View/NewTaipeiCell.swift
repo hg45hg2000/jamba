@@ -11,10 +11,46 @@ import UIKit
 class NewTaipeiCell: UITableViewCell {
 
     let gradientLayer = CAGradientLayer()
+    var lineWidth: CGFloat = 5.0 { didSet { setNeedsDisplay() } }
+
     
+    @IBOutlet weak var areaLable: UILabel!
+    @IBOutlet weak var NotificationView: UIImageView!
+    
+    private var images : UIImage? {
+        get {
+            return NotificationView.image
+        }
+        set {
+            NotificationView.image = newValue
+            NotificationView.sizeToFit()
+            NotificationView.kt_addCorner(radius: 6)
+            
+        }
+    }
+    
+    func fetchimage(){
+        images = UIImage(named: "Truck")
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+
+        let circlePath = UIBezierPath(arcCenter: CGPoint(x: 100,y: 100), radius: CGFloat(20), startAngle: CGFloat(0), endAngle:CGFloat(M_PI * 2), clockwise: true)
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circlePath.CGPath
+        
+        //change the fill color
+        shapeLayer.fillColor = UIColor.clearColor().CGColor
+        //you can change the stroke color
+        shapeLayer.strokeColor = UIColor.greenColor().CGColor
+        //you can change the line width
+        shapeLayer.lineWidth = 5.0
+        
+        NotificationView.layer.addSublayer(shapeLayer)
+        fetchimage()
+        NotificationView.hidden = true
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -22,19 +58,16 @@ class NewTaipeiCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        gradientLayer.frame = self.bounds
-        gradientLayer.locations = [0.0, 0.04, 0.95, 1.0]
-        layer.insertSublayer(gradientLayer, atIndex: 0)
-
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        gradientLayer.frame = self.bounds
+    private func pathForCircleCenteredAtPoint(midPoint: CGPoint, withRadius radius: CGFloat) -> UIBezierPath
+    {
+        let path = UIBezierPath(
+            arcCenter: midPoint,
+            radius: radius,
+            startAngle: 0.0,
+            endAngle: CGFloat(2*M_PI),
+            clockwise: false
+        )
+        path.lineWidth = lineWidth
+        return path
     }
 }

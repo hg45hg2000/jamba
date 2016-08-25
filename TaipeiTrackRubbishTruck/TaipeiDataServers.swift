@@ -34,7 +34,7 @@ class TapieiDataServers {
     
     
     func getTheTrushData(completion:((AnyObject?))-> Void){
-        Alamofire.request(.GET,Rubbish_Api).responseJSON { (response) in
+        Alamofire.request(.GET,Rubbish_Api).validate().responseJSON { (response) in
             
             completion(response.result.value)
             

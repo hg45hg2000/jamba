@@ -20,32 +20,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
             GMSServices.provideAPIKey(Google_Api)
         
-        
-        let allNotificationTypes : UIUserNotificationType =
-            [
-             UIUserNotificationType.Alert ]
-        
-        
-        let settings = UIUserNotificationSettings(forTypes: allNotificationTypes, categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
-        UIApplication.sharedApplication().registerForRemoteNotifications()
-        
+        let settings: UIUserNotificationSettings =
+            UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
         FIRApp.configure()
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.tokenRefreshNotification(_:)), name: kFIRInstanceIDTokenRefreshNotification, object: nil)
         
         return true
     }
-//    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-//        var characterSet: NSCharacterSet = NSCharacterSet( charactersInString: "<>" )
-//        
-//        var deviceTokenString: String = ( deviceToken.description as NSString )
-//            .stringByTrimmingCharactersInSet( characterSet )
-//            .stringByReplacingOccurrencesOfString( " ", withString: "" ) as String
-//        
-//        print( deviceTokenString )
-//        
-//    }
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        var characterSet: NSCharacterSet = NSCharacterSet( charactersInString: "<>" )
+        
+        var deviceTokenString: String = ( deviceToken.description as NSString )
+            .stringByTrimmingCharactersInSet( characterSet )
+            .stringByReplacingOccurrencesOfString( " ", withString: "" ) as String
+        
+        print( deviceTokenString )
+        
+    }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

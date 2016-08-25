@@ -30,7 +30,7 @@ class GoogleMapViewController: UIViewController{
     let dataProvider = GoogleDataProvider()
     let searchRadius: Double = 10
     var didFindMyLocation = false
-    var selectRubbish = Rubbish(dictionary: nil)
+    var selectRubbish = Rubbish()
     var didTruckMade = false
     var googleIconView = GoogleIconView(frame: CGRectMake(10,100,100,100))
     var iconRotation = Float()
@@ -164,7 +164,6 @@ class GoogleMapViewController: UIViewController{
         }
     }
     func drawTheLine(){
-        
         let path = GMSMutablePath()
         path.addCoordinate(userLocation)
         path.addCoordinate(truckLocation)
