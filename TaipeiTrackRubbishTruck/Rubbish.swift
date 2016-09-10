@@ -32,19 +32,19 @@ class Rubbish {
     var time:String{
         return _time
     }
-    init(dictionary: Dictionary<String,AnyObject>?){
+    init(dictionary: JSON?){
         if let dictionary = dictionary {
         
-        if let car = dictionary["car"]as? String {
+        if let car = dictionary["car"].string {
             self._car = car
             }
-        if let lineid = dictionary["lineid"]as? String{
+        if let lineid = dictionary["lineid"].string{
             self._lineid = lineid
             }
-        if  let location = dictionary["location"]as? String{
+        if  let location = dictionary["location"].string{
             self._location = location
             }
-        if let time = dictionary["time"]as? String {
+        if let time = dictionary["time"].string {
             self._time = time
             }
         

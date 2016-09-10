@@ -33,6 +33,7 @@
 		41654B5A1D45F06F0026992E /* TaipeiDataServers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B591D45F06F0026992E /* TaipeiDataServers.swift */; };
 		416C98101D50772200707537 /* GoogleIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C980F1D50772200707537 /* GoogleIconView.swift */; };
 		416C98131D51C54100707537 /* America.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 416C98121D51C54100707537 /* America.gpx */; };
+		4171988C1D818536008364E7 /* GoogleLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4171988B1D818536008364E7 /* GoogleLocationManager.swift */; };
 		BB57423D9C117288B9083464 /* Pods_TaipeiTrackRubbishTruckTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEFED55A983A946BB6F07E54 /* Pods_TaipeiTrackRubbishTruckTests.framework */; };
 		E9141655407FE08E8BE595DE /* Pods_TaipeiTrackRubbishTruck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09886A3FD10939FCFCFAE2E /* Pods_TaipeiTrackRubbishTruck.framework */; };
 		FB5878891D0A995D00D121DA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5878881D0A995D00D121DA /* CoreData.framework */; };
@@ -114,6 +115,7 @@
 		41654B591D45F06F0026992E /* TaipeiDataServers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaipeiDataServers.swift; sourceTree = "<group>"; };
 		416C980F1D50772200707537 /* GoogleIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleIconView.swift; sourceTree = "<group>"; };
 		416C98121D51C54100707537 /* America.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = America.gpx; sourceTree = "<group>"; };
+		4171988B1D818536008364E7 /* GoogleLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleLocationManager.swift; path = Model/GoogleLocationManager.swift; sourceTree = "<group>"; };
 		4A9F38B2D94116C6F6FBEF62 /* Pods_TaipeiTrackRubbishTruckUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaipeiTrackRubbishTruckUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51F4B422BFE5E7E8D357BA6C /* Pods-TaipeiTrackRubbishTruck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiTrackRubbishTruck.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiTrackRubbishTruck/Pods-TaipeiTrackRubbishTruck.release.xcconfig"; sourceTree = "<group>"; };
 		A455D5DF7CB2099924213C9E /* Pods-TaipeiTrackRubbishTruckTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiTrackRubbishTruckTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiTrackRubbishTruckTests/Pods-TaipeiTrackRubbishTruckTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 				41654B321D45A68F0026992E /* GoogleDataProvider.swift */,
 				41654B4B1D45B10B0026992E /* GooglePlace.swift */,
 				41654B4D1D45B1290026992E /* PlaceMarker.swift */,
+				4171988B1D818536008364E7 /* GoogleLocationManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -808,6 +811,7 @@
 				FB81F3781CE99EDD00FA4B67 /* Rubbish.swift in Sources */,
 				4103BAF31D5FFB1600C20213 /* TileView.swift in Sources */,
 				4103BAEF1D5FFB1600C20213 /* Constants.swift in Sources */,
+				4171988C1D818536008364E7 /* GoogleLocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

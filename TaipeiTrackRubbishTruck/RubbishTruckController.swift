@@ -21,7 +21,6 @@ class RubbishTruckController: BaseViewController{
 
     @IBOutlet var spinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
-    
     var refreshControl = CustomRefresh(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
 
     var threeminsTimer = NSTimer()
@@ -35,21 +34,22 @@ class RubbishTruckController: BaseViewController{
     // MARK: life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
         spinnerAdd()
         self.title = areaArray [selectedIndex]
         threeMinsToReloadData()
     }
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     
     @IBAction func upDate(sender: UIBarButtonItem) {
+        updateRubbish()
+    }
+    private func updateRubbish(){
         getData {
-                if self.filterRubbishs.count == 0 {
-                    self.alertController("抱歉現在\(self.title!)沒有資料", message: "", cancelButton: "OK", style: .Alert)
-                }else{
-                    self.alertController("更新已經完成", message: " 總共有 \(self.filterRubbishs.count) 筆", cancelButton: "Ok",style:.Alert)
+            if self.filterRubbishs.count == 0 {
+                self.alertController("抱歉現在\(self.title!)沒有資料", message: "", cancelButton: "OK", style: .Alert)
+            }else{
+                self.alertController("更新已經完成", message: " 總共有 \(self.filterRubbishs.count) 筆", cancelButton: "Ok",style:.Alert)
             }
         }
     }
@@ -63,6 +63,7 @@ class RubbishTruckController: BaseViewController{
     }
     
     func threeMinsToReloadData(){
+        
             oneSecondTimer = NSTimer.scheduledTimerWithTimeInterval(RefreshTime.oneSencondTime, target: self, selector: #selector(RubbishTruckController.oneSecondupdateTime), userInfo: self, repeats: true)
             threeminsTimer  = NSTimer.scheduledTimerWithTimeInterval(RefreshTime.threeMinTime, target: self, selector: #selector(RubbishTruckController.pullTorefreah), userInfo: nil, repeats: true)
     }
@@ -76,48 +77,40 @@ class RubbishTruckController: BaseViewController{
         let waitingView = ActivityIndicator(frame: self.view.frame)
         self.view.addSubview(waitingView)
         
-        tapeiservers.getTheTrushData { (json) in
+        tapeiservers.getTheTrushData { [unowned self]json,error in
             if let json = json {
-                let jsons = JSON(json)
-                print(jsons["result"]["records"])
-                let records = jsons["result"]["records"].arrayObject
                 self.rubbishs.removeAll(keepCapacity: true)
-                for record in (records)!{
-                    let rubbish = Rubbish(dictionary: record as? Dictionary<String,AnyObject>)
+                for record in json{
+                    let rubbish = Rubbish(dictionary: record )
                     self.rubbishs.insert(rubbish, atIndex: 0)
                 }
-                self.filterContentForArea(self.areaArray[self.selectedIndex])
-                self.Count = 0
-                self.tableView.reloadData()
+                self.filterAndReloadTableView()
                 completion()
                waitingView.removeFromSuperview()
             }
         }
     }
     func pullTorefreah(){
-        tapeiservers.getTheTrushData { (json) in
+        tapeiservers.getTheTrushData {[unowned self] json,error in
             if let json = json {
-                let jsons = JSON(json)
-                
-                print(jsons["result"]["records"])
-                let records = jsons["result"]["records"].arrayObject
                 self.rubbishs.removeAll(keepCapacity: true)
-                for record in (records)!{
-                    let rubbish = Rubbish(dictionary: record as? Dictionary<String,AnyObject>)
+                for record in json{
+                    let rubbish = Rubbish(dictionary: record )
                     self.rubbishs.insert(rubbish, atIndex: 0)
                 }
-                self.filterContentForArea(self.areaArray[self.selectedIndex])
-                self.Count = 0
-                self.tableView.reloadData()
-                
+                    self.filterAndReloadTableView()
             }
         }
+    }
+    private func filterAndReloadTableView(){
+        self.filterContentForArea(self.areaArray[self.selectedIndex])
+        self.Count = 0
+        self.tableView.reloadData()
     }
     // MARK: scrollView
     func scrollViewDidScroll(scrollView: UIScrollView) {
         refreshControl.scrollViewDidScroll(scrollView)
     }
-    
 }
 
 extension RubbishTruckController:UITableViewDelegate,UITableViewDataSource,RubbishTableCellDelegate

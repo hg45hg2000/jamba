@@ -26,7 +26,7 @@ class GoogleMapViewController: UIViewController{
         }
     }
     
-    let locationManager = CLLocationManager()
+    let locationManager = LocationManager.sharedInstance
     let dataProvider = GoogleDataProvider()
     let searchRadius: Double = 10
     var didFindMyLocation = false
@@ -35,16 +35,11 @@ class GoogleMapViewController: UIViewController{
     var googleIconView = GoogleIconView(frame: CGRectMake(10,100,100,100))
     var iconRotation = Float()
     var marker = GMSMarker()
-    var truckLocation = CLLocationCoordinate2D()
-    var userLocation = CLLocationCoordinate2D()
     
-    var userBetweenTruckArray = [CLLocationCoordinate2D]()
-    
-    var monitoredRegions : Dictionary<String,NSDate>  = [:]
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        checkAuthorization()
+
         searchPlace(selectRubbish)
         
     }
@@ -52,15 +47,10 @@ class GoogleMapViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestAlwaysAuthorization()
-        locationManager.distanceFilter = kCLLocationAccuracyNearestTenMeters
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
         googleIconView.delegate = self
         googleIconView.backgroundColor = UIColor.whiteColor()
         googleIconView.hidden = true
+        locationManager.mapView = mapView
         
         mapView.addSubview(googleIconView)
 
@@ -68,18 +58,6 @@ class GoogleMapViewController: UIViewController{
 
     }
     
-    func checkAuthorization(){
-        switch CLLocationManager.authorizationStatus() {
-        case .NotDetermined:
-            locationManager.requestAlwaysAuthorization()
-        case .Denied:
-            showAlert("", message: "Location services were previously denied. Please enable location services for this app in Settings.")
-        case .AuthorizedAlways:
-            locationManager.startUpdatingLocation()
-        default:break
-        }
-        
-    }
     
     func searchPlace(selectRubbish:Rubbish?){
         
@@ -96,7 +74,7 @@ class GoogleMapViewController: UIViewController{
                 let placemark = placemarks![0] as CLPlacemark
                 print(placemark.location)
                 self.marker = GMSMarker(position: (placemark.location?.coordinate)!)
-                self.truckLocation = (placemark.location?.coordinate)!
+                self.locationManager.truckLocation = (placemark.location?.coordinate)!
                 self.marker.title = selectRubbish.location
                 self.marker.snippet = selectRubbish.car
                 self.marker.map = self.mapView
@@ -114,7 +92,7 @@ class GoogleMapViewController: UIViewController{
             didTruckMade = true
         }
         else{
-            mapView.camera = GMSCameraPosition(target: (truckLocation), zoom: 15, bearing: 10, viewingAngle: 10)
+            mapView.camera = GMSCameraPosition(target: (locationManager.truckLocation), zoom: 15, bearing: 10, viewingAngle: 10)
         }
     }
     
@@ -124,7 +102,7 @@ class GoogleMapViewController: UIViewController{
             let coordinate = (placemarkL.location?.coordinate)!
             let regionRadius = 300.0
             let region = CLCircularRegion(center: CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude), radius: regionRadius, identifier: title)
-            locationManager.startMonitoringForRegion(region)
+            self.locationManager.locationManager.startMonitoringForRegion(region)
             let restaurantAnnotation = GMSMarker(position: coordinate)
             restaurantAnnotation.title = "\(title)";
             marker.map = mapView
@@ -149,10 +127,10 @@ class GoogleMapViewController: UIViewController{
         let regionMaxVisiting = 10.0
         var regionsToDelete: [String] = []
         
-        for regionIdentifier in monitoredRegions.keys {
+        for regionIdentifier in locationManager.monitoredRegions.keys {
             
             // 3.
-            if NSDate().timeIntervalSinceDate(monitoredRegions[regionIdentifier]!) > regionMaxVisiting {
+            if NSDate().timeIntervalSinceDate(locationManager.monitoredRegions[regionIdentifier]!) > regionMaxVisiting {
                 showAlert("", message: "Your TrushTruck Approach")
                 regionsToDelete.append(regionIdentifier)
             }
@@ -160,13 +138,13 @@ class GoogleMapViewController: UIViewController{
         
         // 4.
         for regionIdentifier in regionsToDelete {
-            monitoredRegions.removeValueForKey(regionIdentifier)
+            locationManager.monitoredRegions.removeValueForKey(regionIdentifier)
         }
     }
     func drawTheLine(){
         let path = GMSMutablePath()
-        path.addCoordinate(userLocation)
-        path.addCoordinate(truckLocation)
+        path.addCoordinate(locationManager.userLocation)
+        path.addCoordinate(locationManager.truckLocation)
         print(path)
         let rectangle = GMSPolyline(path: path)
         rectangle.strokeWidth = 2.0
@@ -220,7 +198,7 @@ extension GoogleMapViewController: GMSAutocompleteViewControllerDelegate {
             self.addressLabel.unlock()
             if let address = response?.firstResult() {
                 let lines = address.lines
-                print(address.country! + address.locality!)
+//                print(address.country! + address.locality!)
                 self.addressLabel.text = lines!.joinWithSeparator("\n")
                 let labelHeight = self.addressLabel.intrinsicContentSize().height
                 self.mapView.padding = UIEdgeInsets(top: self.topLayoutGuide.length, left: 0, bottom: labelHeight, right: 0)
@@ -239,36 +217,6 @@ extension GoogleMapViewController: GMSAutocompleteViewControllerDelegate {
 //    }
 }
 
-extension GoogleMapViewController:CLLocationManagerDelegate{
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if status == .AuthorizedWhenInUse{
-            locationManager.startUpdatingLocation()
-            mapView.myLocationEnabled = true
-            mapView.settings.myLocationButton = true
-            
-        }
-
-    }
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first{
-            
-             mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-            locationManager.stopUpdatingLocation()
-            
-        }
-    }
-    func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        showAlert("", message: "enter \(region.identifier)")
-        monitoredRegions = [region.identifier : NSDate()]
-    }
-    func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
-        showAlert("", message: "eixt \(region.identifier)")
-        monitoredRegions.removeValueForKey(region.identifier)
-    }
-    func locationManager(manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-        
-    }
-}
 
 extension GoogleMapViewController: GMSMapViewDelegate {
     func mapView(mapView: GMSMapView, idleAtCameraPosition position: GMSCameraPosition) {

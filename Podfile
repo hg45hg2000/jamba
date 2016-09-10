@@ -12,6 +12,8 @@ pod 'Firebase'
 pod 'Firebase/Messaging'
 pod 'Firebase/Crash'
 pod 'Firebase/Core'
+#pod 'ObjectMapper', '~> 1.3'
+pod 'AlamofireObjectMapper', '~> 3.0'
 
 
 end

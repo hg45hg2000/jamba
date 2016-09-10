@@ -8,8 +8,13 @@
 
 import Foundation
 import Alamofire
+import ObjectMapper
 
 let Rubbish_Api = "http://data.ntpc.gov.tw/api/v1/rest/datastore/382000000A-000070-002"
+
+//class records:NSObject{
+//    var result = 
+//}
 
 class TapieiDataServers {
     
@@ -33,13 +38,21 @@ class TapieiDataServers {
     }
     
     
-    func getTheTrushData(completion:((AnyObject?))-> Void){
+    func getTheTrushData( completion:(([JSON]?),failure:((NSError?)))-> Void){
         Alamofire.request(.GET,Rubbish_Api).validate().responseJSON { (response) in
-            
-            completion(response.result.value)
+            switch response.result {
+            case.Success(let value):
+                let json = JSON(value)
+                print(json["result"]["records"])
+                let records = json["result"]["records"].arrayValue
+                completion(records, failure: nil)
+            case.Failure(let error):
+              completion(nil, failure: error)
+            }
             
         }
         
     }
+   
 
 }

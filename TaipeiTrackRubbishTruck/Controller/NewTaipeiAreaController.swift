@@ -23,7 +23,7 @@ class NewTaipeiAreaController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = "新北市垃圾車"
-        self.delegate = self
+        
         
     }
     override func viewWillAppear(animated: Bool) {
@@ -33,23 +33,7 @@ class NewTaipeiAreaController: BaseViewController {
     
     func animationTable(){
         getData()
-        self.tableView.reloadData()
-        let cells = tableView.visibleCells
-        let tableViewHeight = tableView.bounds.size.height
-        for i in cells{
-            let cell = i as UITableViewCell
-            cell.transform = CGAffineTransformMakeTranslation(0, tableViewHeight)
-        }
-        var index : Double = 0
-        for a in cells {
-            let cell = a as UITableViewCell
-            UIView.animateWithDuration(1.5, delay: 0.05 * index, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
-                
-                cell.transform = CGAffineTransformMakeTranslation(0, 0)
-                
-                }, completion: nil)
-                index += 1
-            }
+        tableViewAnimation(tableView)
         }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -57,7 +41,6 @@ class NewTaipeiAreaController: BaseViewController {
         if segue.identifier == "rubbishDetail"{
             if let   destViewController = segue.destinationViewController as?RubbishTruckController
             {
-                
                 selectedIndex  = ((self.tableView.indexPathForSelectedRow as NSIndexPath?)?.row)!
                 filterContentForArea(areaArray[selectedIndex])
                 destViewController.filterRubbishs = filterRubbishs
@@ -83,15 +66,11 @@ class NewTaipeiAreaController: BaseViewController {
     // MARK: RequestData
     func getData(){
         
-        tapeiservers.getTheTrushData { (json) in
+        tapeiservers.getTheTrushData { [unowned self] json,error in
             if let json  = json {
-                let jsons = JSON(json)
-                print(jsons["result"]["records"])
-                let records = jsons["result"]["records"].arrayObject
-                print(records)
                 self.rubbishs.removeAll(keepCapacity: true)
-                for record in (records)!{
-                    let rubbish = Rubbish(dictionary: record as? Dictionary<String,AnyObject>)
+                for record in json{
+                    let rubbish = Rubbish(dictionary: record)
                     self.rubbishs.insert(rubbish, atIndex: 0)
                 }
                 
@@ -113,19 +92,13 @@ extension NewTaipeiAreaController:UITableViewDelegate,UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)as!NewTaipeiCell
         cell.areaLable.text = areaArray[(indexPath as NSIndexPath).row]
         cell.NotificationView.hidden = true
-        filterArea(areaArray) { (index) in
+        filterArea(areaArray) {  index in
             if (indexPath.row == index){
         
             cell.NotificationView.hidden = false
             }
         }
         return cell
-        
     }
     
-}
-extension NewTaipeiAreaController:AreaRubbishDelegate{
-    func getTheRubbishCellHaveDataIndex(index: Int) {
-        
-    }
 }
