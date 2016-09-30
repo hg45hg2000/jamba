@@ -35,8 +35,10 @@ class LocationManager: NSObject {
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.distanceFilter = kCLLocationAccuracyNearestTenMeters
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        checkAuthorization()
         
     }
+    
         func checkAuthorization(){
             switch CLLocationManager.authorizationStatus() {
             case .NotDetermined:
@@ -48,9 +50,6 @@ class LocationManager: NSObject {
             }
             
         }
-    
-
-
 
 }
 extension LocationManager:CLLocationManagerDelegate{

@@ -9,7 +9,6 @@
 import UIKit
 
 struct Cell {
-    
     static let rubbishCell = "rubbish"
 }
 private struct RefreshTime{
@@ -44,6 +43,7 @@ class RubbishTruckController: BaseViewController{
     @IBAction func upDate(sender: UIBarButtonItem) {
         updateRubbish()
     }
+    
     private func updateRubbish(){
         getData {
             if self.filterRubbishs.count == 0 {
@@ -66,6 +66,7 @@ class RubbishTruckController: BaseViewController{
         
             oneSecondTimer = NSTimer.scheduledTimerWithTimeInterval(RefreshTime.oneSencondTime, target: self, selector: #selector(RubbishTruckController.oneSecondupdateTime), userInfo: self, repeats: true)
             threeminsTimer  = NSTimer.scheduledTimerWithTimeInterval(RefreshTime.threeMinTime, target: self, selector: #selector(RubbishTruckController.pullTorefreah), userInfo: nil, repeats: true)
+            NSRunLoop.currentRunLoop().addTimer(oneSecondTimer, forMode:NSRunLoopCommonModes )
     }
     
     func oneSecondupdateTime(){
@@ -113,7 +114,7 @@ class RubbishTruckController: BaseViewController{
     }
 }
 
-extension RubbishTruckController:UITableViewDelegate,UITableViewDataSource,RubbishTableCellDelegate
+extension RubbishTruckController:UITableViewDelegate,UITableViewDataSource
 {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -124,11 +125,7 @@ extension RubbishTruckController:UITableViewDelegate,UITableViewDataSource,Rubbi
         let rubbish = filterRubbishs[(indexPath as NSIndexPath).row]
         if  let cell = tableView.dequeueReusableCellWithIdentifier(Cell.rubbishCell, forIndexPath: indexPath ) as? RubbishTableViewCell {
             cell.configureCell(rubbish)
-            cell.updateTime.text  = String(Count) + "秒前更新"
-            if cell.buttondelegate == nil{
-                cell.buttondelegate = self
-            }
-            
+            cell.updateTime.text  = String(Count) + "秒前更新"            
             return cell
         }
         else{
@@ -141,13 +138,7 @@ extension RubbishTruckController:UITableViewDelegate,UITableViewDataSource,Rubbi
         googleViewController.selectRubbish = filterRubbishs[indexPath.row]
         self.navigationController?.pushViewController(googleViewController, animated: true)
     }
-    func RubbishCelldidselected(RubbishCell: RubbishTableViewCell) {
-        showAlertForRow(tableView.indexPathForCell(RubbishCell)!.row)
-        let indexPath = NSIndexPath(forRow: tableView.indexPathForCell(RubbishCell)!.row, inSection: 0)
-        tableView.beginUpdates()
-        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Middle)
-        tableView.endUpdates()
-    }
+    
 }
 extension RubbishTruckController:UINavigationControllerDelegate{
     func  navigationController(navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {

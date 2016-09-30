@@ -24,7 +24,6 @@ class NewTaipeiAreaController: BaseViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem?.title = "新北市垃圾車"
         
-        
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -34,7 +33,7 @@ class NewTaipeiAreaController: BaseViewController {
     func animationTable(){
         getData()
         tableViewAnimation(tableView)
-        }
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -61,11 +60,9 @@ class NewTaipeiAreaController: BaseViewController {
             }
             default:break
         }
-        
     }
     // MARK: RequestData
     func getData(){
-        
         tapeiservers.getTheTrushData { [unowned self] json,error in
             if let json  = json {
                 self.rubbishs.removeAll(keepCapacity: true)
@@ -75,6 +72,12 @@ class NewTaipeiAreaController: BaseViewController {
                 }
                 
             }
+        }
+    }
+    func updateSingleTableViewCell(){
+        filterArea(areaArray) { index in
+            let indexPathArray = NSIndexPath(forRow: index, inSection: 0)
+            self.tableView.reloadRowsAtIndexPaths([indexPathArray], withRowAnimation: .Automatic)
         }
     }
 }
@@ -90,7 +93,7 @@ extension NewTaipeiAreaController:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)as!NewTaipeiCell
-        cell.areaLable.text = areaArray[(indexPath as NSIndexPath).row]
+        cell.areaLable.text = areaArray[indexPath.row]
         cell.NotificationView.hidden = true
         filterArea(areaArray) {  index in
             if (indexPath.row == index){

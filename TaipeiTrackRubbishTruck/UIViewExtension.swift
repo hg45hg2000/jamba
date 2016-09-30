@@ -61,21 +61,21 @@ extension UIView {
         UIGraphicsBeginImageContextWithOptions(sizeToFit, false, UIScreen.mainScreen().scale)
         let context = UIGraphicsGetCurrentContext()
         
-        CGContextSetLineWidth(context, borderWidth)
-        CGContextSetStrokeColorWithColor(context, borderColor.CGColor)
-        CGContextSetFillColorWithColor(context, backgroundColor.CGColor)
+        CGContextSetLineWidth(context!, borderWidth)
+        CGContextSetStrokeColorWithColor(context!, borderColor.CGColor)
+        CGContextSetFillColorWithColor(context!, backgroundColor.CGColor)
         
         let width = sizeToFit.width, height = sizeToFit.height
-        CGContextMoveToPoint(context, width - halfBorderWidth, radius + halfBorderWidth)  // 开始坐标右边开始
-        CGContextAddArcToPoint(context, width - halfBorderWidth, height - halfBorderWidth, width - radius - halfBorderWidth, height - halfBorderWidth, radius)  // 右下角角度
-        CGContextAddArcToPoint(context, halfBorderWidth, height - halfBorderWidth, halfBorderWidth, height - radius - halfBorderWidth, radius) // 左下角角度
-        CGContextAddArcToPoint(context, halfBorderWidth, halfBorderWidth, width - halfBorderWidth, halfBorderWidth, radius) // 左上角
-        CGContextAddArcToPoint(context, width - halfBorderWidth, halfBorderWidth, width - halfBorderWidth, radius + halfBorderWidth, radius) // 右上角
+        CGContextMoveToPoint(context!, width - halfBorderWidth, radius + halfBorderWidth)  // 开始坐标右边开始
+        CGContextAddArcToPoint(context!, width - halfBorderWidth, height - halfBorderWidth, width - radius - halfBorderWidth, height - halfBorderWidth, radius)  // 右下角角度
+        CGContextAddArcToPoint(context!, halfBorderWidth, height - halfBorderWidth, halfBorderWidth, height - radius - halfBorderWidth, radius) // 左下角角度
+        CGContextAddArcToPoint(context!, halfBorderWidth, halfBorderWidth, width - halfBorderWidth, halfBorderWidth, radius) // 左上角
+        CGContextAddArcToPoint(context!, width - halfBorderWidth, halfBorderWidth, width - halfBorderWidth, radius + halfBorderWidth, radius) // 右上角
         
-        CGContextDrawPath(UIGraphicsGetCurrentContext(), .FillStroke)
+        CGContextDrawPath(UIGraphicsGetCurrentContext()!, .FillStroke)
         let output = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return output
+        return output!
     }
 }
 
@@ -97,17 +97,17 @@ extension UIImage {
         let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: sizetoFit)
         
         UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.mainScreen().scale)
-        CGContextAddPath(UIGraphicsGetCurrentContext(),
+        CGContextAddPath(UIGraphicsGetCurrentContext()!,
                          UIBezierPath(roundedRect: rect, byRoundingCorners: UIRectCorner.AllCorners,
                             cornerRadii: CGSize(width: radius, height: radius)).CGPath)
-        CGContextClip(UIGraphicsGetCurrentContext())
+        CGContextClip(UIGraphicsGetCurrentContext()!)
         
         self.drawInRect(rect)
-        CGContextDrawPath(UIGraphicsGetCurrentContext(), .FillStroke)
+        CGContextDrawPath(UIGraphicsGetCurrentContext()!, .FillStroke)
         let output = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return output
+        return output!
     }
 }
 
@@ -159,6 +159,6 @@ extension UIView {
     
     class func viewFromNibName(name: String) -> UIView? {
         let views = NSBundle.mainBundle().loadNibNamed(name, owner: nil, options: nil)
-        return views.first as? UIView
+        return views!.first as? UIView
     }
 }

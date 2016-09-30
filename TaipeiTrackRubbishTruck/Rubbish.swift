@@ -14,12 +14,18 @@ class Rubbish {
     static var sharedInstance = Rubbish()
      init(){
     }
-    
+    private var _longitude:String!
+    private var _latitude:String!
     private var _car:String!
     private var _lineid:String!
     private var _location:String!
     private var _time:String!
-    
+    var longitude:String{
+        return _longitude
+    }
+    var latitude:String{
+        return _latitude
+    }
     var car:String{
         return _car
     }
@@ -34,7 +40,12 @@ class Rubbish {
     }
     init(dictionary: JSON?){
         if let dictionary = dictionary {
-        
+        if let longitude = dictionary["longitude"].string{
+            self._longitude = longitude
+            }
+        if let latitude = dictionary["latitude"].string{
+            self._latitude = latitude
+            }
         if let car = dictionary["car"].string {
             self._car = car
             }

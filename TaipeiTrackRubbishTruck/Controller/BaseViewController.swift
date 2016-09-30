@@ -65,7 +65,6 @@ class BaseViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Gotcha!", style: UIAlertActionStyle.Default, handler: { (test) -> Void in
             self.dismissViewControllerAnimated(true, completion: nil)
         }))
-        
         self.presentViewController(
             alert,
             animated: true,
@@ -90,6 +89,7 @@ class BaseViewController: UIViewController {
                 }, completion: nil)
             index += 1
         }
+        
     }
     
 }

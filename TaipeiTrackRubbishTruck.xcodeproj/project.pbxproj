@@ -19,6 +19,13 @@
 		4103BAF91D5FFC5500C20213 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4103BAF71D5FFC5500C20213 /* Utils.swift */; };
 		4103BAFC1D616BA500C20213 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4103BAFB1D616BA500C20213 /* CollectionViewController.m */; };
 		410414E21D55CB40003178F6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410414E11D55CB40003178F6 /* SettingViewController.swift */; };
+		4104B8921D91957C003B8E66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4104B8911D91957C003B8E66 /* GoogleService-Info.plist */; };
+		4104B8991D996542003B8E66 /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4104B8981D996542003B8E66 /* NewsItem.swift */; };
+		4104B89C1D996E38003B8E66 /* NewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4104B89B1D996E38003B8E66 /* NewStore.swift */; };
+		4104B89E1D9A4986003B8E66 /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4104B89D1D9A4986003B8E66 /* NotificationTableViewController.swift */; };
+		4104B8A01D9B6D02003B8E66 /* DateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4104B89F1D9B6D02003B8E66 /* DateParser.swift */; };
+		4104B8A21D9B6F7E003B8E66 /* NewItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4104B8A11D9B6F7E003B8E66 /* NewItemCell.swift */; };
+		4104B8A61D9C124E003B8E66 /* ServiceAccount.json in Resources */ = {isa = PBXBuildFile; fileRef = 4104B8A51D9C124E003B8E66 /* ServiceAccount.json */; };
 		4110CDCE1D62FDA4006ED81C /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4110CDCD1D62FDA4006ED81C /* ActivityIndicator.swift */; };
 		4110CDD01D62FEF7006ED81C /* UIColor-Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4110CDCF1D62FEF7006ED81C /* UIColor-Extenstion.swift */; };
 		4110CDD71D64166F006ED81C /* SildeSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4110CDD61D64166F006ED81C /* SildeSideMenu.swift */; };
@@ -37,7 +44,6 @@
 		BB57423D9C117288B9083464 /* Pods_TaipeiTrackRubbishTruckTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEFED55A983A946BB6F07E54 /* Pods_TaipeiTrackRubbishTruckTests.framework */; };
 		E9141655407FE08E8BE595DE /* Pods_TaipeiTrackRubbishTruck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09886A3FD10939FCFCFAE2E /* Pods_TaipeiTrackRubbishTruck.framework */; };
 		FB5878891D0A995D00D121DA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5878881D0A995D00D121DA /* CoreData.framework */; };
-		FB7F96451D1ACEDF0042819F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB7F96441D1ACEDF0042819F /* GoogleService-Info.plist */; };
 		FB81F33B1CE6CFD500FA4B67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81F33A1CE6CFD500FA4B67 /* AppDelegate.swift */; };
 		FB81F3401CE6CFD500FA4B67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB81F33E1CE6CFD500FA4B67 /* Main.storyboard */; };
 		FB81F3421CE6CFD500FA4B67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB81F3411CE6CFD500FA4B67 /* Assets.xcassets */; };
@@ -101,6 +107,13 @@
 		4103BAFB1D616BA500C20213 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		4103BB021D617B4D00C20213 /* TaipeiTrackRubbishTruckTests XCTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TaipeiTrackRubbishTruckTests XCTest.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		410414E11D55CB40003178F6 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = Controller/SettingViewController.swift; sourceTree = "<group>"; };
+		4104B8911D91957C003B8E66 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SwiftyJSON/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4104B8981D996542003B8E66 /* NewsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsItem.swift; path = Model/NewsItem.swift; sourceTree = "<group>"; };
+		4104B89B1D996E38003B8E66 /* NewStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewStore.swift; path = Helpers/NewStore.swift; sourceTree = "<group>"; };
+		4104B89D1D9A4986003B8E66 /* NotificationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationTableViewController.swift; path = Controller/NotificationTableViewController.swift; sourceTree = "<group>"; };
+		4104B89F1D9B6D02003B8E66 /* DateParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateParser.swift; sourceTree = "<group>"; };
+		4104B8A11D9B6F7E003B8E66 /* NewItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewItemCell.swift; path = View/NewItemCell.swift; sourceTree = "<group>"; };
+		4104B8A51D9C124E003B8E66 /* ServiceAccount.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ServiceAccount.json; sourceTree = "<group>"; };
 		4110CDCD1D62FDA4006ED81C /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityIndicator.swift; path = View/ActivityIndicator.swift; sourceTree = "<group>"; };
 		4110CDCF1D62FEF7006ED81C /* UIColor-Extenstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-Extenstion.swift"; sourceTree = "<group>"; };
 		4110CDD61D64166F006ED81C /* SildeSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SildeSideMenu.swift; path = CustomUI/SildeSideMenu.swift; sourceTree = "<group>"; };
@@ -116,6 +129,7 @@
 		416C980F1D50772200707537 /* GoogleIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleIconView.swift; sourceTree = "<group>"; };
 		416C98121D51C54100707537 /* America.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = America.gpx; sourceTree = "<group>"; };
 		4171988B1D818536008364E7 /* GoogleLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleLocationManager.swift; path = Model/GoogleLocationManager.swift; sourceTree = "<group>"; };
+		41C659CD1D8D08550060521F /* TaipeiTrackRubbishTruck.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaipeiTrackRubbishTruck.entitlements; sourceTree = "<group>"; };
 		4A9F38B2D94116C6F6FBEF62 /* Pods_TaipeiTrackRubbishTruckUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaipeiTrackRubbishTruckUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51F4B422BFE5E7E8D357BA6C /* Pods-TaipeiTrackRubbishTruck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiTrackRubbishTruck.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiTrackRubbishTruck/Pods-TaipeiTrackRubbishTruck.release.xcconfig"; sourceTree = "<group>"; };
 		A455D5DF7CB2099924213C9E /* Pods-TaipeiTrackRubbishTruckTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaipeiTrackRubbishTruckTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaipeiTrackRubbishTruckTests/Pods-TaipeiTrackRubbishTruckTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,14 +144,12 @@
 		FB58788A1D0A996E00D121DA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FB58788C1D0A997700D121DA /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		FB58788E1D0A997F00D121DA /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		FB5878901D0A998800D121DA /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		FB5878921D0A999900D121DA /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		FB5878941D0A99AA00D121DA /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		FB5878961D0A99B400D121DA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		FB5878981D0A99BC00D121DA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		FB58789A1D0A99CF00D121DA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FB58789C1D0A99D700D121DA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		FB7F96441D1ACEDF0042819F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB81F3371CE6CFD500FA4B67 /* TaipeiTrackRubbishTruck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaipeiTrackRubbishTruck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB81F33A1CE6CFD500FA4B67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB81F33F1CE6CFD500FA4B67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -156,7 +168,6 @@
 		FB81F3741CE997ED00FA4B67 /* NSDictionary+Unicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Unicode.m"; path = "Uility/NSDictionary+Unicode.m"; sourceTree = "<group>"; };
 		FB81F3771CE99EDD00FA4B67 /* Rubbish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rubbish.swift; sourceTree = "<group>"; };
 		FB81F37C1CE9B11B00FA4B67 /* RubbishTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RubbishTableViewCell.swift; path = View/RubbishTableViewCell.swift; sourceTree = "<group>"; };
-		FB878A7F1CF2000B0011FF04 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		FB878A811CF2CC5D0011FF04 /* GoogleMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleMapViewController.swift; path = Controller/GoogleMapViewController.swift; sourceTree = "<group>"; };
 		FB9BF9731CEB323700659977 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Servers/Reachability.swift; sourceTree = "<group>"; };
 		FB9BF9761CEB388F00659977 /* MenuTransitionMansger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuTransitionMansger.swift; path = View/Animation/MenuTransitionMansger.swift; sourceTree = "<group>"; };
@@ -214,14 +225,12 @@
 				FB5878961D0A99B400D121DA /* libz.tbd */,
 				FB5878941D0A99AA00D121DA /* libicucore.tbd */,
 				FB5878921D0A999900D121DA /* libc++.tbd */,
-				FB5878901D0A998800D121DA /* ImageIO.framework */,
 				FB58788E1D0A997F00D121DA /* GLKit.framework */,
 				FB58788C1D0A997700D121DA /* CoreText.framework */,
 				FB58788A1D0A996E00D121DA /* CoreLocation.framework */,
 				FB5878881D0A995D00D121DA /* CoreData.framework */,
 				FB5878861D0A995300D121DA /* AVFoundation.framework */,
 				FB5878841D0A966500D121DA /* MapKit.framework */,
-				FB878A7F1CF2000B0011FF04 /* iAd.framework */,
 				B09886A3FD10939FCFCFAE2E /* Pods_TaipeiTrackRubbishTruck.framework */,
 				FEFED55A983A946BB6F07E54 /* Pods_TaipeiTrackRubbishTruckTests.framework */,
 				4A9F38B2D94116C6F6FBEF62 /* Pods_TaipeiTrackRubbishTruckUITests.framework */,
@@ -234,6 +243,9 @@
 			children = (
 				410384751D6A7E23005A11D0 /* TruckAreaCell.h */,
 				410384761D6A7E23005A11D0 /* TruckAreaCell.m */,
+				FB81F37C1CE9B11B00FA4B67 /* RubbishTableViewCell.swift */,
+				41492F381D53397200A08C83 /* NewTaipeiCell.swift */,
+				4104B8A11D9B6F7E003B8E66 /* NewItemCell.swift */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -262,6 +274,23 @@
 			);
 			name = Commons;
 			path = Uility/Commons;
+			sourceTree = "<group>";
+		};
+		4104B89A1D996DF1003B8E66 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4104B89B1D996E38003B8E66 /* NewStore.swift */,
+				4104B89F1D9B6D02003B8E66 /* DateParser.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		4104B8A41D9C124E003B8E66 /* FirebaseCrashLog */ = {
+			isa = PBXGroup;
+			children = (
+				4104B8A51D9C124E003B8E66 /* ServiceAccount.json */,
+			);
+			path = FirebaseCrashLog;
 			sourceTree = "<group>";
 		};
 		4110CDCC1D62FD30006ED81C /* Activity indicatorUI */ = {
@@ -337,6 +366,7 @@
 		FB81F3391CE6CFD500FA4B67 /* TaipeiTrackRubbishTruck */ = {
 			isa = PBXGroup;
 			children = (
+				41C659CD1D8D08550060521F /* TaipeiTrackRubbishTruck.entitlements */,
 				4110CDD51D64160B006ED81C /* CustomUI */,
 				FB81F33A1CE6CFD500FA4B67 /* AppDelegate.swift */,
 				FB81F36B1CE6D1E200FA4B67 /* Model */,
@@ -344,12 +374,14 @@
 				FB81F3691CE6D1CB00FA4B67 /* View */,
 				FB81F3681CE6D1B000FA4B67 /* Uility */,
 				41654B511D45B4900026992E /* SwiftyJSON */,
-				FB7F96441D1ACEDF0042819F /* GoogleService-Info.plist */,
+				4104B89A1D996DF1003B8E66 /* Helpers */,
 				FB81F33E1CE6CFD500FA4B67 /* Main.storyboard */,
 				FB81F3411CE6CFD500FA4B67 /* Assets.xcassets */,
 				FB81F3431CE6CFD500FA4B67 /* LaunchScreen.storyboard */,
+				4104B8911D91957C003B8E66 /* GoogleService-Info.plist */,
 				FB81F3461CE6CFD500FA4B67 /* Info.plist */,
 				416C98121D51C54100707537 /* America.gpx */,
+				4104B8A41D9C124E003B8E66 /* FirebaseCrashLog */,
 			);
 			path = TaipeiTrackRubbishTruck;
 			sourceTree = "<group>";
@@ -393,8 +425,6 @@
 				4103BAE41D5FFB1600C20213 /* SplashScreenUI */,
 				FBD891431D159D4C00658F75 /* Custom UI */,
 				FB9BF9751CEB384A00659977 /* Animation */,
-				FB81F37C1CE9B11B00FA4B67 /* RubbishTableViewCell.swift */,
-				41492F381D53397200A08C83 /* NewTaipeiCell.swift */,
 				FBB2AF2B1D0B0BFE00F82CD2 /* GoogleStreetView.swift */,
 			);
 			name = View;
@@ -410,6 +440,7 @@
 				410414E11D55CB40003178F6 /* SettingViewController.swift */,
 				4103BAFA1D616BA500C20213 /* CollectionViewController.h */,
 				4103BAFB1D616BA500C20213 /* CollectionViewController.m */,
+				4104B89D1D9A4986003B8E66 /* NotificationTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -423,6 +454,7 @@
 				41654B4B1D45B10B0026992E /* GooglePlace.swift */,
 				41654B4D1D45B1290026992E /* PlaceMarker.swift */,
 				4171988B1D818536008364E7 /* GoogleLocationManager.swift */,
+				4104B8981D996542003B8E66 /* NewsItem.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -486,6 +518,7 @@
 				FB81F3351CE6CFD500FA4B67 /* Resources */,
 				0FB17B23F8EAFAB6B3E59D9C /* [CP] Embed Pods Frameworks */,
 				8ABE415D062AE3CA6BE89994 /* [CP] Copy Pods Resources */,
+				4104B8A31D9C0F7B003B8E66 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -614,10 +647,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4103BAF01D5FFB1600C20213 /* Info.plist in Resources */,
+				4104B8921D91957C003B8E66 /* GoogleService-Info.plist in Resources */,
 				416C98131D51C54100707537 /* America.gpx in Resources */,
+				4104B8A61D9C124E003B8E66 /* ServiceAccount.json in Resources */,
 				FB81F3451CE6CFD500FA4B67 /* LaunchScreen.storyboard in Resources */,
 				4103BAEE1D5FFB1600C20213 /* Chimes.xcassets in Resources */,
-				FB7F96451D1ACEDF0042819F /* GoogleService-Info.plist in Resources */,
 				FB81F3421CE6CFD500FA4B67 /* Assets.xcassets in Resources */,
 				FB81F3401CE6CFD500FA4B67 /* Main.storyboard in Resources */,
 				41654B561D45B4900026992E /* LICENSE in Resources */,
@@ -684,6 +718,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TaipeiTrackRubbishTruckTests/Pods-TaipeiTrackRubbishTruckTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4104B8A31D9C0F7B003B8E66 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
 			showEnvVarsInLog = 0;
 		};
 		45BF15A980532F9675AC7C24 /* [CP] Check Pods Manifest.lock */ = {
@@ -792,17 +840,22 @@
 				4110CDD01D62FEF7006ED81C /* UIColor-Extenstion.swift in Sources */,
 				4110CDD71D64166F006ED81C /* SildeSideMenu.swift in Sources */,
 				FB81F33B1CE6CFD500FA4B67 /* AppDelegate.swift in Sources */,
+				4104B8A21D9B6F7E003B8E66 /* NewItemCell.swift in Sources */,
 				41654B4C1D45B10B0026992E /* GooglePlace.swift in Sources */,
 				4110CDCE1D62FDA4006ED81C /* ActivityIndicator.swift in Sources */,
+				4104B8A01D9B6D02003B8E66 /* DateParser.swift in Sources */,
 				416C98101D50772200707537 /* GoogleIconView.swift in Sources */,
 				41654B501D45B1AC0026992E /* UIViewExtension.swift in Sources */,
 				FBB2AF2C1D0B0BFE00F82CD2 /* GoogleStreetView.swift in Sources */,
 				FBD891451D159DB200658F75 /* CustomRefresh.swift in Sources */,
 				FB9BF9771CEB388F00659977 /* MenuTransitionMansger.swift in Sources */,
 				4103BAF11D5FFB1600C20213 /* SplashViewController.swift in Sources */,
+				4104B8991D996542003B8E66 /* NewsItem.swift in Sources */,
 				4103BAF91D5FFC5500C20213 /* Utils.swift in Sources */,
 				FBA3BBED1CEB1BF7004AF688 /* BaseViewController.swift in Sources */,
 				4103BAED1D5FFB1600C20213 /* AnimatedULogoView.swift in Sources */,
+				4104B89C1D996E38003B8E66 /* NewStore.swift in Sources */,
+				4104B89E1D9A4986003B8E66 /* NotificationTableViewController.swift in Sources */,
 				410384771D6A7E23005A11D0 /* TruckAreaCell.m in Sources */,
 				FB81F36D1CE6D24700FA4B67 /* Constant.swift in Sources */,
 				FB81F37D1CE9B11B00FA4B67 /* RubbishTableViewCell.swift in Sources */,
@@ -932,7 +985,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -972,7 +1025,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -986,16 +1039,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = TaipeiTrackRubbishTruck/TaipeiTrackRubbishTruck.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7LVJW6YG74;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = TaipeiTrackRubbishTruck/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jamba.TaipeiTrackRubbishTruck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TaipeiTrackRubbishTruck/TaipeiTrackRubbishTruck-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1006,15 +1062,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = TaipeiTrackRubbishTruck/TaipeiTrackRubbishTruck.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7LVJW6YG74;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = TaipeiTrackRubbishTruck/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jamba.TaipeiTrackRubbishTruck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TaipeiTrackRubbishTruck/TaipeiTrackRubbishTruck-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

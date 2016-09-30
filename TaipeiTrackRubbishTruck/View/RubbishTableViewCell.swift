@@ -12,6 +12,7 @@ import UIKit
     func RubbishCelldidselected(RubbishCell:RubbishTableViewCell)
 }
 
+
 class RubbishTableViewCell: UITableViewCell {
 
     weak var buttondelegate : RubbishTableCellDelegate?

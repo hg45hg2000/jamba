@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol NewTaipeiAreaCell {
+    func TaipeiAreaCellChange()
+}
+
 class NewTaipeiCell: UITableViewCell {
 
     let gradientLayer = CAGradientLayer()
