@@ -28,6 +28,10 @@ class NewsStore: NSObject {
         items.insert(newItem, atIndex: 0)
         saveItemsToCache()
     }
+    func removeItems(removeIndex:Int){
+        items.removeAtIndex(removeIndex)
+        saveItemsToCache()
+    }
 }
 extension NewsStore{
     var itemsCachePath:String {

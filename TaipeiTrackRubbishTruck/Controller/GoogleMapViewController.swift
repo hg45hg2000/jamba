@@ -55,27 +55,28 @@ class GoogleMapViewController: UIViewController{
         
         mapView.addSubview(googleIconView)
 
-//        placesClient = GMSPlacesClient()
-
     }
     
-    func searchPlace(selectRubbish:Rubbish?){
+    func searchPlace(selectRubbish:Rubbish){
         if !didTruckMade {
-        if let selectRubbish  = selectRubbish {
         geoCoder.geocodeAddressString(selectRubbish.location, completionHandler: {
             (placemarks,error) -> Void in
             if error != nil{
                 print(error)
                 return
             }
-            if placemarks != nil && placemarks!.count > 0{
-                let placemark = placemarks![0] as CLPlacemark
-                self.setupMark(placemark)
-                self.setupRegionDetect(placemark)
-                self.drawTheLine()
-                    }
+            //   delete self googlemap search
+//            if placemarks != nil && placemarks!.count > 0{
+//                let placemark = placemarks![0] as CLPlacemark
+//                self.setupMark(placemark)
+//                self.setupRegionDetect(placemark)
+//                self.drawTheLine()
+//                    }
                 })
-            }
+            
+            let trucklocationCoordinate2D = CLLocationCoordinate2DMake(selectRubbish.latitude, selectRubbish.longitude)
+            self.setupMark(trucklocationCoordinate2D)
+            self.drawTheLine()
             didTruckMade = true
         }
         else{
@@ -83,16 +84,17 @@ class GoogleMapViewController: UIViewController{
         }
     }
     
-    func setupMark(placemark:CLPlacemark){
-        let marker = GMSMarker(position: (placemark.location?.coordinate)!)
-        self.locationManager.truckLocation = (placemark.location?.coordinate)!
+    func setupMark(locationCoordinate:CLLocationCoordinate2D){
+        let marker = GMSMarker(position: locationCoordinate)
+        // put location into trucklocation
+        self.locationManager.truckLocation = locationCoordinate
         marker.title = selectRubbish.location
         marker.snippet = selectRubbish.car
         marker.groundAnchor = CGPointMake(0.5, 0.5)
         let pinview = UIImage(named: "trushtruck0.10x")
         marker.icon = pinview
         marker.rotation = Double(self.iconRotation)
-        self.mapView.camera = GMSCameraPosition(target: (placemark.location?.coordinate)!, zoom: 15, bearing: 10, viewingAngle: 10)
+        self.mapView.camera = GMSCameraPosition(target: locationCoordinate, zoom: 15, bearing: 10, viewingAngle: 10)
         marker.map = self.mapView
         markers += [marker]
         
@@ -110,6 +112,7 @@ class GoogleMapViewController: UIViewController{
             for (_,marker) in markers.enumerate() {
                 marker.map = mapView
             }
+            
             let circle = GMSCircle(position: (placemarkL.location?.coordinate)!, radius: regionRadius)
             circle.map = mapView
 
@@ -162,6 +165,7 @@ class GoogleMapViewController: UIViewController{
         alerview.addAction(action)
         self.presentViewController(alerview, animated: true, completion: nil)
     }
+    
     func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) {
         let geocoder = GMSGeocoder()
         
@@ -176,6 +180,8 @@ class GoogleMapViewController: UIViewController{
             }
         }
     }
+    
+    
 }
 
 extension GoogleMapViewController:GoogleIconViewDelegate{
@@ -188,41 +194,6 @@ extension GoogleMapViewController:GoogleIconViewDelegate{
     }
 }
 
-
-
-//extension GoogleMapViewController: GMSAutocompleteViewControllerDelegate {
-//    
-//    // Handle the user's selection.
-//    func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
-//        print("Place name: \(place.name)")
-//                print("Place address: \(place.formattedAddress)")
-//        print("Place attributions: \(place.attributions)")
-//        self.dismissViewControllerAnimated(true, completion: nil)
-//    }
-//    
-//    func viewController(viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: NSError) {
-//        // TODO: handle the error.
-//        print("Error: \(error.description)")
-//        self.dismissViewControllerAnimated(true, completion: nil)
-//    }
-//    
-//    // User canceled the operation.
-//    func wasCancelled(viewController: GMSAutocompleteViewController) {
-//        print("Autocomplete was cancelled.")
-//        self.dismissViewControllerAnimated(true, completion: nil)
-//    }
-//
-////    func fetchNearbyPlaces(coordinate: CLLocationCoordinate2D) {
-////        mapView.clear()
-////        dataProvider.fetchPlacesNearCoordinate(coordinate, radius:searchRadius, types: searchedTypes) { places in
-////            for place: GooglePlace in places {
-////                let marker = PlaceMarker(place: place)
-////                marker.map = self.mapView
-////            }
-////        }
-////    }
-//}
-//
 
 extension GoogleMapViewController: GMSMapViewDelegate {
     func mapView(mapView: GMSMapView, idleAtCameraPosition position: GMSCameraPosition) {

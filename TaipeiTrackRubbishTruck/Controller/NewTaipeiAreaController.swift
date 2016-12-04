@@ -77,7 +77,7 @@ class NewTaipeiAreaController: BaseViewController {
     func updateSingleTableViewCell(){
         filterArea(areaArray) { index in
             let indexPathArray = NSIndexPath(forRow: index, inSection: 0)
-            self.tableView.reloadRowsAtIndexPaths([indexPathArray], withRowAnimation: .Automatic)
+            self.tableView.reloadRowsAtIndexPaths([indexPathArray], withRowAnimation: .Fade)
         }
     }
 }
@@ -97,11 +97,13 @@ extension NewTaipeiAreaController:UITableViewDelegate,UITableViewDataSource {
         cell.NotificationView.hidden = true
         filterArea(areaArray) {  index in
             if (indexPath.row == index){
-        
-            cell.NotificationView.hidden = false
+                cell.NotificationView.hidden = false
             }
         }
         return cell
     }
-    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+
+        
+    }
 }

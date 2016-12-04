@@ -19,7 +19,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="141" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="om4-QJ-vRi">
@@ -144,7 +144,7 @@
                         <viewControllerLayoutGuide type="bottom" id="9ei-mx-MXy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Te3-t3-d9r">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B3R-n2-yLX">
@@ -301,10 +301,10 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8a4-0E-hWU" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="9Qa-zJ-z6x"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="Mcx-hd-eCV">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="Mcx-hd-eCV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="Xco-Ua-pev" kind="relationship" relationship="viewControllers" id="P3D-T8-DEk"/>
@@ -341,7 +341,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="XoI-L5-73n"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pQB-HJ-BfT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pQB-HJ-BfT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -360,7 +360,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xco-Ua-pev" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="垃圾車" image="truck-3" id="i08-ib-0fL"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zVc-jO-qjk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zVc-jO-qjk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -373,12 +373,12 @@
             </objects>
             <point key="canvasLocation" x="-831" y="111"/>
         </scene>
-        <!--Notification Table View Controller-->
+        <!--版本紀錄-->
         <scene sceneID="reo-uG-CXK">
             <objects>
                 <tableViewController id="0uc-Ri-erM" customClass="NotificationTableViewController" customModule="TaipeiTrackRubbishTruck" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6hr-HZ-8J4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -396,7 +396,7 @@
                             <outlet property="delegate" destination="0uc-Ri-erM" id="BRE-fe-bji"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" systemItem="history" id="QXA-Wz-fdU"/>
+                    <tabBarItem key="tabBarItem" title="版本紀錄" id="QXA-Wz-fdU"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L3F-JM-eq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -408,7 +408,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gsg-ru-LLb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="vDJ-XY-Hci"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E7R-PW-yPL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="E7R-PW-yPL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -425,5 +425,5 @@
     <resources>
         <image name="truck-3" width="32" height="32"/>
     </resources>
-    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

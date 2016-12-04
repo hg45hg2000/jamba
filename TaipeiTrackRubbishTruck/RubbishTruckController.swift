@@ -39,6 +39,14 @@ class RubbishTruckController: BaseViewController{
         self.title = areaArray [selectedIndex]
         threeMinsToReloadData()
     }
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+    }
+    func invaildTimer(){
+        oneSecondTimer.invalidate()
+        threeminsTimer.invalidate()
+    }
     
     @IBAction func upDate(sender: UIBarButtonItem) {
         updateRubbish()

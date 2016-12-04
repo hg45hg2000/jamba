@@ -20,12 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         GMSServices.provideAPIKey(Google_Api)
-        
+        configer3dTouch()
         let settings: UIUserNotificationSettings =
             UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
         FIRApp.configure()
+        (window?.rootViewController as! UITabBarController).tabBar.barTintColor = UIColor.brownColor()
         if let notification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey]as? [NSString:AnyObject]{
             let aps = notification["aps"] as! [String:AnyObject]
             createRubbishNewsItem(aps)
@@ -94,17 +95,17 @@ extension AppDelegate{
     }
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         print(userInfo)
-        if let notification = userInfo[UIApplicationLaunchOptionsRemoteNotificationKey] as? [String:AnyObject]{
-            let aps = notification["aps"] as! [String:AnyObject]
+       
+            let aps = userInfo["aps"] as! [String:AnyObject]
             createRubbishNewsItem(aps)
-        }
+            (window?.rootViewController as! UITabBarController).selectedIndex = 1
+
         
     }
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject],
                      fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-        
         // Print message ID.
-        //        print("Message ID: \(userInfo["gcm.message_id"]!)")
+        // print("Message ID: \(userInfo["gcm.message_id"]!)")
         
         // Print full message.
         
@@ -126,5 +127,17 @@ extension AppDelegate{
         }
         return nil
     }
+    // Add 3D Touch
+    
+    func configer3dTouch(){
+        if #available(iOS 9.0, *) {
+            if UITraitCollection().forceTouchCapability ==  UIForceTouchCapability.Available{
+                let bundleIdentifier = NSBundle.mainBundle().bundleIdentifier
+                let shortcutItem1 = UIApplicationShortcutItem(type: "\(bundleIdentifier).shared", localizedTitle: "Shared")
+                UIApplication.sharedApplication().shortcutItems = [shortcutItem1]
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+    }
 }
-

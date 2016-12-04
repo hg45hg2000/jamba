@@ -29,6 +29,8 @@
 		4110CDCE1D62FDA4006ED81C /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4110CDCD1D62FDA4006ED81C /* ActivityIndicator.swift */; };
 		4110CDD01D62FEF7006ED81C /* UIColor-Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4110CDCF1D62FEF7006ED81C /* UIColor-Extenstion.swift */; };
 		4110CDD71D64166F006ED81C /* SildeSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4110CDD61D64166F006ED81C /* SildeSideMenu.swift */; };
+		41139A021DBE5561002A3C22 /* RubbishItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41139A011DBE5561002A3C22 /* RubbishItem.swift */; };
+		41139A041DBE5973002A3C22 /* RubbishStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41139A031DBE5973002A3C22 /* RubbishStore.swift */; };
 		41492F391D53397200A08C83 /* NewTaipeiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41492F381D53397200A08C83 /* NewTaipeiCell.swift */; };
 		41654B331D45A68F0026992E /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B321D45A68F0026992E /* GoogleDataProvider.swift */; };
 		41654B4C1D45B10B0026992E /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654B4B1D45B10B0026992E /* GooglePlace.swift */; };
@@ -117,6 +119,8 @@
 		4110CDCD1D62FDA4006ED81C /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityIndicator.swift; path = View/ActivityIndicator.swift; sourceTree = "<group>"; };
 		4110CDCF1D62FEF7006ED81C /* UIColor-Extenstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-Extenstion.swift"; sourceTree = "<group>"; };
 		4110CDD61D64166F006ED81C /* SildeSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SildeSideMenu.swift; path = CustomUI/SildeSideMenu.swift; sourceTree = "<group>"; };
+		41139A011DBE5561002A3C22 /* RubbishItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RubbishItem.swift; path = Model/RubbishItem.swift; sourceTree = "<group>"; };
+		41139A031DBE5973002A3C22 /* RubbishStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RubbishStore.swift; path = Helpers/RubbishStore.swift; sourceTree = "<group>"; };
 		41492F381D53397200A08C83 /* NewTaipeiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewTaipeiCell.swift; path = View/NewTaipeiCell.swift; sourceTree = "<group>"; };
 		41654B321D45A68F0026992E /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleDataProvider.swift; path = Model/GoogleDataProvider.swift; sourceTree = "<group>"; };
 		41654B4B1D45B10B0026992E /* GooglePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
@@ -281,6 +285,7 @@
 			children = (
 				4104B89B1D996E38003B8E66 /* NewStore.swift */,
 				4104B89F1D9B6D02003B8E66 /* DateParser.swift */,
+				41139A031DBE5973002A3C22 /* RubbishStore.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -450,11 +455,12 @@
 			children = (
 				FB81F3761CE99E5B00FA4B67 /* Servers */,
 				FB81F3771CE99EDD00FA4B67 /* Rubbish.swift */,
+				4104B8981D996542003B8E66 /* NewsItem.swift */,
 				41654B321D45A68F0026992E /* GoogleDataProvider.swift */,
 				41654B4B1D45B10B0026992E /* GooglePlace.swift */,
 				41654B4D1D45B1290026992E /* PlaceMarker.swift */,
 				4171988B1D818536008364E7 /* GoogleLocationManager.swift */,
-				4104B8981D996542003B8E66 /* NewsItem.swift */,
+				41139A011DBE5561002A3C22 /* RubbishItem.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -852,9 +858,11 @@
 				4103BAF11D5FFB1600C20213 /* SplashViewController.swift in Sources */,
 				4104B8991D996542003B8E66 /* NewsItem.swift in Sources */,
 				4103BAF91D5FFC5500C20213 /* Utils.swift in Sources */,
+				41139A041DBE5973002A3C22 /* RubbishStore.swift in Sources */,
 				FBA3BBED1CEB1BF7004AF688 /* BaseViewController.swift in Sources */,
 				4103BAED1D5FFB1600C20213 /* AnimatedULogoView.swift in Sources */,
 				4104B89C1D996E38003B8E66 /* NewStore.swift in Sources */,
+				41139A021DBE5561002A3C22 /* RubbishItem.swift in Sources */,
 				4104B89E1D9A4986003B8E66 /* NotificationTableViewController.swift in Sources */,
 				410384771D6A7E23005A11D0 /* TruckAreaCell.m in Sources */,
 				FB81F36D1CE6D24700FA4B67 /* Constant.swift in Sources */,

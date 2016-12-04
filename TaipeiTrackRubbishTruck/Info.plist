@@ -41,8 +41,20 @@
 	<string>l need location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>l nedd location</string>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string></string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Shared</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string></string>
+		</dict>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>fetch</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

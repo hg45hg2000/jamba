@@ -28,28 +28,25 @@ class TapieiDataServers {
         }
         return Static.instance!
     }
-    private static var mInstance: TapieiDataServers?
     
-    static func sharedInstanced () ->TapieiDataServers{
-        if mInstance == nil{
-            mInstance = TapieiDataServers()
-        }
-        return mInstance!
-    }
+   
     
     
     func getTheTrushData( completion:(([JSON]?),failure:((NSError?)))-> Void){
         Alamofire.request(.GET,Rubbish_Api).validate().responseJSON { (response) in
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             switch response.result {
             case.Success(let value):
                 let json = JSON(value)
                 print(json["result"]["records"])
                 let records = json["result"]["records"].arrayValue
-                completion(records, failure: nil)
+                dispatch_async(dispatch_get_main_queue(), { 
+                     completion(records, failure: nil)
+                })
             case.Failure(let error):
               completion(nil, failure: error)
             }
-            
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         }
         
     }
