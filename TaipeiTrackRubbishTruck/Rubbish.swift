@@ -7,14 +7,25 @@
 //
 
 import Foundation
+import RealmSwift
 
 
 class Rubbish {
+    static var sharedInstance = Rubbish()
+     init(){
+    }
+    private var _longitude:Double!
+    private var _latitude:Double!
     private var _car:String!
     private var _lineid:String!
     private var _location:String!
     private var _time:String!
-    
+    var longitude:Double{
+        return _longitude
+    }
+    var latitude:Double{
+        return _latitude
+    }
     var car:String{
         return _car
     }
@@ -27,19 +38,47 @@ class Rubbish {
     var time:String{
         return _time
     }
-    init(dictionary: Dictionary<String,AnyObject>){
-        if let car = dictionary["car"]as? String {
+    init(dictionary: JSON?){
+        if let dictionary = dictionary {
+         
+        self._longitude = dictionary["longitude"].doubleValue
+        self._latitude = dictionary["latitude"].doubleValue
+            
+        if let car = dictionary["car"].string {
             self._car = car
-        }
-        if let lineid = dictionary["lineid"]as? String{
+            }
+        if let lineid = dictionary["lineid"].string{
             self._lineid = lineid
-        }
-        if  let location = dictionary["location"]as? String{
+            }
+        if  let location = dictionary["location"].string{
             self._location = location
-        }
-        if let time = dictionary["time"]as? String {
+            }
+        if let time = dictionary["time"].string {
             self._time = time
+            }
+        
         }
     }
     
+}
+
+public class RubbishData:Object{
+        
+    public dynamic var car :String = ""
+    public dynamic var lineid :String = ""
+    public dynamic var location :String = ""
+    public dynamic var time :String = ""
+    
+    public func fillwithRubbish (Rubbish:RubbishDataStruct){
+        self.car = Rubbish.car
+        self.lineid = Rubbish.lineid
+        self.location = Rubbish.location
+        self.time = Rubbish.time
+    }
+}
+public struct RubbishDataStruct{
+    public let car :String
+    public let lineid :String
+    public let location :String
+    public let time :String
 }

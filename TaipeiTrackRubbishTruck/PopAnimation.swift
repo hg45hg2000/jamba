@@ -18,8 +18,8 @@ class PopAnimation: NSObject,UIViewControllerAnimatedTransitioning {
         let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewKey)
         let containerView = transitionContext.containerView()
         
-        transitionContext.containerView()!.addSubview(toVC!.view)
-        transitionContext.containerView()!.addSubview(fromVC!.view)
+        transitionContext.containerView().addSubview(toVC!.view)
+        transitionContext.containerView().addSubview(fromVC!.view)
         toVC?.view.transform = CGAffineTransformMakeTranslation(-100, 0)
         toVC?.view.alpha = 0.5
         

@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AFNetworking/AFNetworking.h>
-
+//#import <AFNetworking/AFNetworking.h>
 
 @interface TaipeiData : NSObject{
     NSString *someProperty;

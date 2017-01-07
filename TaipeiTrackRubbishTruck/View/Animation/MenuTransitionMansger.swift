@@ -16,16 +16,16 @@ class MenuTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
         
         // 設定滑動的變換（transform）
         let container = transitionContext.containerView()
-        let moveDown = CGAffineTransformMakeTranslation(0, container!.frame.height - 150)
+        let moveDown = CGAffineTransformMakeTranslation(0, container.frame.height - 150)
         let moveUp = CGAffineTransformMakeTranslation(0, -50)
         
         //  將兩個視圖加進容器視圖
         if isPresenting {
             toView.transform = moveUp
             snapshot = fromView.snapshotViewAfterScreenUpdates(true)
-            container!.addSubview(toView)
+            container.addSubview(toView)
             
-            container!.addSubview(snapshot!)
+            container.addSubview(snapshot!)
         }
         
         // 執行動畫

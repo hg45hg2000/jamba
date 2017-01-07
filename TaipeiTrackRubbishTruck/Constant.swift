@@ -10,4 +10,6 @@ import Foundation
 
 
 let Google_Api = "AIzaSyCzG262BU3iBtO5Qaj_0cvasLw-P8LUOjU"
-let Rubbish_Api = "http://data.ntpc.gov.tw/api/v1/rest/datastore/382000000A-000070-002"
+struct ViewControllerID {
+    static let googleMapView = "googleMapView"
+}

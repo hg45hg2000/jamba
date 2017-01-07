@@ -7,45 +7,39 @@
 //
 
 import UIKit
-import iAd
 
-class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
+
+class NewTaipeiAreaController: BaseViewController {
     
-    let dataDictionary = TaipeiData.sharedManger()
+    
     var selectedIndex :Int = 0
+    let tapeiservers = TapieiDataServers.sharedInstance
+    var scrollOrientation = UIImageOrientation(rawValue: 0)
+    var lastPons = CGPoint()
     
     
     @IBOutlet weak var tableView: UITableView!
-    
+    //MARK : Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
+        self.navigationController?.navigationBar.topItem?.title = "新北市垃圾車"
         
     }
-    
-    func getData(){
-        dataDictionary?.creatDownLoadTask(Rubbish_Api, success: { (json, response) in
-            self.rubbishs = []
-            let jsons = json?["result"] as! Dictionary<String, AnyObject>
-            if let result = jsons as? Dictionary<String, AnyObject>{
-                let records = result["records"]
-                self.rubbishs.removeAll()
-                for  record in (records?.allObjects)! {
-                    let rubbish = Rubbish(dictionary:record as! Dictionary<String, AnyObject>)
-                    self.rubbishs.insert(rubbish, atIndex: 0)
-                    }
-                }
-                self.tableView.reloadData()
-                })
-            {
-            (error) in
-            print(error, terminator: "")
-        }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        animationTable()
     }
+    
+    func animationTable(){
+        getData()
+        tableViewAnimation(tableView)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "rubbishDetail"{
-            if let   destViewController = segue.destinationViewController as? RubbishTruckController{
+            if let   destViewController = segue.destinationViewController as?RubbishTruckController
+            {
                 selectedIndex  = ((self.tableView.indexPathForSelectedRow as NSIndexPath?)?.row)!
                 filterContentForArea(areaArray[selectedIndex])
                 destViewController.filterRubbishs = filterRubbishs
@@ -53,17 +47,63 @@ class NewTaipeiAreaController: BaseViewController,UITableViewDelegate,UITableVie
             }
         }
     }
+    // MARK: ScrollView
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+            switch scrollView.panGestureRecognizer.state{
+            case  .Changed :
+            let velocity = scrollView.panGestureRecognizer.translationInView(self.view?.superview).y
+            if  velocity < 0  {
+                navigationController?.setNavigationBarHidden(true, animated: true)
+            }
+            else{
+                navigationController?.setNavigationBarHidden(false, animated: true)
+            }
+            default:break
+        }
+    }
+    // MARK: RequestData
+    func getData(){
+        tapeiservers.getTheTrushData { [unowned self] json,error in
+            if let json  = json {
+                self.rubbishs.removeAll(keepCapacity: true)
+                for record in json{
+                    let rubbish = Rubbish(dictionary: record)
+                    self.rubbishs.insert(rubbish, atIndex: 0)
+                }
+                
+            }
+        }
+    }
+    func updateSingleTableViewCell(){
+        filterArea(areaArray) { index in
+            let indexPathArray = NSIndexPath(forRow: index, inSection: 0)
+            self.tableView.reloadRowsAtIndexPaths([indexPathArray], withRowAnimation: .Fade)
+        }
+    }
+}
+extension NewTaipeiAreaController:UITableViewDelegate,UITableViewDataSource {
+    // MARK: TableView
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return areaArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell")
-        cell!.textLabel?.text = areaArray[(indexPath as NSIndexPath).row]
-        return cell!
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)as!NewTaipeiCell
+        cell.areaLable.text = areaArray[indexPath.row]
+        cell.NotificationView.hidden = true
+        filterArea(areaArray) {  index in
+            if (indexPath.row == index){
+                cell.NotificationView.hidden = false
+            }
+        }
+        return cell
+    }
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
 
+        
     }
 }

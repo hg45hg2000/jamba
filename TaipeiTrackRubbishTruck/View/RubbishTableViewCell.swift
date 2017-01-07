@@ -8,9 +8,21 @@
 
 import UIKit
 
+@objc protocol RubbishTableCellDelegate {
+    func RubbishCelldidselected(RubbishCell:RubbishTableViewCell)
+}
+
+
 class RubbishTableViewCell: UITableViewCell {
 
+    weak var buttondelegate : RubbishTableCellDelegate?
+    @IBAction func buttomTap(sender: UIButton) {
+        if buttondelegate != nil{
+            self.buttondelegate?.RubbishCelldidselected(self)
+        }
+    }
     var rubbish:Rubbish!
+    
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var carLabel: UILabel!
     @IBOutlet weak var lineId: UILabel!
@@ -21,7 +33,7 @@ class RubbishTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func configureCell(_ rubbish:Rubbish){
+    func configureCell(rubbish:Rubbish){
         self.rubbish = rubbish
         self.locationLabel.text = rubbish.location
         self.carLabel.text = rubbish.car

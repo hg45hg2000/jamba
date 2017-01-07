@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 protocol GoogleStreetViewDelegate:class {
-    func dismissForGoogleStreetView(_ sender: GoogleStreetView)
+    func dismissForGoogleStreetView(sender: GoogleStreetView)
 }
 
 let  mainscreen = UIScreen.mainScreen().bounds
